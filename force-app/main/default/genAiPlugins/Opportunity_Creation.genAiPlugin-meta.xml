@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Handles user requests to create an opportunity by gathering necessary details such as opportunity name, account name, opportunity amount, and close date.</description>
+    <developerName>Opportunity_Creation</developerName>
+    <genAiPluginInstructions>
+        <description>Ask the user for the opportunity name, account name, opportunity amount, and close date.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>Instruction 1</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Verify the provided information for completeness and accuracy before proceeding.</description>
+        <developerName>instruction_2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>Instruction 2</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the user does not provide all required details, ask follow-up questions to gather the missing information.</description>
+        <developerName>instruction_3</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>Instruction 3</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Confirm the details with the user before finalizing the creation of the opportunity.</description>
+        <developerName>instruction_4</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>Instruction 4</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Invoke opportunity Creation Action to create the new opportunity.</description>
+        <developerName>instruction_5</developerName>
+        <language>en_US</language>
+        <masterLabel>Instruction 5</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>Opportunity_Creation</localDeveloperName>
+    <masterLabel>Opportunity Creation</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to assist the user in creating an opportunity by collecting the required information: opportunity name, account name, opportunity amount, and close date. Do not address any unrelated queries or perform actions outside this scope.</scope>
+</GenAiPlugin>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>This topic covers the Employee__c custom object in Salesforce and its related fields such as First_Name__c, Last_Name__c, Email__c, Gender__c, and Phone__c. It includes requests related to employee data creation, field management, data import, validation rules, automation, and reporting.</description>
+    <developerName>Employee_Retrieval</developerName>
+    <genAiPluginInstructions>
+        <description>Always retrieve Employee__c records using the requested filters (e.g., First_Name__c, Email__c, Gender__c). If no filter is provided, limit the results to a reasonable number (for example, the latest 50 records) to avoid returning excessive data.</description>
+        <developerName>instruction_0_1770868286179</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0_1770868286179</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Only return relevant Employee__c fields (First_Name__c, Last_Name__c, Email__c, Gender__c, Phone__c) and exclude system fields such as OwnerId, LastModifiedById, and auto-number fields unless explicitly requested.</description>
+        <developerName>instruction_1_1770868286179</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_1_1770868286179</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If no Employee__c records match the given criteria, return a clear and user-friendly message such as “No employee records found for the provided details,” instead of returning empty or system-level errors.</description>
+        <developerName>instruction_2_1770868286179</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_2_1770868286179</masterLabel>
+        <sortOrder>0</sortOrder>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <localDeveloperName>Employee_Retrieval</localDeveloperName>
+    <masterLabel>Employee Retrieval</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to handle questions related to the Employee__c object structure, its custom fields, data operations (insert, update, delete), validation rules, relationships, automation (Flow/Trigger), and reporting within Salesforce. Do not address unrelated standard objects or external systems unless directly connected to Employee__c.</scope>
+</GenAiPlugin>
