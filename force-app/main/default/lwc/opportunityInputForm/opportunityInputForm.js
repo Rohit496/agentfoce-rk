@@ -34,27 +34,15 @@ export default class OpportunityInputForm extends LightningElement {
         this.closeDate = payload.closeDate || '';
     }
 
-    handleInputChange(event) {
-        const field = event.target.name;
-        const value = event.target.value;
-
-        if (field === 'opportunityName') {
-            this.opportunityName = value;
-        } else if (field === 'accountName') {
-            this.accountName = value;
-        } else if (field === 'amount') {
-            // Handle amount field from regular input
-            this.amount =
-                value !== null && value !== '' ? parseFloat(value) : null;
-        }
-        this.notifyValueChange();
-    }
-
     handleLightningInputChange(event) {
         const field = event.target.dataset.field;
         const value = event.detail.value;
 
-        if (field === 'amount') {
+        if (field === 'opportunityName') {
+            this.opportunityName = value || '';
+        } else if (field === 'accountName') {
+            this.accountName = value || '';
+        } else if (field === 'amount') {
             this.amount =
                 value !== null && value !== '' ? parseFloat(value) : null;
         } else if (field === 'closeDate') {

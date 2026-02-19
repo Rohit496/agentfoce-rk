@@ -33,15 +33,15 @@
                         Opportunity Name
                     </label>
                 </div>
-                <input
+                <lightning-input
                     type="text"
-                    id="opportunityName"
-                    name="opportunityName"
-                    class="slds-input"
-                    onchange={handleInputChange}
-                    autocomplete="off"
+                    label="Opportunity Name"
+                    variant="label-hidden"
+                    data-field="opportunityName"
+                    onchange={handleLightningInputChange}
+                    placeholder="Enter opportunity name"
                     required
-                />
+                ></lightning-input>
             </div>
 
             <div class="slds-form-element slds-var-m-bottom_medium">
@@ -59,15 +59,14 @@
                         >Account Name</label
                     >
                 </div>
-                <input
+                <lightning-input
                     type="text"
-                    id="accountName"
-                    name="accountName"
-                    class="slds-input"
-                    onchange={handleInputChange}
-                    autocomplete="off"
+                    label="Account Name"
+                    variant="label-hidden"
+                    data-field="accountName"
+                    onchange={handleLightningInputChange}
                     placeholder="Enter account name"
-                />
+                ></lightning-input>
             </div>
 
             <div class="slds-form-element slds-var-m-bottom_medium">
@@ -87,12 +86,11 @@
                     type="number"
                     label="Amount"
                     variant="label-hidden"
-                    name="amount"
                     data-field="amount"
                     onchange={handleLightningInputChange}
                     min="0"
                     step="0.01"
-                    placeholder="0.00"
+                    placeholder="Enter amount"
                 ></lightning-input>
             </div>
 
@@ -116,6 +114,7 @@
                     variant="label-hidden"
                     data-field="closeDate"
                     onchange={handleLightningInputChange}
+                    placeholder="Select close date"
                     required
                 ></lightning-input>
             </div>
