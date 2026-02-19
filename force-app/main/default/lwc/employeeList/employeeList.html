@@ -1,0 +1,72 @@
+<template>
+  <lightning-card title="Employee List" icon-name="custom:custom63">
+    <div class="slds-var-p-horizontal_medium slds-var-m-top_medium">
+      <lightning-input
+        type="search"
+        label="Search by Name"
+        value={searchKey}
+        onchange={handleSearch}
+        placeholder="Enter name to search..."
+      ></lightning-input>
+    </div>
+
+    <template lwc:if={hasEmployees}>
+      <div class="card-body">
+        <div class="employee-list">
+          <template for:each={visibleEmployees} for:item="emp">
+            <div key={emp.id} class="employee-card">
+              <div class="emp-info">
+                <h2>{emp.fullName}</h2>
+                <p class="emp-detail">
+                  <lightning-icon icon-name="utility:email" size="xx-small" class="detail-icon"></lightning-icon>
+                  {emp.email}
+                </p>
+                <p class="emp-detail">
+                  <lightning-icon icon-name="utility:call" size="xx-small" class="detail-icon"></lightning-icon>
+                  {emp.phone}
+                </p>
+                <p class="emp-detail">
+                  <lightning-icon icon-name="utility:identity" size="xx-small" class="detail-icon"></lightning-icon>
+                  {emp.gender}
+                </p>
+              </div>
+              <lightning-button-icon
+                icon-name="utility:chevronright"
+                variant="brand"
+                size="medium"
+                data-emp-id={emp.id}
+                onclick={handleSelectEmployee}
+                class="select-button"
+                alternative-text="View"
+              ></lightning-button-icon>
+            </div>
+          </template>
+        </div>
+
+        <div class="pagination-controls">
+          <lightning-button
+            label="Previous"
+            onclick={handlePrev}
+            disabled={isPrevDisabled}
+            variant="neutral"
+          ></lightning-button>
+
+          <div class="page-text">Page {currentPage} of {totalPages}</div>
+
+          <lightning-button
+            label="Next"
+            onclick={handleNext}
+            disabled={isNextDisabled}
+            variant="neutral"
+          ></lightning-button>
+        </div>
+      </div>
+    </template>
+
+    <template lwc:else>
+      <div class="slds-var-p-around_medium slds-text-color_weak slds-align_absolute-center">
+        No employee data available.
+      </div>
+    </template>
+  </lightning-card>
+</template>

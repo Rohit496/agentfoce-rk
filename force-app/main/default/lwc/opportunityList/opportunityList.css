@@ -1,0 +1,67 @@
+.opportunity-list {
+    padding: 0.5rem 0.5rem;
+}
+
+.opportunity-card {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    background-color: #fafaf9;
+    transition: box-shadow 0.2s;
+}
+
+.opportunity-card:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.opp-info h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #181818;
+    margin-bottom: 0.375rem;
+    word-break: break-word;
+    padding-right: 2rem;
+}
+
+.opp-detail {
+    font-size: 0.8125rem;
+    color: #706e6b;
+    margin: 0.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    word-break: break-word;
+}
+
+.opp-detail.account-name {
+    font-weight: 500;
+    color: #014486;
+}
+
+.opp-detail.amount {
+    font-weight: 600;
+    color: #0b5cab;
+}
+
+.select-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border-top: 1px solid #e5e5e5;
+}
+
+.page-text {
+    font-size: 0.75rem;
+    color: #706e6b;
+    white-space: nowrap;
+}

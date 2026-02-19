@@ -1,0 +1,5 @@
+{
+    "title": "Opportunity Data",
+    "description": "Opportunity data fields collected from the user via the Agentforce input form.",
+    "lightning:type": "@apexClassType/c__OpportunityCreateController$OpportunityData"
+}

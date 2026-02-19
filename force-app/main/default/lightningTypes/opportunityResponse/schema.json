@@ -1,0 +1,5 @@
+{
+    "title": "Opportunity Response",
+    "description": "Opportunity Response",
+    "lightning:type": "@apexClassType/c__OpportunityController$OpportunityDetail"
+}

@@ -1,0 +1,124 @@
+<template>
+    <div class="form-wrapper slds-var-p-around_large">
+        <div
+            class="form-header slds-grid slds-grid_vertical-align-center slds-var-m-bottom_large slds-var-p-bottom_medium"
+        >
+            <div
+                class="header-icon-wrap slds-grid slds-grid_vertical-align-center slds-grid_align-center slds-var-p-around_x-small"
+            >
+                <lightning-icon
+                    icon-name="standard:opportunity"
+                    size="medium"
+                    class="header-icon"
+                ></lightning-icon>
+            </div>
+            <h2 class="form-title slds-m-around_none">Opportunity Form</h2>
+        </div>
+
+        <div class="form-body">
+            <div class="slds-form-element slds-var-m-bottom_medium">
+                <div
+                    class="field-label-row slds-grid slds-grid_vertical-align-center"
+                >
+                    <lightning-icon
+                        icon-name="utility:edit"
+                        size="x-small"
+                        class="field-icon"
+                    ></lightning-icon>
+                    <label
+                        class="slds-form-element__label field-label"
+                        for="opportunityName"
+                    >
+                        <abbr class="slds-required" title="required">*</abbr>
+                        Opportunity Name
+                    </label>
+                </div>
+                <input
+                    type="text"
+                    id="opportunityName"
+                    name="opportunityName"
+                    class="slds-input"
+                    onchange={handleInputChange}
+                    autocomplete="off"
+                    required
+                />
+            </div>
+
+            <div class="slds-form-element slds-var-m-bottom_medium">
+                <div
+                    class="field-label-row slds-grid slds-grid_vertical-align-center"
+                >
+                    <lightning-icon
+                        icon-name="standard:account"
+                        size="x-small"
+                        class="field-icon"
+                    ></lightning-icon>
+                    <label
+                        class="slds-form-element__label field-label"
+                        for="accountName"
+                        >Account Name</label
+                    >
+                </div>
+                <input
+                    type="text"
+                    id="accountName"
+                    name="accountName"
+                    class="slds-input"
+                    onchange={handleInputChange}
+                    autocomplete="off"
+                    placeholder="Enter account name"
+                />
+            </div>
+
+            <div class="slds-form-element slds-var-m-bottom_medium">
+                <div
+                    class="field-label-row slds-grid slds-grid_vertical-align-center"
+                >
+                    <lightning-icon
+                        icon-name="utility:moneybag"
+                        size="x-small"
+                        class="field-icon"
+                    ></lightning-icon>
+                    <label class="slds-form-element__label field-label"
+                        >Amount</label
+                    >
+                </div>
+                <lightning-input
+                    type="number"
+                    label="Amount"
+                    variant="label-hidden"
+                    name="amount"
+                    data-field="amount"
+                    onchange={handleLightningInputChange}
+                    min="0"
+                    step="0.01"
+                    placeholder="0.00"
+                ></lightning-input>
+            </div>
+
+            <div class="slds-form-element slds-var-m-bottom_large">
+                <div
+                    class="field-label-row slds-grid slds-grid_vertical-align-center"
+                >
+                    <lightning-icon
+                        icon-name="utility:event"
+                        size="x-small"
+                        class="field-icon"
+                    ></lightning-icon>
+                    <label class="slds-form-element__label field-label">
+                        <abbr class="slds-required" title="required">*</abbr>
+                        Close Date
+                    </label>
+                </div>
+                <lightning-input
+                    type="date"
+                    label="Close Date"
+                    variant="label-hidden"
+                    data-field="closeDate"
+                    onchange={handleLightningInputChange}
+                    required
+                ></lightning-input>
+            </div>
+        </div>
+    </div>
+</template>

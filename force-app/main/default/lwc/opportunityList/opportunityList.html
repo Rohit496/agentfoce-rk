@@ -1,0 +1,91 @@
+<template>
+    <lightning-card title="Opportunity List" icon-name="standard:opportunity">
+        <div class="slds-var-p-horizontal_medium slds-var-m-top_medium">
+            <lightning-input
+                type="search"
+                label="Search by Name or Account"
+                value={searchKey}
+                onchange={handleSearch}
+                placeholder="Enter opportunity or account name..."
+            ></lightning-input>
+        </div>
+
+        <template lwc:if={hasOpportunities}>
+            <div class="card-body">
+                <div class="opportunity-list">
+                    <template
+                        for:each={visibleOpportunities}
+                        for:item="opp"
+                    >
+                        <div key={opp.id} class="opportunity-card">
+                            <div class="opp-info">
+                                <h2>{opp.name}</h2>
+                                <p class="opp-detail account-name">
+                                    <lightning-icon
+                                        icon-name="standard:account"
+                                        size="xx-small"
+                                        class="detail-icon"
+                                    ></lightning-icon>
+                                    {opp.accountName}
+                                </p>
+                                <p class="opp-detail amount">
+                                    <lightning-icon
+                                        icon-name="utility:money"
+                                        size="xx-small"
+                                        class="detail-icon"
+                                    ></lightning-icon>
+                                    {opp.formattedAmount}
+                                </p>
+                                <p class="opp-detail close-date">
+                                    <lightning-icon
+                                        icon-name="utility:event"
+                                        size="xx-small"
+                                        class="detail-icon"
+                                    ></lightning-icon>
+                                    {opp.formattedCloseDate}
+                                </p>
+                            </div>
+                            <lightning-button-icon
+                                icon-name="utility:chevronright"
+                                variant="brand"
+                                size="medium"
+                                data-opp-id={opp.id}
+                                onclick={handleSelectOpportunity}
+                                class="select-button"
+                                alternative-text="View"
+                            ></lightning-button-icon>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="pagination-controls">
+                    <lightning-button
+                        label="Previous"
+                        onclick={handlePrev}
+                        disabled={isPrevDisabled}
+                        variant="neutral"
+                    ></lightning-button>
+
+                    <div class="page-text">
+                        Page {currentPage} of {totalPages}
+                    </div>
+
+                    <lightning-button
+                        label="Next"
+                        onclick={handleNext}
+                        disabled={isNextDisabled}
+                        variant="neutral"
+                    ></lightning-button>
+                </div>
+            </div>
+        </template>
+
+        <template lwc:else>
+            <div
+                class="slds-var-p-around_medium slds-text-color_weak slds-align_absolute-center"
+            >
+                No opportunity data available.
+            </div>
+        </template>
+    </lightning-card>
+</template>
