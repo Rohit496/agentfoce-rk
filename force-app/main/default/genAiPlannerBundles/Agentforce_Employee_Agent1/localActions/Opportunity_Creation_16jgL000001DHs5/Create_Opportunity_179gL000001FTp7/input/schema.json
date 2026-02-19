@@ -1,0 +1,14 @@
+{
+  "required" : [ "oppdata" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "oppdata" : {
+      "title" : "oppdata",
+      "description" : "When a user asks to create an opportunity, collect the opportunity name, account name, amount, and close date from the user using the input form.",
+      "lightning:type" : "c__opportunityData",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
