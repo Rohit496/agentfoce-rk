@@ -132,7 +132,7 @@ private class EmployeeControllerTest {
             new List<EmployeeController.EmployeeRequest>()
         );
 
-        System.assertEquals(1, responses.size());
+        System.assertEquals(1, responses.size()); 
         System.assertEquals(
             2,
             responses[0].employeeOptions.size(),

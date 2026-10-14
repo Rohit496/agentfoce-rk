@@ -1,0 +1,56 @@
+:host {
+    display: block;
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+}
+
+.greeting {
+    font-size: var(--slds-g-font-scale-2, 1rem);
+    font-weight: var(--slds-g-font-weight-bold, 700);
+    color: var(--slds-g-color-on-surface-3, #181818);
+}
+
+.status {
+    color: var(--slds-g-color-on-surface-2, #2e2e2e);
+}
+
+.summary {
+    margin-block-start: var(--slds-g-spacing-2, 0.5rem);
+    color: var(--slds-g-color-on-surface-1, #5c5c5c);
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--slds-g-spacing-1, 0.25rem);
+    margin-block-start: var(--slds-g-spacing-3, 0.75rem);
+    padding: 0;
+    list-style: none;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--slds-g-spacing-2, 0.5rem) var(--slds-g-spacing-3, 0.75rem);
+    border-radius: var(--slds-g-radius-border-2, 0.25rem);
+    border-inline-start: var(--slds-g-sizing-border-3, 3px) solid transparent;
+    background: var(--slds-g-color-surface-container-2, #f3f3f3);
+    color: var(--slds-g-color-on-surface-3, #181818);
+}
+
+.item_in-stock {
+    border-inline-start-color: var(--slds-g-color-success-1, #2e844a);
+}
+
+.item_out-of-stock {
+    border-inline-start-color: var(--slds-g-color-error-1, #ba0517);
+}
+
+.item_out-of-stock .item-qty {
+    color: var(--slds-g-color-error-1, #ba0517);
+}
+
+.item-qty {
+    font-weight: var(--slds-g-font-weight-bold, 700);
+    font-variant-numeric: tabular-nums;
+}

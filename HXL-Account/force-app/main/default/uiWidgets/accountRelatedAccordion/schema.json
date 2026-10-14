@@ -1,0 +1,90 @@
+{
+  "title": "Account Related Records Widget",
+  "description": "Displays accounts in an accordion with their related contacts, cases and opportunities",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "summaryLine": {
+          "title": "Summary Line",
+          "description": "Pre-formatted summary, e.g. \"3 accounts found\"",
+          "lightning:type": "lightning__textType"
+        },
+        "accountCount": {
+          "title": "Account Count",
+          "description": "Number of accounts returned",
+          "lightning:type": "lightning__numberType"
+        },
+        "noAccounts": {
+          "title": "No Accounts",
+          "description": "True when no accounts matched",
+          "lightning:type": "lightning__booleanType"
+        },
+        "accounts": {
+          "title": "Accounts",
+          "description": "Accounts with their related contacts, cases and opportunities",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "title": "Name", "lightning:type": "lightning__textType" },
+              "subtitle": { "title": "Subtitle", "lightning:type": "lightning__textType" },
+              "phone": { "title": "Phone", "lightning:type": "lightning__textType" },
+              "owner": { "title": "Owner", "lightning:type": "lightning__textType" },
+              "billingAddress": { "title": "Billing Address", "lightning:type": "lightning__textType" },
+              "annualRevenue": { "title": "Annual Revenue", "lightning:type": "lightning__textType" },
+              "contactsTitle": { "title": "Contacts Title", "lightning:type": "lightning__textType" },
+              "casesTitle": { "title": "Cases Title", "lightning:type": "lightning__textType" },
+              "opportunitiesTitle": { "title": "Opportunities Title", "lightning:type": "lightning__textType" },
+              "noContacts": { "title": "No Contacts", "lightning:type": "lightning__booleanType" },
+              "noCases": { "title": "No Cases", "lightning:type": "lightning__booleanType" },
+              "noOpportunities": { "title": "No Opportunities", "lightning:type": "lightning__booleanType" },
+              "contacts": {
+                "title": "Contacts",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "title": "Name", "lightning:type": "lightning__textType" },
+                    "title": { "title": "Title", "lightning:type": "lightning__textType" },
+                    "email": { "title": "Email", "lightning:type": "lightning__textType" },
+                    "phone": { "title": "Phone", "lightning:type": "lightning__textType" }
+                  }
+                }
+              },
+              "cases": {
+                "title": "Cases",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "caseNumber": { "title": "Case Number", "lightning:type": "lightning__textType" },
+                    "subject": { "title": "Subject", "lightning:type": "lightning__textType" },
+                    "status": { "title": "Status", "lightning:type": "lightning__textType" },
+                    "priority": { "title": "Priority", "lightning:type": "lightning__textType" },
+                    "statusColor": { "title": "Status Color", "lightning:type": "lightning__textType" }
+                  }
+                }
+              },
+              "opportunities": {
+                "title": "Opportunities",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "title": "Name", "lightning:type": "lightning__textType" },
+                    "stage": { "title": "Stage", "lightning:type": "lightning__textType" },
+                    "amount": { "title": "Amount", "lightning:type": "lightning__textType" },
+                    "closeDate": { "title": "Close Date", "lightning:type": "lightning__textType" },
+                    "stageColor": { "title": "Stage Color", "lightning:type": "lightning__textType" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

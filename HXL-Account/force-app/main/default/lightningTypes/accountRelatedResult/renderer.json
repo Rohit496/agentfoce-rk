@@ -1,0 +1,15 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/accountRelatedAccordion",
+        "attributes": {
+          "summaryLine": "{!$attrs.outputValues.summaryLine}",
+          "accountCount": "{!$attrs.outputValues.accountCount}",
+          "noAccounts": "{!$attrs.outputValues.noAccounts}",
+          "accounts": "{!$attrs.outputValues.accounts}"
+        }
+      }
+    }
+  }
+}

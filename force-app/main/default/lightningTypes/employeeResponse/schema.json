@@ -1,5 +1,0 @@
-{
-  "title": "Employee Response",
-  "description": "Employee Response",
-  "lightning:type": "@apexClassType/c__EmployeeController$Employee"
-}

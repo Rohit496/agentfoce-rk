@@ -1,0 +1,66 @@
+mutation UpdateLead($input: LeadUpdateInput!) {
+	uiapi {
+		LeadUpdate(input: $input) {
+			success
+			Record {
+				Id
+				FirstName @optional {
+					value
+					displayValue
+				}
+				LastName @optional {
+					value
+					displayValue
+				}
+				Company @optional {
+					value
+					displayValue
+				}
+				Title @optional {
+					value
+					displayValue
+				}
+				Phone @optional {
+					value
+					displayValue
+				}
+				Email @optional {
+					value
+					displayValue
+				}
+				Website @optional {
+					value
+					displayValue
+				}
+				Status @optional {
+					value
+					displayValue
+				}
+				LeadSource @optional {
+					value
+					displayValue
+				}
+				Industry @optional {
+					value
+					displayValue
+				}
+				Rating @optional {
+					value
+					displayValue
+				}
+				NumberOfEmployees @optional {
+					value
+					displayValue
+				}
+				AnnualRevenue @optional {
+					value
+					displayValue
+				}
+				Description @optional {
+					value
+					displayValue
+				}
+			}
+		}
+	}
+}

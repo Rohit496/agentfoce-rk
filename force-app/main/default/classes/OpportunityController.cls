@@ -60,6 +60,7 @@ public without sharing class OpportunityController {
         }
 
         responses.add(response);
+        System.debug('Retrieved Opportunities: ' + response.opportunityOptions);
         return responses;
     }
 

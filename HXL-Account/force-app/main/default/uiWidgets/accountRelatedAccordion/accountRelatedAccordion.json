@@ -1,0 +1,439 @@
+{
+  "type": "lightning__agentforceWidget",
+  "contentBody": {
+    "widgetBody": {
+      "definition": "tile/widget",
+      "children": [
+        {
+          "definition": "tile/column",
+          "attributes": {
+            "gap": "md"
+          },
+          "children": [
+            {
+              "definition": "tile/text",
+              "attributes": {
+                "text": "\ud83c\udfe2 {!$attrs.summaryLine}",
+                "variant": "h3",
+                "weight": "semibold"
+              }
+            },
+            {
+              "definition": "tile/callout",
+              "meta": {
+                "if": "{!$attrs.noAccounts}"
+              },
+              "attributes": {
+                "variant": "warning",
+                "title": "No accounts found"
+              },
+              "children": [
+                {
+                  "definition": "tile/text",
+                  "attributes": {
+                    "text": "Try a different account name.",
+                    "variant": "body"
+                  }
+                }
+              ]
+            },
+            {
+              "definition": "tile/accordion",
+              "children": [
+                {
+                  "definition": "tile/accordionitem",
+                  "meta": {
+                    "forEach": "{!$attrs.accounts}",
+                    "forItem": "$account"
+                  },
+                  "attributes": {
+                    "title": "{!$account.name}",
+                    "subtitle": "{!$account.subtitle}",
+                    "iconName": "building",
+                    "isExpanded": false
+                  },
+                  "children": [
+                    {
+                      "definition": "tile/column",
+                      "attributes": {
+                        "gap": "md"
+                      },
+                      "children": [
+                        {
+                          "definition": "tile/column",
+                          "attributes": {
+                            "gap": "xs"
+                          },
+                          "children": [
+                            {
+                              "definition": "tile/row",
+                              "attributes": {
+                                "gap": "sm",
+                                "justify": "between"
+                              },
+                              "children": [
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "Owner",
+                                    "variant": "caption",
+                                    "color": "muted"
+                                  }
+                                },
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "{!$account.owner}",
+                                    "variant": "body"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "definition": "tile/row",
+                              "attributes": {
+                                "gap": "sm",
+                                "justify": "between"
+                              },
+                              "children": [
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "Phone",
+                                    "variant": "caption",
+                                    "color": "muted"
+                                  }
+                                },
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "{!$account.phone}",
+                                    "variant": "body"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "definition": "tile/row",
+                              "attributes": {
+                                "gap": "sm",
+                                "justify": "between"
+                              },
+                              "children": [
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "Billing Address",
+                                    "variant": "caption",
+                                    "color": "muted"
+                                  }
+                                },
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "{!$account.billingAddress}",
+                                    "variant": "body"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "definition": "tile/row",
+                              "attributes": {
+                                "gap": "sm",
+                                "justify": "between"
+                              },
+                              "children": [
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "Annual Revenue",
+                                    "variant": "caption",
+                                    "color": "muted"
+                                  }
+                                },
+                                {
+                                  "definition": "tile/text",
+                                  "attributes": {
+                                    "text": "{!$account.annualRevenue}",
+                                    "variant": "body",
+                                    "weight": "semibold"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "definition": "tile/accordion",
+                          "children": [
+                            {
+                              "definition": "tile/accordionitem",
+                              "attributes": {
+                                "title": "{!$account.contactsTitle}",
+                                "iconName": "users",
+                                "isExpanded": false
+                              },
+                              "children": [
+                                {
+                                  "definition": "tile/column",
+                                  "attributes": {
+                                    "gap": "sm"
+                                  },
+                                  "children": [
+                                    {
+                                      "definition": "tile/text",
+                                      "meta": {
+                                        "if": "{!$account.noContacts}"
+                                      },
+                                      "attributes": {
+                                        "text": "No contacts for this account.",
+                                        "variant": "caption",
+                                        "color": "muted"
+                                      }
+                                    },
+                                    {
+                                      "definition": "tile/column",
+                                      "meta": {
+                                        "forEach": "{!$account.contacts}",
+                                        "forItem": "$contact"
+                                      },
+                                      "attributes": {
+                                        "gap": "xs"
+                                      },
+                                      "children": [
+                                        {
+                                          "definition": "tile/row",
+                                          "attributes": {
+                                            "gap": "sm",
+                                            "align": "center",
+                                            "justify": "between"
+                                          },
+                                          "children": [
+                                            {
+                                              "definition": "tile/text",
+                                              "attributes": {
+                                                "text": "{!$contact.name}",
+                                                "variant": "body",
+                                                "weight": "semibold"
+                                              }
+                                            },
+                                            {
+                                              "definition": "tile/text",
+                                              "attributes": {
+                                                "text": "{!$contact.title}",
+                                                "variant": "caption",
+                                                "color": "muted"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "definition": "tile/text",
+                                          "attributes": {
+                                            "text": "\u2709\ufe0f {!$contact.email}  \ud83d\udcde {!$contact.phone}",
+                                            "variant": "caption",
+                                            "color": "muted"
+                                          }
+                                        },
+                                        {
+                                          "definition": "tile/separator"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "definition": "tile/accordionitem",
+                              "attributes": {
+                                "title": "{!$account.casesTitle}",
+                                "iconName": "ticket",
+                                "isExpanded": false
+                              },
+                              "children": [
+                                {
+                                  "definition": "tile/column",
+                                  "attributes": {
+                                    "gap": "sm"
+                                  },
+                                  "children": [
+                                    {
+                                      "definition": "tile/text",
+                                      "meta": {
+                                        "if": "{!$account.noCases}"
+                                      },
+                                      "attributes": {
+                                        "text": "No cases for this account.",
+                                        "variant": "caption",
+                                        "color": "muted"
+                                      }
+                                    },
+                                    {
+                                      "definition": "tile/column",
+                                      "meta": {
+                                        "forEach": "{!$account.cases}",
+                                        "forItem": "$case"
+                                      },
+                                      "attributes": {
+                                        "gap": "xs"
+                                      },
+                                      "children": [
+                                        {
+                                          "definition": "tile/row",
+                                          "attributes": {
+                                            "gap": "sm",
+                                            "align": "center",
+                                            "justify": "between"
+                                          },
+                                          "children": [
+                                            {
+                                              "definition": "tile/text",
+                                              "attributes": {
+                                                "text": "Case #{!$case.caseNumber}",
+                                                "variant": "body",
+                                                "weight": "semibold"
+                                              }
+                                            },
+                                            {
+                                              "definition": "tile/badge",
+                                              "attributes": {
+                                                "label": "{!$case.status}",
+                                                "variant": "{!$case.statusColor}"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "definition": "tile/text",
+                                          "attributes": {
+                                            "text": "{!$case.subject}",
+                                            "variant": "body"
+                                          }
+                                        },
+                                        {
+                                          "definition": "tile/text",
+                                          "attributes": {
+                                            "text": "Priority: {!$case.priority}",
+                                            "variant": "caption",
+                                            "color": "muted"
+                                          }
+                                        },
+                                        {
+                                          "definition": "tile/separator"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "definition": "tile/accordionitem",
+                              "attributes": {
+                                "title": "{!$account.opportunitiesTitle}",
+                                "iconName": "trending-up",
+                                "isExpanded": false
+                              },
+                              "children": [
+                                {
+                                  "definition": "tile/column",
+                                  "attributes": {
+                                    "gap": "sm"
+                                  },
+                                  "children": [
+                                    {
+                                      "definition": "tile/text",
+                                      "meta": {
+                                        "if": "{!$account.noOpportunities}"
+                                      },
+                                      "attributes": {
+                                        "text": "No opportunities for this account.",
+                                        "variant": "caption",
+                                        "color": "muted"
+                                      }
+                                    },
+                                    {
+                                      "definition": "tile/column",
+                                      "meta": {
+                                        "forEach": "{!$account.opportunities}",
+                                        "forItem": "$opportunity"
+                                      },
+                                      "attributes": {
+                                        "gap": "xs"
+                                      },
+                                      "children": [
+                                        {
+                                          "definition": "tile/row",
+                                          "attributes": {
+                                            "gap": "sm",
+                                            "align": "center",
+                                            "justify": "between"
+                                          },
+                                          "children": [
+                                            {
+                                              "definition": "tile/text",
+                                              "attributes": {
+                                                "text": "{!$opportunity.name}",
+                                                "variant": "body",
+                                                "weight": "semibold"
+                                              }
+                                            },
+                                            {
+                                              "definition": "tile/badge",
+                                              "attributes": {
+                                                "label": "{!$opportunity.stage}",
+                                                "variant": "{!$opportunity.stageColor}"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "definition": "tile/row",
+                                          "attributes": {
+                                            "gap": "sm",
+                                            "justify": "between"
+                                          },
+                                          "children": [
+                                            {
+                                              "definition": "tile/text",
+                                              "attributes": {
+                                                "text": "Close {!$opportunity.closeDate}",
+                                                "variant": "caption",
+                                                "color": "muted"
+                                              }
+                                            },
+                                            {
+                                              "definition": "tile/text",
+                                              "attributes": {
+                                                "text": "{!$opportunity.amount}",
+                                                "variant": "caption",
+                                                "weight": "semibold"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "definition": "tile/separator"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+query GetLeadPicklistValues($inputs: [ObjectInfoInput!]) {
+	uiapi {
+		objectInfos(objectInfoInputs: $inputs) {
+			fields {
+				ApiName
+				... on PicklistField {
+					picklistValuesByRecordTypeIDs {
+						recordTypeID
+						picklistValues {
+							value
+							label
+						}
+					}
+				}
+			}
+		}
+	}
+}

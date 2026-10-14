@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows assigned users to use Builder Central for the POC</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Builder Central POC Access</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AccessBuilderCentral</name>
+    </userPermissions>
+</PermissionSet>

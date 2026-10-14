@@ -1,0 +1,587 @@
+{
+    "type": "lightning__agentforceWidget",
+    "title": "Account Related Records",
+    "contentBody": {
+        "widgetBody": {
+            "definition": "tile/widget",
+            "id": "ce898e2f-74bc-4f01-bbae-e761c5991d74",
+            "children": [
+                {
+                    "definition": "tile/column",
+                    "attributes": {
+                        "gap": "md",
+                        "align": "stretch",
+                        "width": "auto"
+                    },
+                    "id": "254af075-c7a1-404a-943e-465ef44234e2",
+                    "children": [
+                        {
+                            "definition": "tile/text",
+                            "attributes": {
+                                "text": "\uD83C\uDFE2 {!$attrs.summaryLine}",
+                                "variant": "h3",
+                                "weight": "semibold",
+                                "color": "default",
+                                "isItalic": false,
+                                "isStrikethrough": false
+                            },
+                            "id": "fd208a5b-bdd1-43f1-b2a2-dd1ff4f3e4f8"
+                        },
+                        {
+                            "definition": "tile/callout",
+                            "meta": {
+                                "if": "{!$attrs.noAccounts}"
+                            },
+                            "attributes": {
+                                "variant": "warning",
+                                "title": "No accounts found"
+                            },
+                            "id": "0c8450ee-fb03-4c7d-9b11-276ae2aad79b",
+                            "children": [
+                                {
+                                    "definition": "tile/text",
+                                    "attributes": {
+                                        "text": "Try a different account name.",
+                                        "variant": "body",
+                                        "color": "default",
+                                        "isItalic": false,
+                                        "isStrikethrough": false
+                                    },
+                                    "id": "ad7dc642-829a-421a-8d24-2bd9910574e7"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "tile/accordion",
+                            "id": "bca21c62-7997-46f4-b57b-6440db262d5a",
+                            "children": [
+                                {
+                                    "definition": "tile/accordionitem",
+                                    "meta": {
+                                        "forEach": "{!$attrs.accounts}",
+                                        "forItem": "$account"
+                                    },
+                                    "attributes": {
+                                        "title": "{!$account.name}",
+                                        "subtitle": "{!$account.subtitle}",
+                                        "iconName": "building",
+                                        "isExpanded": false
+                                    },
+                                    "id": "8f0fbb55-48de-4fb3-bf67-fb46ebd6959b",
+                                    "children": [
+                                        {
+                                            "definition": "tile/column",
+                                            "attributes": {
+                                                "gap": "md",
+                                                "align": "stretch",
+                                                "width": "auto"
+                                            },
+                                            "id": "13fd5521-dff3-4f06-a3b9-9deed9ae81df",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/column",
+                                                    "attributes": {
+                                                        "gap": "xs",
+                                                        "align": "stretch",
+                                                        "width": "auto"
+                                                    },
+                                                    "id": "04685923-fa4c-4d26-8c48-d6c0a8ace1c4",
+                                                    "children": [
+                                                        {
+                                                            "definition": "tile/row",
+                                                            "attributes": {
+                                                                "gap": "sm",
+                                                                "justify": "between",
+                                                                "align": "center",
+                                                                "isWrapped": true
+                                                            },
+                                                            "id": "593576e1-e270-4cc7-8ce6-e50d4bb4410f",
+                                                            "children": [
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "Owner",
+                                                                        "variant": "caption",
+                                                                        "color": "muted",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "f377d1ac-24e8-4792-b810-11951a6f7223"
+                                                                },
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "{!$account.owner}",
+                                                                        "variant": "body",
+                                                                        "color": "default",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "709813cb-2940-4a9a-a7d2-918cbc9dfc5e"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "tile/row",
+                                                            "attributes": {
+                                                                "gap": "sm",
+                                                                "justify": "between",
+                                                                "align": "center",
+                                                                "isWrapped": true
+                                                            },
+                                                            "id": "77510983-1cab-4893-88f6-7b1a044a3eb8",
+                                                            "children": [
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "Phone",
+                                                                        "variant": "caption",
+                                                                        "color": "muted",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "aea59ae2-2853-4df5-b522-af894d6a93ed"
+                                                                },
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "{!$account.phone}",
+                                                                        "variant": "body",
+                                                                        "color": "default",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "f66293b0-c8af-43f0-b9b0-8075b303e26a"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "tile/row",
+                                                            "attributes": {
+                                                                "gap": "sm",
+                                                                "justify": "between",
+                                                                "align": "center",
+                                                                "isWrapped": true
+                                                            },
+                                                            "id": "5c1e446c-4681-4c2b-8cd0-c0362dd2ab8c",
+                                                            "children": [
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "Billing Address",
+                                                                        "variant": "caption",
+                                                                        "color": "muted",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "105829fb-9e5c-45c3-9aef-4d720dfc44af"
+                                                                },
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "{!$account.billingAddress}",
+                                                                        "variant": "body",
+                                                                        "color": "default",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "3eb197ba-63cb-4636-9cc5-713e26b6eb43"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "tile/row",
+                                                            "attributes": {
+                                                                "gap": "sm",
+                                                                "justify": "between",
+                                                                "align": "center",
+                                                                "isWrapped": true
+                                                            },
+                                                            "id": "dcd91065-68bb-4cdd-b38a-b7213d83cc3e",
+                                                            "children": [
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "Annual Revenue",
+                                                                        "variant": "caption",
+                                                                        "color": "muted",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "ba541827-bbc8-40c7-b2c4-975d6f190e5c"
+                                                                },
+                                                                {
+                                                                    "definition": "tile/text",
+                                                                    "attributes": {
+                                                                        "text": "{!$account.annualRevenue}",
+                                                                        "variant": "body",
+                                                                        "weight": "semibold",
+                                                                        "color": "default",
+                                                                        "isItalic": false,
+                                                                        "isStrikethrough": false
+                                                                    },
+                                                                    "id": "efd0c1fb-2caf-4097-a440-b3ff5630eba6"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "definition": "tile/accordion",
+                                                    "id": "91ac279b-1876-4e8d-8e24-1170fc96ad67",
+                                                    "children": [
+                                                        {
+                                                            "definition": "tile/accordionitem",
+                                                            "attributes": {
+                                                                "title": "{!$account.contactsTitle}",
+                                                                "iconName": "users",
+                                                                "isExpanded": false
+                                                            },
+                                                            "id": "8627eb1c-8c69-4dd3-b21a-74a660b1cefb",
+                                                            "children": [
+                                                                {
+                                                                    "definition": "tile/column",
+                                                                    "attributes": {
+                                                                        "gap": "sm",
+                                                                        "align": "stretch",
+                                                                        "width": "auto"
+                                                                    },
+                                                                    "id": "71720322-5bd2-48d7-abe4-aa0021b54492",
+                                                                    "children": [
+                                                                        {
+                                                                            "definition": "tile/text",
+                                                                            "meta": {
+                                                                                "if": "{!$account.noContacts}"
+                                                                            },
+                                                                            "attributes": {
+                                                                                "text": "No contacts for this account.",
+                                                                                "variant": "caption",
+                                                                                "color": "muted",
+                                                                                "isItalic": false,
+                                                                                "isStrikethrough": false
+                                                                            },
+                                                                            "id": "31221c66-bf94-4c5e-a40d-ab7963ae0182"
+                                                                        },
+                                                                        {
+                                                                            "definition": "tile/column",
+                                                                            "meta": {
+                                                                                "forEach": "{!$account.contacts}",
+                                                                                "forItem": "$contact"
+                                                                            },
+                                                                            "attributes": {
+                                                                                "gap": "xs",
+                                                                                "align": "stretch",
+                                                                                "width": "auto"
+                                                                            },
+                                                                            "id": "3e20d5a4-e95c-42ea-8c57-6cb687a188e9",
+                                                                            "children": [
+                                                                                {
+                                                                                    "definition": "tile/row",
+                                                                                    "attributes": {
+                                                                                        "gap": "sm",
+                                                                                        "align": "center",
+                                                                                        "justify": "between",
+                                                                                        "isWrapped": true
+                                                                                    },
+                                                                                    "id": "36539711-f296-49a3-be8f-a8ce4d162940",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "definition": "tile/text",
+                                                                                            "attributes": {
+                                                                                                "text": "{!$contact.name}",
+                                                                                                "variant": "body",
+                                                                                                "weight": "semibold",
+                                                                                                "color": "default",
+                                                                                                "isItalic": false,
+                                                                                                "isStrikethrough": false
+                                                                                            },
+                                                                                            "id": "7fd39e2d-134f-4dd3-97e0-4fd62653f0a0"
+                                                                                        },
+                                                                                        {
+                                                                                            "definition": "tile/text",
+                                                                                            "attributes": {
+                                                                                                "text": "{!$contact.title}",
+                                                                                                "variant": "caption",
+                                                                                                "color": "muted",
+                                                                                                "isItalic": false,
+                                                                                                "isStrikethrough": false
+                                                                                            },
+                                                                                            "id": "d7636029-0fc6-41c5-9fa8-3e8ae02fbb2a"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "definition": "tile/text",
+                                                                                    "attributes": {
+                                                                                        "text": "✉️ {!$contact.email}  \uD83D\uDCDE {!$contact.phone}",
+                                                                                        "variant": "caption",
+                                                                                        "color": "muted",
+                                                                                        "isItalic": false,
+                                                                                        "isStrikethrough": false
+                                                                                    },
+                                                                                    "id": "72ae0d3c-426b-47c8-8c04-ffff7ae122ee"
+                                                                                },
+                                                                                {
+                                                                                    "definition": "tile/separator",
+                                                                                    "attributes": {
+                                                                                        "orientation": "horizontal"
+                                                                                    },
+                                                                                    "id": "2528fec3-7ba7-4fbe-afc4-b03663b9cd78"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "tile/accordionitem",
+                                                            "attributes": {
+                                                                "title": "{!$account.casesTitle}",
+                                                                "iconName": "ticket",
+                                                                "isExpanded": false
+                                                            },
+                                                            "id": "ebdef417-fd51-48f2-9074-02b4d992635e",
+                                                            "children": [
+                                                                {
+                                                                    "definition": "tile/column",
+                                                                    "attributes": {
+                                                                        "gap": "sm",
+                                                                        "align": "stretch",
+                                                                        "width": "auto"
+                                                                    },
+                                                                    "id": "050a035e-3694-4c41-aef3-f992e674e5e9",
+                                                                    "children": [
+                                                                        {
+                                                                            "definition": "tile/text",
+                                                                            "meta": {
+                                                                                "if": "{!$account.noCases}"
+                                                                            },
+                                                                            "attributes": {
+                                                                                "text": "No cases for this account.",
+                                                                                "variant": "caption",
+                                                                                "color": "muted",
+                                                                                "isItalic": false,
+                                                                                "isStrikethrough": false
+                                                                            },
+                                                                            "id": "5db0dcb8-6d71-4c3d-b706-9235121a8da7"
+                                                                        },
+                                                                        {
+                                                                            "definition": "tile/column",
+                                                                            "meta": {
+                                                                                "forEach": "{!$account.cases}",
+                                                                                "forItem": "$case"
+                                                                            },
+                                                                            "attributes": {
+                                                                                "gap": "xs",
+                                                                                "align": "stretch",
+                                                                                "width": "auto"
+                                                                            },
+                                                                            "id": "dfd2fb07-c7e9-4e9e-99ea-4528675be05e",
+                                                                            "children": [
+                                                                                {
+                                                                                    "definition": "tile/row",
+                                                                                    "attributes": {
+                                                                                        "gap": "sm",
+                                                                                        "align": "center",
+                                                                                        "justify": "between",
+                                                                                        "isWrapped": true
+                                                                                    },
+                                                                                    "id": "3f81c9f2-26b9-4aae-be5c-c0475b71ee6a",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "definition": "tile/text",
+                                                                                            "attributes": {
+                                                                                                "text": "Case #{!$case.caseNumber}",
+                                                                                                "variant": "body",
+                                                                                                "weight": "semibold",
+                                                                                                "color": "default",
+                                                                                                "isItalic": false,
+                                                                                                "isStrikethrough": false
+                                                                                            },
+                                                                                            "id": "b37ecb8f-d01e-441f-8dc0-f8e972868950"
+                                                                                        },
+                                                                                        {
+                                                                                            "definition": "tile/badge",
+                                                                                            "attributes": {
+                                                                                                "label": "{!$case.status}",
+                                                                                                "variant": "{!$case.statusColor}"
+                                                                                            },
+                                                                                            "id": "4cf38300-b64b-4204-a48d-c063632efdcf"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "definition": "tile/text",
+                                                                                    "attributes": {
+                                                                                        "text": "{!$case.subject}",
+                                                                                        "variant": "body",
+                                                                                        "color": "default",
+                                                                                        "isItalic": false,
+                                                                                        "isStrikethrough": false
+                                                                                    },
+                                                                                    "id": "25ccdbf6-6690-4c29-848e-293209448b28"
+                                                                                },
+                                                                                {
+                                                                                    "definition": "tile/text",
+                                                                                    "attributes": {
+                                                                                        "text": "Priority: {!$case.priority}",
+                                                                                        "variant": "caption",
+                                                                                        "color": "muted",
+                                                                                        "isItalic": false,
+                                                                                        "isStrikethrough": false
+                                                                                    },
+                                                                                    "id": "30996787-5a3d-425b-9b97-f84b6f684f92"
+                                                                                },
+                                                                                {
+                                                                                    "definition": "tile/separator",
+                                                                                    "attributes": {
+                                                                                        "orientation": "horizontal"
+                                                                                    },
+                                                                                    "id": "a8034800-91a7-460b-b28a-ee9da2b947c1"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "definition": "tile/accordionitem",
+                                                            "attributes": {
+                                                                "title": "{!$account.opportunitiesTitle}",
+                                                                "iconName": "trending-up",
+                                                                "isExpanded": false
+                                                            },
+                                                            "id": "6279b34b-b221-4a97-805f-57840e70540a",
+                                                            "children": [
+                                                                {
+                                                                    "definition": "tile/column",
+                                                                    "attributes": {
+                                                                        "gap": "sm",
+                                                                        "align": "stretch",
+                                                                        "width": "auto"
+                                                                    },
+                                                                    "id": "6c4a04c1-7940-4842-982f-c5c9db8e4c2f",
+                                                                    "children": [
+                                                                        {
+                                                                            "definition": "tile/text",
+                                                                            "meta": {
+                                                                                "if": "{!$account.noOpportunities}"
+                                                                            },
+                                                                            "attributes": {
+                                                                                "text": "No opportunities for this account.",
+                                                                                "variant": "caption",
+                                                                                "color": "muted",
+                                                                                "isItalic": false,
+                                                                                "isStrikethrough": false
+                                                                            },
+                                                                            "id": "677de4ba-327f-4cb2-a81a-e39ce7af9704"
+                                                                        },
+                                                                        {
+                                                                            "definition": "tile/column",
+                                                                            "meta": {
+                                                                                "forEach": "{!$account.opportunities}",
+                                                                                "forItem": "$opportunity"
+                                                                            },
+                                                                            "attributes": {
+                                                                                "gap": "xs",
+                                                                                "align": "stretch",
+                                                                                "width": "auto"
+                                                                            },
+                                                                            "id": "25caf2b9-d40c-4228-8bf3-32c627a14a99",
+                                                                            "children": [
+                                                                                {
+                                                                                    "definition": "tile/row",
+                                                                                    "attributes": {
+                                                                                        "gap": "sm",
+                                                                                        "align": "center",
+                                                                                        "justify": "between",
+                                                                                        "isWrapped": true
+                                                                                    },
+                                                                                    "id": "2dbc8071-8f44-433d-9177-f9823423fee0",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "definition": "tile/text",
+                                                                                            "attributes": {
+                                                                                                "text": "{!$opportunity.name}",
+                                                                                                "variant": "body",
+                                                                                                "weight": "semibold",
+                                                                                                "color": "default",
+                                                                                                "isItalic": false,
+                                                                                                "isStrikethrough": false
+                                                                                            },
+                                                                                            "id": "b968ac7d-539a-47e9-8299-201c3ff5b3cd"
+                                                                                        },
+                                                                                        {
+                                                                                            "definition": "tile/badge",
+                                                                                            "attributes": {
+                                                                                                "label": "{!$opportunity.stage}",
+                                                                                                "variant": "{!$opportunity.stageColor}"
+                                                                                            },
+                                                                                            "id": "ab344668-09ab-4b69-89a9-4345efd62cec"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "definition": "tile/row",
+                                                                                    "attributes": {
+                                                                                        "gap": "sm",
+                                                                                        "justify": "between",
+                                                                                        "align": "center",
+                                                                                        "isWrapped": true
+                                                                                    },
+                                                                                    "id": "887bc151-8574-471d-9058-db6b6c01b37f",
+                                                                                    "children": [
+                                                                                        {
+                                                                                            "definition": "tile/text",
+                                                                                            "attributes": {
+                                                                                                "text": "Close {!$opportunity.closeDate}",
+                                                                                                "variant": "caption",
+                                                                                                "color": "muted",
+                                                                                                "isItalic": false,
+                                                                                                "isStrikethrough": false
+                                                                                            },
+                                                                                            "id": "84c93c8e-6be8-424b-8f9b-5d19681ebfbb"
+                                                                                        },
+                                                                                        {
+                                                                                            "definition": "tile/text",
+                                                                                            "attributes": {
+                                                                                                "text": "{!$opportunity.amount}",
+                                                                                                "variant": "caption",
+                                                                                                "weight": "semibold",
+                                                                                                "color": "default",
+                                                                                                "isItalic": false,
+                                                                                                "isStrikethrough": false
+                                                                                            },
+                                                                                            "id": "def55113-57ed-4511-ba7c-071eeb7904ec"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                {
+                                                                                    "definition": "tile/separator",
+                                                                                    "attributes": {
+                                                                                        "orientation": "horizontal"
+                                                                                    },
+                                                                                    "id": "499f5a27-fa48-4278-b0f9-2cf4fc249c12"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <description>Embeds the React Account Insights app on the Account record page with lightning-ui-embedding.</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Account Embedded React App</masterLabel>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>Account</object>
+            </objects>
+            <property
+                name="baseUrl"
+                type="String"
+                label="Embedded React app URL"
+                description="Origin that serves the React app. Must also be a CSP Trusted Site with frame-src enabled."
+                default="http://localhost:5180"
+            />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

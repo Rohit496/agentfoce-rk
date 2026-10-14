@@ -1,0 +1,41 @@
+- generic [ref=f39e1]:
+  - generic [ref=f39e2]:
+    - generic [ref=f39e5]:
+      - generic [ref=f39e6]: Salesforce login
+      - generic [ref=f39e11]:
+        - generic [ref=f39e12]:
+          - generic [ref=f39e13]: To access this page, you have to log in to Salesforce.
+          - heading "Salesforce login" [level=1] [ref=f39e14]
+          - generic [ref=f39e15]:
+            - text: Username
+            - textbox "Username" [active] [ref=f39e17]
+          - button "Log In" [ref=f39e18] [cursor=pointer]
+          - generic [ref=f39e19]:
+            - checkbox "Remember me" [ref=f39e20]
+            - generic [ref=f39e21]: Remember me
+        - link "Forgot Your Password?" [ref=f39e23] [cursor=pointer]:
+          - /url: /secur/forgotpassword.jsp?locale=us&lqs=startURL%3D%252Fvisualforce%252Fsession%253Furl%253Dhttps%25253A%25252F%25252Fasagarwal-rkk-dev-ed.develop.lightning.force.com%25252Fvisualforce%25252Fsession%25253Furl%25253Dhttps%2525253A%2525252F%2525252Fasagarwal-rkk-dev-ed--c.develop.vf.force.com%2525252Fflow%2525252Fruntime.apexp%2525253FflowDevName%2525253DTransform_Element_Showcase%26ec%3D302
+    - generic [ref=f39e24]: © 2026 Salesforce, Inc. All rights reserved.
+  - iframe [ref=f39e26]:
+    - main [ref=f40e3]:
+      - article [ref=f40e7]:
+        - generic [ref=f40e9]:
+          - generic [ref=f40e10]:
+            - heading "Get Salesforce for free." [level=2] [ref=f40e11]
+            - generic [ref=f40e12]:
+              - paragraph:
+                - strong
+              - heading [level=3] [ref=f40e13]:
+                - strong [ref=f40e14]: No credit card required, no software to install.
+              - strong
+              - text: "Your free 30-day trial gives you:"
+              - list [ref=f40e15]:
+                - listitem [ref=f40e16]: Quick and easy set-up with guided onboarding
+                - listitem [ref=f40e17]: Sales, service, email marketing, and commerce in one place
+                - listitem [ref=f40e18]: AI assistance for email drafts and updating records
+                - listitem [ref=f40e19]: A free Slack workspace for partner collaboration
+          - 'link "Start for free: Get Salesforce for free." [ref=f40e22] [cursor=pointer]':
+            - /url: https://www.salesforce.com/small-business/free-trial/starter-suite-v2/?d=7010M000002Mw7OQAS&pr=https%3A%2F%2Fc.salesforce.com%2Flogin-messages%2Fpromos.html
+            - text: Start for free
+  - generic: Login
+  - iframe [aria-hidden] [ref=f39e27]

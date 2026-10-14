@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Account Insights (External App)</title>
+        <link rel="stylesheet" href="/src/style.css" />
+    </head>
+    <body>
+        <main class="app" id="app" data-rating="none">
+            <header class="header">
+                <span class="badge">JavaScript</span>
+                <span class="status-dot" id="status-dot" aria-hidden="true"></span>
+                <span class="status" id="status">Connecting to Salesforce…</span>
+            </header>
+            <section>
+                <h1 class="name" id="name" data-field="name">Account</h1>
+                <dl class="fields">
+                    <dt>Rating</dt><dd data-field="rating">—</dd>
+                    <dt>Type</dt><dd data-field="type">—</dd>
+                    <dt>Industry</dt><dd data-field="industry">—</dd>
+                    <dt>Phone</dt><dd data-field="phone">—</dd>
+                    <dt>Website</dt><dd data-field="website">—</dd>
+                </dl>
+            </section>
+            <fieldset class="actions" id="actions" disabled>
+                <legend>Set rating in Salesforce</legend>
+                <button type="button" class="rating rating--hot" data-rating="Hot" data-hint="High priority" aria-pressed="false">
+                    <span class="rating__title"><span class="rating__dot" aria-hidden="true"></span>Hot</span>
+                    <span class="rating__hint">High priority</span>
+                </button>
+                <button type="button" class="rating rating--warm" data-rating="Warm" data-hint="Engaged" aria-pressed="false">
+                    <span class="rating__title"><span class="rating__dot" aria-hidden="true"></span>Warm</span>
+                    <span class="rating__hint">Engaged</span>
+                </button>
+                <button type="button" class="rating rating--cold" data-rating="Cold" data-hint="Low activity" aria-pressed="false">
+                    <span class="rating__title"><span class="rating__dot" aria-hidden="true"></span>Cold</span>
+                    <span class="rating__hint">Low activity</span>
+                </button>
+            </fieldset>
+            <p class="feedback feedback--success" id="feedback" role="status" aria-live="polite"></p>
+            <p class="updates" id="updates" hidden></p>
+        </main>
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

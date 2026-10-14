@@ -1,0 +1,11 @@
+- main [ref=f51e3]:
+  - generic [ref=f51e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f51e36]
+    - generic [ref=f51e50]:
+      - generic [ref=f51e51]: Use Case 1 - Extract a Text Collection
+      - generic [ref=f51e52]: "Source: Get Open Opportunities (record collection) → Target: Text collection of Ids"
+      - generic [ref=f51e53]: "[006gL00000HM58vQAD,006gL00000HM58wQAD,006gL00000HM58zQAD,006gL00000HM590QAD,006gL00000HM592QAD,006gL00000HM595QAD,006gL00000HM596QAD,006gL00000HM597QAD,006gL00000HM599QAD,006gL00000HM59FQAT,006gL00000HM59GQAT,006gL00000HM59OQAT,006gL00000HM59PQAT,006gL00000HvJr4QAF,006gL00000HvVbZQAV,006gL00000HvWcTQAV,006gL00000HvYeHQAV,006gL00000I7ok5QAB,006gL00000JNEk5QAH,006gL00000LHkLjQAL,006gL00000LI1xdQAD,006gL00000LI89XQAT,006gL00000LZblNQAT,006gL00000La5WXQAZ,006gL00000TATODQA5]"
+      - generic [ref=f51e54]: No loop was needed. This text collection can now be used directly in a Get Records In filter.
+    - generic [ref=f51e57]:
+      - button "Previous" [ref=f51e59] [cursor=pointer]
+      - button "Next" [ref=f51e61] [cursor=pointer]

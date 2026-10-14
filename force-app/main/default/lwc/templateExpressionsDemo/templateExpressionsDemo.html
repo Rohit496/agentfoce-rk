@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Template Expressions Demo" icon-name="utility:apex">
+        <div slot="actions">
+            <lightning-button
+                label="{isLoggedIn ? 'Log out' : 'Log in'}"
+                onclick={toggleLogin}
+            ></lightning-button>
+        </div>
+
+        <div class="slds-var-p-horizontal_medium">
+            <!-- Template literal -->
+            <p class="greeting">{`Hello, ${firstName} ${lastName}!`}</p>
+
+            <!-- Ternary -->
+            <p class="status">{isLoggedIn ? 'Welcome back!' : 'Please log in'}</p>
+
+            <!-- Optional chaining + nullish coalescing -->
+            <p class="status">Theme: {user?.profile?.settings?.theme ?? 'default'}</p>
+
+            <!-- Array methods -->
+            <p class="summary">
+                In-stock: {items.filter(item => item.qty > 0).length} of
+                {items.length}
+            </p>
+
+            <ul class="item-list">
+                <template for:each={items} for:item="item">
+                    <li
+                        key={item.name}
+                        class="{item.qty > 0 ? 'item item_in-stock' : 'item item_out-of-stock'}"
+                    >
+                        <span>{item.name}</span>
+                        <span class="item-qty">{item.qty}</span>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>

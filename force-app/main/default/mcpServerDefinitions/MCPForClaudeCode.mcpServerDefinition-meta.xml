@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>MCP For Claude Code</description>
+    <masterLabel>MCP For Claude Code</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>ae:AccountController</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>getAllAccounts</operation>
+        </apiDefinition>
+        <descriptionOverride>Default description for the operation.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>getAllAccountsAccountController</toolName>
+        <toolTitle>getAllAccounts</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>ae:AccountController</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>searchAccounts</operation>
+        </apiDefinition>
+        <descriptionOverride>Default description for the operation.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>searchAccountsAccountController</toolName>
+        <toolTitle>searchAccounts</toolTitle>
+    </tools>
+</McpServerDefinition>

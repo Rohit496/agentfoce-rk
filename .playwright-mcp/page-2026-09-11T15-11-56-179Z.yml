@@ -1,0 +1,101 @@
+- main [ref=f47e3]:
+  - generic [ref=f47e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f47e464]
+    - generic [ref=f47e471]:
+      - generic [ref=f47e478]:
+        - generic [ref=f47e479]: Use Case 3 - Add Ids
+        - generic [ref=f47e480]: "Source: clone-ready Tasks from step 2 → Target: Task collection with WhatId set to Grand Hotels & Resorts Ltd"
+        - generic [ref=f47e481]: One fixed value (001gL00000f5QC3QAM) is written into every row, so the whole collection is re-pointed at a new parent in a single element. The records below were then inserted with one Create Records DML.
+      - generic [ref=f47e486]:
+        - status [ref=f47e490]: 24 of 24 items • 0 items selected
+        - generic [ref=f47e493]:
+          - generic: Navigation Mode
+          - grid "24 of 24 items0 items selected" [ref=f47e498]:
+            - rowgroup:
+              - row "Subject WhatId":
+                - columnheader "Subject":
+                  - generic [ref=f47e501]:
+                    - generic "Subject" [ref=f47e502]
+                    - button "Show Subject column actions" [active] [ref=f47e504] [cursor=pointer]
+                    - slider "Subject column width" [ref=f47e507]: "718"
+                - columnheader "WhatId":
+                  - generic [ref=f47e512]:
+                    - generic "WhatId" [ref=f47e513]
+                    - button "Show WhatId column actions" [ref=f47e515] [cursor=pointer]
+                    - slider "WhatId column width" [ref=f47e521]: "718"
+            - rowgroup [ref=f47e524]:
+              - row [ref=f47e525]:
+                - rowheader "Invite to Company's annual event" [ref=f47e526]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e530]
+              - row [ref=f47e534]:
+                - rowheader "Invite to Company's annual event" [ref=f47e535]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e539]
+              - row [ref=f47e543]:
+                - rowheader "Invite to Company's annual event" [ref=f47e544]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e548]
+              - row [ref=f47e552]:
+                - rowheader "Invite to Company's annual event" [ref=f47e553]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e557]
+              - row [ref=f47e561]:
+                - rowheader "Invite to Company's annual event" [ref=f47e562]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e566]
+              - row [ref=f47e570]:
+                - rowheader "Invite to Company's annual event" [ref=f47e571]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e575]
+              - row [ref=f47e579]:
+                - rowheader "Invite to Company's annual event" [ref=f47e580]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e584]
+              - row [ref=f47e588]:
+                - rowheader "Invite to Company's annual event" [ref=f47e589]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e593]
+              - row [ref=f47e597]:
+                - rowheader "Invite to Company's annual event" [ref=f47e598]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e602]
+              - row [ref=f47e606]:
+                - rowheader "Invite to Company's annual event" [ref=f47e607]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e611]
+              - row [ref=f47e615]:
+                - rowheader "Invite to Company's annual event" [ref=f47e616]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e620]
+              - row [ref=f47e624]:
+                - rowheader "Invite to Company's annual event" [ref=f47e625]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e629]
+              - row [ref=f47e633]:
+                - rowheader "Invite to Company's annual event" [ref=f47e634]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e638]
+              - row [ref=f47e642]:
+                - rowheader "Invite to Company's annual event" [ref=f47e643]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e647]
+              - row [ref=f47e651]:
+                - rowheader "Invite to Company's annual event" [ref=f47e652]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e656]
+              - row [ref=f47e660]:
+                - rowheader "Invite to Company's annual event" [ref=f47e661]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e665]
+              - row [ref=f47e669]:
+                - rowheader "Invite to Company's annual event" [ref=f47e670]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e674]
+              - row [ref=f47e678]:
+                - rowheader "Invite to Company's annual event" [ref=f47e679]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e683]
+              - row [ref=f47e687]:
+                - rowheader "Invite to Company's annual event" [ref=f47e688]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e692]
+              - row [ref=f47e696]:
+                - rowheader "Invite to Company's annual event" [ref=f47e697]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e701]
+              - row [ref=f47e705]:
+                - rowheader "Invite to Company's annual event" [ref=f47e706]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e710]
+              - row [ref=f47e714]:
+                - rowheader "Invite to Company's annual event" [ref=f47e715]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e719]
+              - row [ref=f47e723]:
+                - rowheader "Invite to Company's annual event" [ref=f47e724]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e728]
+              - row [ref=f47e732]:
+                - rowheader "Invite to Company's annual event" [ref=f47e733]
+                - gridcell "001gL00000f5QC3QAM" [ref=f47e737]
+    - generic [ref=f47e743]:
+      - button "Previous" [ref=f47e745] [cursor=pointer]
+      - button "Next" [ref=f47e747] [cursor=pointer]

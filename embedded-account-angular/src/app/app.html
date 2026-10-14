@@ -1,0 +1,22 @@
+<main class="app" [attr.data-rating]="ratingTone()">
+  <header class="header">
+    <span class="badge">Angular</span>
+    <span class="status-dot" [class.is-connected]="connected()" aria-hidden="true"></span>
+    <span class="status">{{ status() }}</span>
+  </header>
+  <app-account-details [account]="account()" />
+  <app-rating-picker
+    [current]="account().rating"
+    [pending]="pendingRating()"
+    [disabled]="!connected()"
+    (ratingSelect)="onSelectRating($event)"
+  />
+  <p class="feedback" [class]="'feedback--' + feedback().tone" role="status" aria-live="polite">
+    {{ feedback().text }}
+  </p>
+  @if (updates() > 0) {
+    <p class="updates">
+      {{ updates() }} live update{{ updates() === 1 ? '' : 's' }} received from Salesforce
+    </p>
+  }
+</main>

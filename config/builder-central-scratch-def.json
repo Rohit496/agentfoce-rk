@@ -1,0 +1,23 @@
+{
+  "orgName": "Builder Central Scratch",
+  "edition": "Developer",
+  "description": "Scratch org for evaluating Builder Central (Beta): Agentforce + Data 360",
+  "features": [
+    "EnableSetPasswordInApi",
+    "Einstein1AIPlatform"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "agentPlatformSettings": {
+      "enableAgentPlatform": true
+    },
+    "einsteinGptSettings": {
+      "enableEinsteinGptPlatform": true
+    }
+  }
+}

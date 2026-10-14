@@ -1,0 +1,588 @@
+{
+    "type": "lightning__agentforceWidget",
+    "title": "Account Details",
+    "contentBody": {
+        "widgetBody": {
+            "definition": "tile/widget",
+            "id": "92df50be-2785-4390-af39-070c06d4715e",
+            "children": [
+                {
+                    "definition": "tile/column",
+                    "attributes": {
+                        "gap": "md",
+                        "align": "stretch",
+                        "width": "auto"
+                    },
+                    "id": "24c52e5b-3172-4397-bf54-6c5d61690c3d",
+                    "children": [
+                        {
+                            "definition": "tile/callout",
+                            "meta": {
+                                "if": "{!$attrs.notFound}"
+                            },
+                            "attributes": {
+                                "variant": "warning",
+                                "title": "Account not found"
+                            },
+                            "id": "d4b764fc-a3d5-4b07-be64-6797106d5359",
+                            "children": [
+                                {
+                                    "definition": "tile/text",
+                                    "attributes": {
+                                        "text": "No account matched \"{!$attrs.searchTerm}\".",
+                                        "variant": "body",
+                                        "color": "default",
+                                        "isItalic": false,
+                                        "isStrikethrough": false
+                                    },
+                                    "id": "858350ea-058d-4703-a5cd-29f3789cc73d"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "tile/column",
+                            "meta": {
+                                "if": "{!$attrs.found}"
+                            },
+                            "attributes": {
+                                "gap": "md",
+                                "align": "stretch",
+                                "width": "auto"
+                            },
+                            "id": "c45fdb9f-8e9c-4e14-8899-ae0cb8198ac5",
+                            "children": [
+                                {
+                                    "definition": "tile/row",
+                                    "attributes": {
+                                        "gap": "sm",
+                                        "align": "center",
+                                        "justify": "between",
+                                        "isWrapped": true
+                                    },
+                                    "id": "f552fb74-f828-406b-bb18-db42ed86e888",
+                                    "children": [
+                                        {
+                                            "definition": "tile/column",
+                                            "attributes": {
+                                                "gap": "xs",
+                                                "align": "stretch",
+                                                "width": "auto"
+                                            },
+                                            "id": "0a1bd056-0f97-4b1a-bb80-6a0517596e27",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "\uD83C\uDFE2 {!$attrs.name}",
+                                                        "variant": "h2",
+                                                        "weight": "semibold",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "7f3184b1-29ca-41fd-acf6-fcab81c0979b"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.industry} • {!$attrs.type}",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "d012b391-bbf2-46ce-b92d-fd6c4a83580d"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/badge",
+                                            "attributes": {
+                                                "label": "{!$attrs.customerPriority} priority",
+                                                "variant": "{!$attrs.priorityColor}"
+                                            },
+                                            "meta": {
+                                                "if": "{!$attrs.hasPriority}"
+                                            },
+                                            "id": "e68c64bf-f3c5-47e5-812d-55dbea7289c0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "definition": "tile/separator",
+                                    "attributes": {
+                                        "orientation": "horizontal"
+                                    },
+                                    "id": "cb95ec11-66e4-4284-9df9-c6678eae2af2"
+                                },
+                                {
+                                    "definition": "tile/column",
+                                    "attributes": {
+                                        "gap": "xs",
+                                        "align": "stretch",
+                                        "width": "auto"
+                                    },
+                                    "id": "7f8e2eb1-3c96-48bc-94a9-4b955d840dc1",
+                                    "children": [
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "align": "center",
+                                                "justify": "start",
+                                                "isWrapped": true
+                                            },
+                                            "id": "bf722f22-f2e8-43eb-ae62-660413b4b1a1",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/icon",
+                                                    "attributes": {
+                                                        "name": "briefcase",
+                                                        "size": "sm",
+                                                        "alt": "",
+                                                        "color": "default"
+                                                    },
+                                                    "id": "499ffcf9-4345-4191-b575-6d765afa1db2"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Company",
+                                                        "variant": "body",
+                                                        "weight": "semibold",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "644d41cc-a54f-473f-8815-707efba99a7e"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "619f5c32-50e5-425b-a32b-5e3e67084014",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Account Number",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "e6ce7ea9-ad73-4107-bcd2-906350201603"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.accountNumber}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "0083b0fb-cd72-4236-80f0-fd55dae51b99"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "3dada946-f86b-4127-b75b-b44af4e38c25",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Owner",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "c293bd78-746f-446b-b24a-4547c6aa8de5"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.owner}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "3c2875ae-d58f-44d4-8a54-5c3ed4239ebc"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "5d80c3c4-81db-4264-926a-3bd43125fea3",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Phone",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "d5e0dcd0-8fc2-4ea2-a577-85c6c6f1b2bc"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.phone}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "7382741f-56e5-4bed-9d6c-31f8e1bcedf6"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "f122bdac-5ee1-4c89-8354-68ba704a3374",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Website",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "31d7459a-858e-44f9-84e5-527236c9d93a"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.website}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "873518ff-3f0d-446a-bf9a-2ab4c450c8ad"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "646bd7af-981a-4ef2-8102-7c366546ad11",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Annual Revenue",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "c2cd29ae-ea6e-4ee7-af17-7179b9ea14b4"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.annualRevenue}",
+                                                        "variant": "body",
+                                                        "weight": "semibold",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "4f227a57-e446-4850-8802-11bc277ee5bd"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "0a97567d-01fa-4b12-a921-d59acf8e6e4c",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Employees",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "7e07ede3-0f4f-48fd-a07c-809c9637d8ea"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.employees}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "64761f66-54e6-4fa1-8b71-5af467378cea"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "definition": "tile/column",
+                                    "attributes": {
+                                        "gap": "xs",
+                                        "align": "stretch",
+                                        "width": "auto"
+                                    },
+                                    "id": "a60373b9-9502-4cc1-a1dc-790ea4576200",
+                                    "children": [
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "align": "center",
+                                                "justify": "start",
+                                                "isWrapped": true
+                                            },
+                                            "id": "a32719e6-03ee-4ff3-91bf-e2f91660d407",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/icon",
+                                                    "attributes": {
+                                                        "name": "tag",
+                                                        "size": "sm",
+                                                        "alt": "",
+                                                        "color": "default"
+                                                    },
+                                                    "id": "ae4b752d-93d2-4cf4-a94b-896dcc909a38"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Classification",
+                                                        "variant": "body",
+                                                        "weight": "semibold",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "c47e90b0-3425-4ddd-b87a-f8bc8a873b00"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "8c920f76-4713-4107-87a4-c20f31da4984",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Rating",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "67ed0c2c-6418-4c00-93d4-403b616b5818"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.rating}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "be8d593c-bef3-4737-aede-7ae8f54f5f47"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "95c7acd5-430e-44a5-bc6c-eb17718f5c0b",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Region",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "dcb3ffdf-bb99-4992-9517-68d7354cdb02"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.region}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "90270e48-e42b-42a1-82a0-a9c951644d52"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "a695e170-f022-46dd-b8a6-7ad390bdf2bd",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Active",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "b413ce38-bfb6-4ca2-a40a-bdb9dea34716"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.active}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "88357f1b-e214-4467-b39f-7d22045ff513"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "definition": "tile/row",
+                                            "attributes": {
+                                                "gap": "sm",
+                                                "justify": "between",
+                                                "align": "center",
+                                                "isWrapped": true
+                                            },
+                                            "id": "b768309e-56b8-499b-94cf-bed90881b679",
+                                            "children": [
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "Billing Address",
+                                                        "variant": "caption",
+                                                        "color": "muted",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "39a678ca-8d3d-442f-9ae5-bc786ba8c231"
+                                                },
+                                                {
+                                                    "definition": "tile/text",
+                                                    "attributes": {
+                                                        "text": "{!$attrs.billingAddress}",
+                                                        "variant": "body",
+                                                        "color": "default",
+                                                        "isItalic": false,
+                                                        "isStrikethrough": false
+                                                    },
+                                                    "id": "ac55c733-c10b-4d1d-8078-298615e4a3a0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "definition": "tile/column",
+                                    "meta": {
+                                        "if": "{!$attrs.hasDescription}"
+                                    },
+                                    "attributes": {
+                                        "gap": "md",
+                                        "align": "stretch",
+                                        "width": "auto"
+                                    },
+                                    "id": "e88d6bc9-139e-49cb-bef3-524d619e0e13",
+                                    "children": [
+                                        {
+                                            "definition": "tile/separator",
+                                            "attributes": {
+                                                "orientation": "horizontal"
+                                            },
+                                            "id": "94c51e6b-9d30-4c0e-95a0-03fc75216760"
+                                        },
+                                        {
+                                            "definition": "tile/text",
+                                            "attributes": {
+                                                "text": "{!$attrs.description}",
+                                                "variant": "caption",
+                                                "color": "muted",
+                                                "isItalic": false,
+                                                "isStrikethrough": false
+                                            },
+                                            "id": "f22b4654-4fc2-4b4b-aae1-6e514f2d167e"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,159 @@
+query GetLeadDetail($id: ID!) {
+	uiapi {
+		query {
+			Lead(where: { Id: { eq: $id } }) {
+				edges {
+					node {
+						Id
+						Name @optional {
+							value
+							displayValue
+						}
+						Salutation @optional {
+							value
+							displayValue
+						}
+						FirstName @optional {
+							value
+							displayValue
+						}
+						LastName @optional {
+							value
+							displayValue
+						}
+						Owner @optional {
+							... on User {
+								Name @optional {
+									value
+									displayValue
+								}
+							}
+							... on Group {
+								Name @optional {
+									value
+									displayValue
+								}
+							}
+						}
+						Company @optional {
+							value
+							displayValue
+						}
+						Title @optional {
+							value
+							displayValue
+						}
+						Phone @optional {
+							value
+							displayValue
+						}
+						MobilePhone @optional {
+							value
+							displayValue
+						}
+						Fax @optional {
+							value
+							displayValue
+						}
+						Email @optional {
+							value
+							displayValue
+						}
+						Website @optional {
+							value
+							displayValue
+						}
+						Status @optional {
+							value
+							displayValue
+						}
+						LeadSource @optional {
+							value
+							displayValue
+						}
+						Industry @optional {
+							value
+							displayValue
+						}
+						Rating @optional {
+							value
+							displayValue
+						}
+						NumberOfEmployees @optional {
+							value
+							displayValue
+						}
+						AnnualRevenue @optional {
+							value
+							displayValue
+						}
+						Description @optional {
+							value
+							displayValue
+						}
+						ProductInterest__c @optional {
+							value
+							displayValue
+						}
+						SICCode__c @optional {
+							value
+							displayValue
+						}
+						NumberofLocations__c @optional {
+							value
+							displayValue
+						}
+						CurrentGenerators__c @optional {
+							value
+							displayValue
+						}
+						Primary__c @optional {
+							value
+							displayValue
+						}
+						Street @optional {
+							value
+							displayValue
+						}
+						City @optional {
+							value
+							displayValue
+						}
+						State @optional {
+							value
+							displayValue
+						}
+						PostalCode @optional {
+							value
+							displayValue
+						}
+						Country @optional {
+							value
+							displayValue
+						}
+						CreatedBy @optional {
+							Name @optional {
+								value
+								displayValue
+							}
+						}
+						CreatedDate @optional {
+							value
+							displayValue
+						}
+						LastModifiedBy @optional {
+							Name @optional {
+								value
+								displayValue
+							}
+						}
+						LastModifiedDate @optional {
+							value
+							displayValue
+						}
+					}
+				}
+			}
+		}
+	}
+}

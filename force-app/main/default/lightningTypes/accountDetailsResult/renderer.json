@@ -1,0 +1,32 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/accountDetailsCard",
+        "attributes": {
+          "found": "{!$attrs.outputValues.found}",
+          "notFound": "{!$attrs.outputValues.notFound}",
+          "searchTerm": "{!$attrs.outputValues.searchTerm}",
+          "name": "{!$attrs.outputValues.name}",
+          "accountNumber": "{!$attrs.outputValues.accountNumber}",
+          "type": "{!$attrs.outputValues.type}",
+          "industry": "{!$attrs.outputValues.industry}",
+          "rating": "{!$attrs.outputValues.rating}",
+          "phone": "{!$attrs.outputValues.phone}",
+          "website": "{!$attrs.outputValues.website}",
+          "annualRevenue": "{!$attrs.outputValues.annualRevenue}",
+          "employees": "{!$attrs.outputValues.employees}",
+          "billingAddress": "{!$attrs.outputValues.billingAddress}",
+          "owner": "{!$attrs.outputValues.owner}",
+          "region": "{!$attrs.outputValues.region}",
+          "active": "{!$attrs.outputValues.active}",
+          "customerPriority": "{!$attrs.outputValues.customerPriority}",
+          "priorityColor": "{!$attrs.outputValues.priorityColor}",
+          "description": "{!$attrs.outputValues.description}",
+          "hasPriority": "{!$attrs.outputValues.hasPriority}",
+          "hasDescription": "{!$attrs.outputValues.hasDescription}"
+        }
+      }
+    }
+  }
+}

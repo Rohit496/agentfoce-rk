@@ -1,0 +1,7 @@
+- main [ref=f47e3]:
+  - generic [ref=f47e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f47e9]
+    - generic [ref=f47e23]:
+      - generic [ref=f47e24]: Transform Element Showcase
+      - generic [ref=f47e25]: This flow demonstrates 6 practical uses of the Transform element, one screen each:1. Extract a text collection of Ids2. Remove Ids to make records clone-ready3. Add Ids to re-point a lookup4. Calculate a sum and a count5. Build a title string from several fields6. Join two collections on a key
+    - button "Next" [ref=f47e30] [cursor=pointer]

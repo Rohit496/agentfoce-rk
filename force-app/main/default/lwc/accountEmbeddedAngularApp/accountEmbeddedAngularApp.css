@@ -1,0 +1,12 @@
+.error-banner {
+    padding: var(--slds-g-spacing-3);
+    margin-block-end: var(--slds-g-spacing-3);
+    border-radius: var(--slds-g-radius-border-2);
+    background-color: var(--slds-g-color-error-1);
+    /* on-error-1 matches error-1 in light mode, which hides the text. */
+    color: var(--slds-g-color-neutral-base-100);
+}
+
+.error-title {
+    font-weight: var(--slds-g-font-weight-7);
+}

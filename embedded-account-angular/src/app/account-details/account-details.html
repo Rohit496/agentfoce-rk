@@ -1,0 +1,19 @@
+<section>
+  <h1 class="name" [class.is-changed]="changed().has('name')">{{ account().name ?? 'Account' }}</h1>
+  <dl class="fields">
+    @for (row of rows(); track row.key) {
+      <dt>{{ row.label }}</dt>
+      <dd [class.is-changed]="changed().has(row.key)">
+        @if (!row.value) {
+          —
+        } @else if (row.key === 'rating') {
+          <span class="pill" [class]="'pill--' + row.value.toLowerCase()">{{ row.value }}</span>
+        } @else if (row.key === 'website') {
+          <a [href]="websiteHref()" target="_blank" rel="noopener noreferrer">{{ row.value }} ↗</a>
+        } @else {
+          {{ row.value }}
+        }
+      </dd>
+    }
+  </dl>
+</section>

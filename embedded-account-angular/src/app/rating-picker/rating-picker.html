@@ -1,0 +1,20 @@
+<fieldset class="actions" [disabled]="disabled() || pending() !== null">
+  <legend>Set rating in Salesforce</legend>
+  @for (rating of ratings; track rating.value) {
+    <button
+      type="button"
+      class="rating"
+      [class]="'rating--' + rating.value.toLowerCase()"
+      [class.is-current]="rating.value === current()"
+      [class.is-pending]="rating.value === pending()"
+      [attr.aria-pressed]="rating.value === current()"
+      (click)="choose(rating.value)"
+    >
+      <span class="rating__title">
+        <span class="rating__dot" aria-hidden="true"></span>
+        {{ rating.value }}
+      </span>
+      <span class="rating__hint">{{ hint(rating) }}</span>
+    </button>
+  }
+</fieldset>

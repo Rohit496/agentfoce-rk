@@ -1,0 +1,11 @@
+- main [ref=f51e3]:
+  - generic [ref=f51e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f51e312]
+    - generic [ref=f51e326]:
+      - generic [ref=f51e327]: Use Case 4 - Calculate Sum and Count
+      - generic [ref=f51e328]: "Source: Opportunities for Grand Hotels & Resorts Ltd → Target: one in-memory Opportunity record"
+      - generic [ref=f51e329]: "Total amount (Sum): 915,000Number of opportunities (Count): 5"
+      - generic [ref=f51e330]: Both aggregates come from a single Transform - no loop and no running-total variables. The record is never saved; it is only a carrier for the two numbers.
+    - generic [ref=f51e333]:
+      - button "Previous" [ref=f51e335] [cursor=pointer]
+      - button "Next" [ref=f51e337] [cursor=pointer]

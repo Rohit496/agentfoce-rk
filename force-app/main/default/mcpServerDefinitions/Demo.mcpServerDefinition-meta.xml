@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Demo</description>
+    <masterLabel>Demo</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>nq:FetchContatcsByAccountName</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>FetchContatcsByAccountName</operation>
+        </apiDefinition>
+        <descriptionOverride>Fetch Contacts By Account Name</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>FetchContatcsByAccountNameFetchContatcsByAccountName</toolName>
+        <toolTitle>FetchContatcsByAccountName</toolTitle>
+    </tools>
+</McpServerDefinition>

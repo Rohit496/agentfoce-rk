@@ -1,0 +1,62 @@
+query SearchLeads($first: Int, $after: String, $where: Lead_Filter, $orderBy: Lead_OrderBy) {
+	uiapi {
+		query {
+			Lead(first: $first, after: $after, where: $where, orderBy: $orderBy) {
+				edges {
+					node {
+						Id
+						Name @optional {
+							value
+							displayValue
+						}
+						Company @optional {
+							value
+							displayValue
+						}
+						Status @optional {
+							value
+							displayValue
+						}
+						Industry @optional {
+							value
+							displayValue
+						}
+						Phone @optional {
+							value
+							displayValue
+						}
+						Email @optional {
+							value
+							displayValue
+						}
+						Owner @optional {
+							... on User {
+								Name @optional {
+									value
+									displayValue
+								}
+							}
+							... on Group {
+								Name @optional {
+									value
+									displayValue
+								}
+							}
+						}
+						AnnualRevenue @optional {
+							value
+							displayValue
+						}
+					}
+				}
+				pageInfo {
+					hasNextPage
+					hasPreviousPage
+					endCursor
+					startCursor
+				}
+				totalCount
+			}
+		}
+	}
+}

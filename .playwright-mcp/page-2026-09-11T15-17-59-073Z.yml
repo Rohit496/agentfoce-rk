@@ -1,0 +1,41 @@
+- main [ref=f51e3]:
+  - generic [ref=f51e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f51e204]
+    - generic [ref=f51e211]:
+      - generic [ref=f51e218]:
+        - generic [ref=f51e219]: Use Case 3 - Add Ids
+        - generic [ref=f51e220]: "Source: clone-ready Tasks from step 2 → Target: Task collection with WhatId set to Grand Hotels & Resorts Ltd"
+        - generic [ref=f51e221]: One fixed value (001gL00000f5QC3QAM) is written into every row, so the whole collection is re-pointed at a new parent in a single element. The records below were then inserted with one Create Records DML.
+      - generic [ref=f51e226]:
+        - status [ref=f51e230]: 4 of 4 items • 0 items selected
+        - generic [ref=f51e233]:
+          - generic: Navigation Mode
+          - grid "4 of 4 items0 items selected" [ref=f51e238]:
+            - rowgroup:
+              - row "Subject WhatId":
+                - columnheader "Subject":
+                  - generic [ref=f51e241]:
+                    - generic "Subject" [ref=f51e242]
+                    - button "Show Subject column actions" [active] [ref=f51e244] [cursor=pointer]
+                    - slider "Subject column width" [ref=f51e247]: "718"
+                - columnheader "WhatId":
+                  - generic [ref=f51e252]:
+                    - generic "WhatId" [ref=f51e253]
+                    - button "Show WhatId column actions" [ref=f51e255] [cursor=pointer]
+                    - slider "WhatId column width" [ref=f51e261]: "718"
+            - rowgroup [ref=f51e264]:
+              - row [ref=f51e265]:
+                - rowheader "Invite to Company's annual event" [ref=f51e266]
+                - gridcell "001gL00000f5QC3QAM" [ref=f51e270]
+              - row [ref=f51e274]:
+                - rowheader "Invite to Company's annual event" [ref=f51e275]
+                - gridcell "001gL00000f5QC3QAM" [ref=f51e279]
+              - row [ref=f51e283]:
+                - rowheader "Invite to Company's annual event" [ref=f51e284]
+                - gridcell "001gL00000f5QC3QAM" [ref=f51e288]
+              - row [ref=f51e292]:
+                - rowheader "Invite to Company's annual event" [ref=f51e293]
+                - gridcell "001gL00000f5QC3QAM" [ref=f51e297]
+    - generic [ref=f51e303]:
+      - button "Previous" [ref=f51e305] [cursor=pointer]
+      - button "Next" [ref=f51e307] [cursor=pointer]

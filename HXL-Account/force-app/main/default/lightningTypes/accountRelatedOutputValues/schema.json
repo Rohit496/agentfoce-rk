@@ -1,0 +1,27 @@
+{
+  "title": "Account Related Records Output Values",
+  "description": "Payload fields from the AccountWithRelatedRecords response",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": [
+    "mcp"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "summaryLine": {
+      "title": "Summary Line",
+      "lightning:type": "lightning__textType"
+    },
+    "accountCount": {
+      "title": "Account Count",
+      "lightning:type": "lightning__numberType"
+    },
+    "noAccounts": {
+      "title": "No Accounts",
+      "lightning:type": "lightning__booleanType"
+    },
+    "accounts": {
+      "title": "Accounts",
+      "lightning:type": "@apexClassType/c__AccountWithRelatedRecords$AccountRow"
+    }
+  }
+}

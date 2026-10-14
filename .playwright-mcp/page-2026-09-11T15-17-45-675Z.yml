@@ -1,0 +1,50 @@
+- main [ref=f51e3]:
+  - generic [ref=f51e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f51e66]
+    - generic [ref=f51e73]:
+      - generic [ref=f51e80]:
+        - generic [ref=f51e81]: Use Case 2 - Remove Ids
+        - generic [ref=f51e82]: "Source: Get Tasks To Clone (Task collection) → Target: Task collection with no Id"
+        - generic [ref=f51e83]: Every field is mapped across except Id. That makes the records clone-ready for a Create Records element - no SUBSTITUTE formula and no loop.
+      - generic [ref=f51e88]:
+        - status [ref=f51e92]: 4 of 4 items • 0 items selected
+        - generic [ref=f51e95]:
+          - generic: Navigation Mode
+          - grid "4 of 4 items0 items selected" [ref=f51e100]:
+            - rowgroup:
+              - row "Subject Status Priority":
+                - columnheader "Subject":
+                  - generic [ref=f51e103]:
+                    - generic "Subject" [ref=f51e104]
+                    - button "Show Subject column actions" [active] [ref=f51e106] [cursor=pointer]
+                    - slider "Subject column width" [ref=f51e109]: "478"
+                - columnheader "Status":
+                  - generic [ref=f51e114]:
+                    - generic "Status" [ref=f51e115]
+                    - button "Show Status column actions" [ref=f51e117] [cursor=pointer]
+                    - slider "Status column width" [ref=f51e123]: "478"
+                - columnheader "Priority":
+                  - generic [ref=f51e128]:
+                    - generic "Priority" [ref=f51e129]
+                    - button "Show Priority column actions" [ref=f51e131] [cursor=pointer]
+                    - slider "Priority column width" [ref=f51e137]: "478"
+            - rowgroup [ref=f51e140]:
+              - row [ref=f51e141]:
+                - rowheader "Invite to Company's annual event" [ref=f51e142]
+                - gridcell "Not Started" [ref=f51e146]
+                - gridcell "High" [ref=f51e150]
+              - row [ref=f51e154]:
+                - rowheader "Invite to Company's annual event" [ref=f51e155]
+                - gridcell "Not Started" [ref=f51e159]
+                - gridcell "High" [ref=f51e163]
+              - row [ref=f51e167]:
+                - rowheader "Invite to Company's annual event" [ref=f51e168]
+                - gridcell "Not Started" [ref=f51e172]
+                - gridcell "High" [ref=f51e176]
+              - row [ref=f51e180]:
+                - rowheader "Invite to Company's annual event" [ref=f51e181]
+                - gridcell "Not Started" [ref=f51e185]
+                - gridcell "High" [ref=f51e189]
+    - generic [ref=f51e195]:
+      - button "Previous" [ref=f51e197] [cursor=pointer]
+      - button "Next" [ref=f51e199] [cursor=pointer]

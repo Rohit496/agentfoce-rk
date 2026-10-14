@@ -1,0 +1,99 @@
+{
+  "title": "Account Details Output Values",
+  "description": "Payload fields from the AccountDetails response",
+  "lightning:type": "lightning__objectType",
+  "lightning:tags": [
+    "mcp"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "found": {
+      "title": "Found",
+      "lightning:type": "lightning__booleanType"
+    },
+    "notFound": {
+      "title": "Not Found",
+      "lightning:type": "lightning__booleanType"
+    },
+    "searchTerm": {
+      "title": "Search Term",
+      "lightning:type": "lightning__textType"
+    },
+    "accountId": {
+      "title": "Account Id",
+      "lightning:type": "lightning__textType"
+    },
+    "name": {
+      "title": "Name",
+      "lightning:type": "lightning__textType"
+    },
+    "accountNumber": {
+      "title": "Account Number",
+      "lightning:type": "lightning__textType"
+    },
+    "type": {
+      "title": "Type",
+      "lightning:type": "lightning__textType"
+    },
+    "industry": {
+      "title": "Industry",
+      "lightning:type": "lightning__textType"
+    },
+    "rating": {
+      "title": "Rating",
+      "lightning:type": "lightning__textType"
+    },
+    "phone": {
+      "title": "Phone",
+      "lightning:type": "lightning__textType"
+    },
+    "website": {
+      "title": "Website",
+      "lightning:type": "lightning__textType"
+    },
+    "annualRevenue": {
+      "title": "Annual Revenue",
+      "lightning:type": "lightning__textType"
+    },
+    "employees": {
+      "title": "Employees",
+      "lightning:type": "lightning__textType"
+    },
+    "billingAddress": {
+      "title": "Billing Address",
+      "lightning:type": "lightning__textType"
+    },
+    "owner": {
+      "title": "Owner",
+      "lightning:type": "lightning__textType"
+    },
+    "region": {
+      "title": "Region",
+      "lightning:type": "lightning__textType"
+    },
+    "active": {
+      "title": "Active",
+      "lightning:type": "lightning__textType"
+    },
+    "customerPriority": {
+      "title": "Customer Priority",
+      "lightning:type": "lightning__textType"
+    },
+    "priorityColor": {
+      "title": "Priority Color",
+      "lightning:type": "lightning__textType"
+    },
+    "description": {
+      "title": "Description",
+      "lightning:type": "lightning__textType"
+    },
+    "hasPriority": {
+      "title": "Has Priority",
+      "lightning:type": "lightning__booleanType"
+    },
+    "hasDescription": {
+      "title": "Has Description",
+      "lightning:type": "lightning__booleanType"
+    }
+  }
+}

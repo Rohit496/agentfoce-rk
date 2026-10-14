@@ -24,6 +24,9 @@ yarn-error.log*
 # Dependency directories
 node_modules/
 
+# Framework build output
+.next/
+
 # ApexPMD cache
 .pmdCache
 

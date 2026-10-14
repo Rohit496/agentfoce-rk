@@ -1,0 +1,19 @@
+query DistinctLeadStatuses {
+	uiapi {
+		aggregate {
+			Lead(groupBy: { Status: { group: true } }) {
+				edges {
+					node {
+						aggregate @optional {
+							Status @optional {
+								value
+								displayValue
+								label
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

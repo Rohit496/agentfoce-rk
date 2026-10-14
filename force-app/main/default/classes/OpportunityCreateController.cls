@@ -1,7 +1,19 @@
+/**
+ * Controller class for creating Opportunities in Salesforce.
+ * This class provides an invocable method that can be used in flows or other automation tools
+ * to create new Opportunity records based on provided data.
+ */
 public with sharing class OpportunityCreateController {
+    /**
+     * Invocable method to create a new Opportunity record.
+     * This method processes a list of requests and creates opportunities accordingly.
+     * It handles account lookup or creation if an account name is provided.
+     * @param requests List of CreateOpportunityRequest containing opportunity data
+     * @return List of CreateOpportunityResponse with success or error messages
+     */
     @InvocableMethod(
         label='Create Opportunity'
-        description='Creates a new Opportunity record with the name, account name, amount, and close date provided by the user.'
+        description='Creates a new Opportunity record with the name, account name, amount, and close date provided by the user in form Data.'
     )
     public static List<CreateOpportunityResponse> createOpportunity(
         List<CreateOpportunityRequest> requests
@@ -9,6 +21,7 @@ public with sharing class OpportunityCreateController {
         List<CreateOpportunityResponse> responses = new List<CreateOpportunityResponse>();
         CreateOpportunityResponse response = new CreateOpportunityResponse();
 
+        // Validate input requests
         if (requests == null || requests.isEmpty()) {
             response.message = 'No request data provided.';
             responses.add(response);
@@ -16,9 +29,11 @@ public with sharing class OpportunityCreateController {
         }
 
         OpportunityData data = requests[0].oppdata;
+        System.debug('Received Opportunity Data: ' + data);
 
         try {
             Id accountId = null;
+            // Check if account name is provided and find or create the account
             if (String.isNotBlank(data.accountName)) {
                 List<Account> accounts = [
                     SELECT Id
@@ -36,6 +51,7 @@ public with sharing class OpportunityCreateController {
                 }
             }
 
+            // Create the new Opportunity record
             Opportunity opp = new Opportunity(
                 Name = data.opportunityName,
                 AccountId = accountId,
@@ -43,6 +59,7 @@ public with sharing class OpportunityCreateController {
                 CloseDate = data.closeDate,
                 StageName = 'Prospecting'
             );
+            System.debug('Creating Opportunity: ' + opp);
             insert opp;
 
             response.message =
@@ -58,11 +75,19 @@ public with sharing class OpportunityCreateController {
         return responses;
     }
 
+    /**
+     * Wrapper class for the invocable method request.
+     * Contains the opportunity data to be used for creation.
+     */
     public class CreateOpportunityRequest {
         @InvocableVariable(required=true)
         public OpportunityData oppdata;
     }
 
+    /**
+     * Data structure containing the details for creating an Opportunity.
+     * Includes opportunity name, account name, amount, and close date.
+     */
     public class OpportunityData {
         @InvocableVariable(required=true)
         public String opportunityName;
@@ -77,6 +102,10 @@ public with sharing class OpportunityCreateController {
         public Date closeDate;
     }
 
+    /**
+     * Response wrapper class for the invocable method.
+     * Contains a message indicating the result of the operation.
+     */
     public class CreateOpportunityResponse {
         @InvocableVariable
         public String message;

@@ -1,0 +1,73 @@
+- main [ref=f47e3]:
+  - generic [ref=f47e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f47e782]
+    - generic [ref=f47e789]:
+      - generic [ref=f47e796]:
+        - generic [ref=f47e797]: Use Case 5 - Summarize and Build a Title String
+        - generic [ref=f47e798]: "Source: Get Open Opportunities (reused from step 1) → Target: Text collection of formatted titles"
+        - generic [ref=f47e799]: A formula combines Name, Stage and Close Date with fixed text for every row at once.
+      - generic [ref=f47e804]:
+        - status [ref=f47e808]: 25 of 25 items • 0 items selected
+        - generic [ref=f47e811]:
+          - generic: Navigation Mode
+          - grid "25 of 25 items0 items selected" [ref=f47e816]:
+            - rowgroup:
+              - row "Show column actions 1436":
+                - columnheader "Show column actions 1436":
+                  - generic [ref=f47e819]:
+                    - button "Show column actions" [active] [ref=f47e821] [cursor=pointer]
+                    - slider "column width" [ref=f47e824]: "1436"
+            - rowgroup [ref=f47e827]:
+              - row [ref=f47e828]:
+                - rowheader "Dickenson Mobile Generators - Qualification - closes 2025-12-12" [ref=f47e829]
+              - row [ref=f47e833]:
+                - rowheader "United Oil Office Portable Generators - Negotiation/Review - closes 2025-11-30" [ref=f47e834]
+              - row [ref=f47e838]:
+                - rowheader "Grand Hotels Kitchen Generator - Id. Decision Makers - closes 2025-10-21" [ref=f47e839]
+              - row [ref=f47e843]:
+                - rowheader "United Oil Refinery Generators - Proposal/Price Quote - closes 2026-01-14" [ref=f47e844]
+              - row [ref=f47e848]:
+                - rowheader "Grand Hotels Guest Portable Generators - Value Proposition - closes 2026-01-29" [ref=f47e849]
+              - row [ref=f47e853]:
+                - rowheader "Pyramid Emergency Generators - Prospecting - closes 2025-12-08" [ref=f47e854]
+              - row [ref=f47e858]:
+                - rowheader "Express Logistics Portable Truck Generators - Value Proposition - closes 2025-10-24" [ref=f47e859]
+              - row [ref=f47e863]:
+                - rowheader "GenePoint Lab Generators - Id. Decision Makers - closes 2026-01-23" [ref=f47e864]
+              - row [ref=f47e868]:
+                - rowheader "United Oil Installations - Negotiation/Review - closes 2025-11-26" [ref=f47e869]
+              - row [ref=f47e873]:
+                - rowheader "University of AZ Installations - Proposal/Price Quote - closes 2025-10-27" [ref=f47e874]
+              - row [ref=f47e878]:
+                - rowheader "Express Logistics SLA - Perception Analysis - closes 2025-10-25" [ref=f47e879]
+              - row [ref=f47e883]:
+                - rowheader "United Oil Plant Standby Generators - Needs Analysis - closes 2025-12-24" [ref=f47e884]
+              - row [ref=f47e888]:
+                - rowheader "Edge Emergency Generator - Id. Decision Makers - closes 2026-02-04" [ref=f47e889]
+              - row [ref=f47e893]:
+                - rowheader "Dqwrjsldkhgf - Prospecting - closes 2026-02-18" [ref=f47e894]
+              - row [ref=f47e898]:
+                - rowheader "fhghdfg - Prospecting - closes 2026-02-18" [ref=f47e899]
+              - row [ref=f47e903]:
+                - rowheader "fhfghdfg - Prospecting - closes 2026-02-18" [ref=f47e904]
+              - row [ref=f47e908]:
+                - rowheader "fghfgh - Prospecting - closes 2026-02-19" [ref=f47e909]
+              - row [ref=f47e913]:
+                - rowheader "New Opp - Prospecting - closes 2026-02-19" [ref=f47e914]
+              - row [ref=f47e918]:
+                - rowheader "SIAA Enterprises - Mobile Generators - Negotiation/Review - closes 2026-03-31" [ref=f47e919]
+              - row [ref=f47e923]:
+                - rowheader "ABC Deal - Prospecting - closes 2026-04-30" [ref=f47e924]
+              - row [ref=f47e928]:
+                - rowheader "ABC Deal - Prospecting - closes 2026-04-30" [ref=f47e929]
+              - row [ref=f47e933]:
+                - rowheader "ABC - Prospecting - closes 2026-04-30" [ref=f47e934]
+              - row [ref=f47e938]:
+                - rowheader "Demo Opppp - Prospecting - closes 2026-04-11" [ref=f47e939]
+              - row [ref=f47e943]:
+                - rowheader "Test Opp - Prospecting - closes 2026-04-11" [ref=f47e944]
+              - row [ref=f47e948]:
+                - rowheader "Demo12345 - Prospecting - closes 2026-07-09" [ref=f47e949]
+    - generic [ref=f47e955]:
+      - button "Previous" [ref=f47e957] [cursor=pointer]
+      - button "Next" [ref=f47e959] [cursor=pointer]

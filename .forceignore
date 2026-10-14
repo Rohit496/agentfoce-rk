@@ -4,6 +4,9 @@
 
 package.xml
 
+# UI bundle dependencies are not deployable source
+**/node_modules/**
+
 # LWC configuration files
 **/jsconfig.json
 **/.eslintrc.json

@@ -1,0 +1,117 @@
+{
+  "title": "Account Details Widget",
+  "description": "Displays the details of a single account without related records",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "found": {
+          "title": "Found",
+          "description": "True when a matching account was found",
+          "lightning:type": "lightning__booleanType"
+        },
+        "notFound": {
+          "title": "Not Found",
+          "description": "True when no matching account was found",
+          "lightning:type": "lightning__booleanType"
+        },
+        "searchTerm": {
+          "title": "Search Term",
+          "description": "The account name that was searched for",
+          "lightning:type": "lightning__textType"
+        },
+        "name": {
+          "title": "Name",
+          "description": "Account name",
+          "lightning:type": "lightning__textType"
+        },
+        "accountNumber": {
+          "title": "Account Number",
+          "description": "Account number",
+          "lightning:type": "lightning__textType"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Account type",
+          "lightning:type": "lightning__textType"
+        },
+        "industry": {
+          "title": "Industry",
+          "description": "Industry",
+          "lightning:type": "lightning__textType"
+        },
+        "rating": {
+          "title": "Rating",
+          "description": "Account rating",
+          "lightning:type": "lightning__textType"
+        },
+        "phone": {
+          "title": "Phone",
+          "description": "Main phone number",
+          "lightning:type": "lightning__textType"
+        },
+        "website": {
+          "title": "Website",
+          "description": "Website URL",
+          "lightning:type": "lightning__textType"
+        },
+        "annualRevenue": {
+          "title": "Annual Revenue",
+          "description": "Annual revenue, formatted as currency text",
+          "lightning:type": "lightning__textType"
+        },
+        "employees": {
+          "title": "Employees",
+          "description": "Number of employees, formatted as text",
+          "lightning:type": "lightning__textType"
+        },
+        "billingAddress": {
+          "title": "Billing Address",
+          "description": "Billing city, state and country",
+          "lightning:type": "lightning__textType"
+        },
+        "owner": {
+          "title": "Owner",
+          "description": "Account owner name",
+          "lightning:type": "lightning__textType"
+        },
+        "region": {
+          "title": "Region",
+          "description": "Account region",
+          "lightning:type": "lightning__textType"
+        },
+        "active": {
+          "title": "Active",
+          "description": "Whether the account is active",
+          "lightning:type": "lightning__textType"
+        },
+        "customerPriority": {
+          "title": "Customer Priority",
+          "description": "Customer priority",
+          "lightning:type": "lightning__textType"
+        },
+        "priorityColor": {
+          "title": "Priority Color",
+          "description": "Semantic color token for the priority badge",
+          "lightning:type": "lightning__textType"
+        },
+        "description": {
+          "title": "Description",
+          "description": "Account description",
+          "lightning:type": "lightning__textType"
+        },
+        "hasPriority": {
+          "title": "Has Priority",
+          "description": "True when the account has a customer priority",
+          "lightning:type": "lightning__booleanType"
+        },
+        "hasDescription": {
+          "title": "Has Description",
+          "description": "True when the account has a description",
+          "lightning:type": "lightning__booleanType"
+        }
+      }
+    }
+  }
+}

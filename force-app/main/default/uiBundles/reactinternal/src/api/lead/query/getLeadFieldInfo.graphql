@@ -1,0 +1,13 @@
+query GetLeadFieldInfo {
+	uiapi {
+		objectInfos(apiNames: ["Lead"]) {
+			ApiName
+			defaultRecordTypeId
+			fields {
+				ApiName
+				label
+				updateable
+			}
+		}
+	}
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UiWidgetBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Account Details</masterLabel>
+    <description>Displays the details of a single account (no related records).</description>
+    <widgetType>JSON</widgetType>
+</UiWidgetBundle>

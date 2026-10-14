@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is lead creation mcp server to create the lead in salesforce.</description>
+    <masterLabel>Lead Creation</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>fa:flow-MSF_Lead_ATF_Create_Lead</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>MSF_Lead_ATF_Create_Lead</operation>
+        </apiDefinition>
+        <descriptionOverride>Create the lead based on the provided details.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>MSF_Lead_ATF_Create_Leadflow_MSF_Lead_ATF_Create_Lead</toolName>
+        <toolTitle>MSF_Lead_ATF_Create_Lead</toolTitle>
+    </tools>
+</McpServerDefinition>

@@ -1,0 +1,134 @@
+- main [ref=f51e3]:
+  - generic [ref=f51e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f51e525]
+    - generic [ref=f51e532]:
+      - generic [ref=f51e539]:
+        - generic [ref=f51e540]: Use Case 6 - Join Collections
+        - generic [ref=f51e541]: "Sources: Open Opportunities + All Accounts → Target: one merged collection"
+        - generic [ref=f51e542]: An Inner Join matches Opportunity.AccountId to Account.Id, then fields from both sides are mapped into one row. The Account Type column comes from the Account collection - no nested loops.
+      - generic [ref=f51e547]:
+        - status [ref=f51e551]: 25 of 25 items • 0 items selected
+        - generic [ref=f51e554]:
+          - generic: Navigation Mode
+          - grid "25 of 25 items0 items selected" [ref=f51e559]:
+            - rowgroup:
+              - row "Name StageName Type":
+                - columnheader "Name":
+                  - generic [ref=f51e562]:
+                    - generic "Name" [ref=f51e563]
+                    - button "Show Name column actions" [active] [ref=f51e565] [cursor=pointer]
+                    - slider "Name column width" [ref=f51e568]: "478"
+                - columnheader "StageName":
+                  - generic [ref=f51e573]:
+                    - generic "StageName" [ref=f51e574]
+                    - button "Show StageName column actions" [ref=f51e576] [cursor=pointer]
+                    - slider "StageName column width" [ref=f51e582]: "478"
+                - columnheader "Type":
+                  - generic [ref=f51e587]:
+                    - generic "Type" [ref=f51e588]
+                    - button "Show Type column actions" [ref=f51e590] [cursor=pointer]
+                    - slider "Type column width" [ref=f51e596]: "478"
+            - rowgroup [ref=f51e599]:
+              - row [ref=f51e600]:
+                - rowheader "Dickenson Mobile Generators" [ref=f51e601]
+                - gridcell "Qualification" [ref=f51e605]
+                - gridcell "Customer - Channel" [ref=f51e609]
+              - row [ref=f51e613]:
+                - rowheader "United Oil Office Portable Generators" [ref=f51e614]
+                - gridcell "Negotiation/Review" [ref=f51e618]
+                - gridcell "Customer - Direct" [ref=f51e622]
+              - row [ref=f51e626]:
+                - rowheader "Grand Hotels Kitchen Generator" [ref=f51e627]
+                - gridcell "Id. Decision Makers" [ref=f51e631]
+                - gridcell "Customer - Direct" [ref=f51e635]
+              - row [ref=f51e639]:
+                - rowheader "United Oil Refinery Generators" [ref=f51e640]
+                - gridcell "Proposal/Price Quote" [ref=f51e644]
+                - gridcell "Customer - Direct" [ref=f51e648]
+              - row [ref=f51e652]:
+                - rowheader "Grand Hotels Guest Portable Generators" [ref=f51e653]
+                - gridcell "Value Proposition" [ref=f51e657]
+                - gridcell "Customer - Direct" [ref=f51e661]
+              - row [ref=f51e665]:
+                - rowheader "Pyramid Emergency Generators" [ref=f51e666]
+                - gridcell "Prospecting" [ref=f51e670]
+                - gridcell "Customer - Channel" [ref=f51e674]
+              - row [ref=f51e678]:
+                - rowheader "Express Logistics Portable Truck Generators" [ref=f51e679]
+                - gridcell "Value Proposition" [ref=f51e683]
+                - gridcell "Customer - Channel" [ref=f51e687]
+              - row [ref=f51e691]:
+                - rowheader "GenePoint Lab Generators" [ref=f51e692]
+                - gridcell "Id. Decision Makers" [ref=f51e696]
+                - gridcell "Customer - Channel" [ref=f51e700]
+              - row [ref=f51e704]:
+                - rowheader "United Oil Installations" [ref=f51e705]
+                - gridcell "Negotiation/Review" [ref=f51e709]
+                - gridcell "Customer - Direct" [ref=f51e713]
+              - row [ref=f51e717]:
+                - rowheader "University of AZ Installations" [ref=f51e718]
+                - gridcell "Proposal/Price Quote" [ref=f51e722]
+                - gridcell "Customer - Direct" [ref=f51e726]
+              - row [ref=f51e730]:
+                - rowheader "Express Logistics SLA" [ref=f51e731]
+                - gridcell "Perception Analysis" [ref=f51e735]
+                - gridcell "Customer - Channel" [ref=f51e739]
+              - row [ref=f51e743]:
+                - rowheader "United Oil Plant Standby Generators" [ref=f51e744]
+                - gridcell "Needs Analysis" [ref=f51e748]
+                - gridcell "Customer - Direct" [ref=f51e752]
+              - row [ref=f51e756]:
+                - rowheader "Edge Emergency Generator" [ref=f51e757]
+                - gridcell "Id. Decision Makers" [ref=f51e761]
+                - gridcell "Customer - Direct" [ref=f51e765]
+              - row [ref=f51e769]:
+                - rowheader "Dqwrjsldkhgf" [ref=f51e770]
+                - gridcell "Prospecting" [ref=f51e774]
+                - gridcell [ref=f51e778]
+              - row [ref=f51e779]:
+                - rowheader "fhghdfg" [ref=f51e780]
+                - gridcell "Prospecting" [ref=f51e784]
+                - gridcell [ref=f51e788]
+              - row [ref=f51e789]:
+                - rowheader "fhfghdfg" [ref=f51e790]
+                - gridcell "Prospecting" [ref=f51e794]
+                - gridcell [ref=f51e798]
+              - row [ref=f51e799]:
+                - rowheader "fghfgh" [ref=f51e800]
+                - gridcell "Prospecting" [ref=f51e804]
+                - gridcell [ref=f51e808]
+              - row [ref=f51e809]:
+                - rowheader "New Opp" [ref=f51e810]
+                - gridcell "Prospecting" [ref=f51e814]
+                - gridcell [ref=f51e818]
+              - row [ref=f51e819]:
+                - rowheader "SIAA Enterprises - Mobile Generators" [ref=f51e820]
+                - gridcell "Negotiation/Review" [ref=f51e824]
+                - gridcell "Technology Partner" [ref=f51e828]
+              - row [ref=f51e832]:
+                - rowheader "ABC Deal" [ref=f51e833]
+                - gridcell "Prospecting" [ref=f51e837]
+                - gridcell [ref=f51e841]
+              - row [ref=f51e842]:
+                - rowheader "ABC Deal" [ref=f51e843]
+                - gridcell "Prospecting" [ref=f51e847]
+                - gridcell [ref=f51e851]
+              - row [ref=f51e852]:
+                - rowheader "ABC" [ref=f51e853]
+                - gridcell "Prospecting" [ref=f51e857]
+                - gridcell [ref=f51e861]
+              - row [ref=f51e862]:
+                - rowheader "Demo Opppp" [ref=f51e863]
+                - gridcell "Prospecting" [ref=f51e867]
+                - gridcell [ref=f51e871]
+              - row [ref=f51e872]:
+                - rowheader "Test Opp" [ref=f51e873]
+                - gridcell "Prospecting" [ref=f51e877]
+                - gridcell [ref=f51e881]
+              - row [ref=f51e882]:
+                - rowheader "Demo12345" [ref=f51e883]
+                - gridcell "Prospecting" [ref=f51e887]
+                - gridcell [ref=f51e891]
+    - generic [ref=f51e894]:
+      - button "Previous" [ref=f51e896] [cursor=pointer]
+      - button "Finish" [ref=f51e898] [cursor=pointer]

@@ -1,0 +1,130 @@
+- main [ref=f47e3]:
+  - generic [ref=f47e4]:
+    - heading "Transform Element Showcase" [level=2] [ref=f47e66]
+    - generic [ref=f47e73]:
+      - generic [ref=f47e80]:
+        - generic [ref=f47e81]: Use Case 2 - Remove Ids
+        - generic [ref=f47e82]: "Source: Get Tasks To Clone (Task collection) → Target: Task collection with no Id"
+        - generic [ref=f47e83]: Every field is mapped across except Id. That makes the records clone-ready for a Create Records element - no SUBSTITUTE formula and no loop.
+      - generic [ref=f47e88]:
+        - status [ref=f47e92]: 24 of 24 items • 0 items selected
+        - generic [ref=f47e95]:
+          - generic: Navigation Mode
+          - grid "24 of 24 items0 items selected" [ref=f47e100]:
+            - rowgroup:
+              - row "Subject Status Priority":
+                - columnheader "Subject":
+                  - generic [ref=f47e103]:
+                    - generic "Subject" [ref=f47e104]
+                    - button "Show Subject column actions" [active] [ref=f47e106] [cursor=pointer]
+                    - slider "Subject column width" [ref=f47e109]: "478"
+                - columnheader "Status":
+                  - generic [ref=f47e114]:
+                    - generic "Status" [ref=f47e115]
+                    - button "Show Status column actions" [ref=f47e117] [cursor=pointer]
+                    - slider "Status column width" [ref=f47e123]: "478"
+                - columnheader "Priority":
+                  - generic [ref=f47e128]:
+                    - generic "Priority" [ref=f47e129]
+                    - button "Show Priority column actions" [ref=f47e131] [cursor=pointer]
+                    - slider "Priority column width" [ref=f47e137]: "478"
+            - rowgroup [ref=f47e140]:
+              - row [ref=f47e141]:
+                - rowheader "Invite to Company's annual event" [ref=f47e142]
+                - gridcell "Not Started" [ref=f47e146]
+                - gridcell "High" [ref=f47e150]
+              - row [ref=f47e154]:
+                - rowheader "Invite to Company's annual event" [ref=f47e155]
+                - gridcell "Not Started" [ref=f47e159]
+                - gridcell "High" [ref=f47e163]
+              - row [ref=f47e167]:
+                - rowheader "Invite to Company's annual event" [ref=f47e168]
+                - gridcell "Not Started" [ref=f47e172]
+                - gridcell "High" [ref=f47e176]
+              - row [ref=f47e180]:
+                - rowheader "Invite to Company's annual event" [ref=f47e181]
+                - gridcell "Not Started" [ref=f47e185]
+                - gridcell "High" [ref=f47e189]
+              - row [ref=f47e193]:
+                - rowheader "Invite to Company's annual event" [ref=f47e194]
+                - gridcell "Not Started" [ref=f47e198]
+                - gridcell "High" [ref=f47e202]
+              - row [ref=f47e206]:
+                - rowheader "Invite to Company's annual event" [ref=f47e207]
+                - gridcell "Not Started" [ref=f47e211]
+                - gridcell "High" [ref=f47e215]
+              - row [ref=f47e219]:
+                - rowheader "Invite to Company's annual event" [ref=f47e220]
+                - gridcell "Not Started" [ref=f47e224]
+                - gridcell "High" [ref=f47e228]
+              - row [ref=f47e232]:
+                - rowheader "Invite to Company's annual event" [ref=f47e233]
+                - gridcell "Not Started" [ref=f47e237]
+                - gridcell "High" [ref=f47e241]
+              - row [ref=f47e245]:
+                - rowheader "Invite to Company's annual event" [ref=f47e246]
+                - gridcell "Not Started" [ref=f47e250]
+                - gridcell "High" [ref=f47e254]
+              - row [ref=f47e258]:
+                - rowheader "Invite to Company's annual event" [ref=f47e259]
+                - gridcell "Not Started" [ref=f47e263]
+                - gridcell "High" [ref=f47e267]
+              - row [ref=f47e271]:
+                - rowheader "Invite to Company's annual event" [ref=f47e272]
+                - gridcell "Not Started" [ref=f47e276]
+                - gridcell "High" [ref=f47e280]
+              - row [ref=f47e284]:
+                - rowheader "Invite to Company's annual event" [ref=f47e285]
+                - gridcell "Not Started" [ref=f47e289]
+                - gridcell "High" [ref=f47e293]
+              - row [ref=f47e297]:
+                - rowheader "Invite to Company's annual event" [ref=f47e298]
+                - gridcell "Not Started" [ref=f47e302]
+                - gridcell "High" [ref=f47e306]
+              - row [ref=f47e310]:
+                - rowheader "Invite to Company's annual event" [ref=f47e311]
+                - gridcell "Not Started" [ref=f47e315]
+                - gridcell "High" [ref=f47e319]
+              - row [ref=f47e323]:
+                - rowheader "Invite to Company's annual event" [ref=f47e324]
+                - gridcell "Not Started" [ref=f47e328]
+                - gridcell "High" [ref=f47e332]
+              - row [ref=f47e336]:
+                - rowheader "Invite to Company's annual event" [ref=f47e337]
+                - gridcell "Not Started" [ref=f47e341]
+                - gridcell "High" [ref=f47e345]
+              - row [ref=f47e349]:
+                - rowheader "Invite to Company's annual event" [ref=f47e350]
+                - gridcell "Not Started" [ref=f47e354]
+                - gridcell "High" [ref=f47e358]
+              - row [ref=f47e362]:
+                - rowheader "Invite to Company's annual event" [ref=f47e363]
+                - gridcell "Not Started" [ref=f47e367]
+                - gridcell "High" [ref=f47e371]
+              - row [ref=f47e375]:
+                - rowheader "Invite to Company's annual event" [ref=f47e376]
+                - gridcell "Not Started" [ref=f47e380]
+                - gridcell "High" [ref=f47e384]
+              - row [ref=f47e388]:
+                - rowheader "Invite to Company's annual event" [ref=f47e389]
+                - gridcell "Not Started" [ref=f47e393]
+                - gridcell "High" [ref=f47e397]
+              - row [ref=f47e401]:
+                - rowheader "Invite to Company's annual event" [ref=f47e402]
+                - gridcell "Not Started" [ref=f47e406]
+                - gridcell "High" [ref=f47e410]
+              - row [ref=f47e414]:
+                - rowheader "Invite to Company's annual event" [ref=f47e415]
+                - gridcell "Not Started" [ref=f47e419]
+                - gridcell "High" [ref=f47e423]
+              - row [ref=f47e427]:
+                - rowheader "Invite to Company's annual event" [ref=f47e428]
+                - gridcell "Not Started" [ref=f47e432]
+                - gridcell "High" [ref=f47e436]
+              - row [ref=f47e440]:
+                - rowheader "Invite to Company's annual event" [ref=f47e441]
+                - gridcell "Not Started" [ref=f47e445]
+                - gridcell "High" [ref=f47e449]
+    - generic [ref=f47e455]:
+      - button "Previous" [ref=f47e457] [cursor=pointer]
+      - button "Next" [ref=f47e459] [cursor=pointer]

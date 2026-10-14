@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>HXL MCP Server for Account and its related Contacts, Cases and Opportunities</description>
+    <masterLabel>HXL Account MCP Server</masterLabel>
+    <resources>
+        <resourceName>accountDetailsWidget</resourceName>
+        <resourceUri>ui://widget/lightningType/c__accountDetailsResult</resourceUri>
+        <resourceTitle>Account Details Widget</resourceTitle>
+        <description>Renders the details of a single account as a card.</description>
+    </resources>
+    <resources>
+        <resourceName>accountRelatedWidget</resourceName>
+        <resourceUri>ui://widget/lightningType/c__accountRelatedResult</resourceUri>
+        <resourceTitle>Account Related Records Widget</resourceTitle>
+        <description>Renders accounts in an accordion with their related contacts, cases and opportunities.</description>
+    </resources>
+
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-AccountDetails</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>AccountDetails</operation>
+        </apiDefinition>
+        <descriptionOverride>Return ONLY the details of one account (no contacts, cases or opportunities) given its name. Use when the user asks for the details of an account, for example &quot;show me the details of account Acme&quot;. Do not use when the user asks for related records. IMPORTANT: A widget already shows all returned data to the user. Do NOT repeat, summarize, list or tabulate it in your reply. Reply with nothing or at most one short sentence.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>true</returnDirect>
+        <toolName>AccountDetailsapex_AccountDetails</toolName>
+        <toolTitle>AccountDetails</toolTitle>
+        <uiResource>accountDetailsWidget</uiResource>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-AccountWithRelatedRecords</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>AccountWithRelatedRecords</operation>
+        </apiDefinition>
+        <descriptionOverride>Return accounts along with their related contacts, cases and opportunities, rendered as an accordion. Use when the user asks for an account and its related records, for example &quot;show me the account Acme and its related records&quot; or &quot;show all accounts with their contacts, cases and opportunities&quot;. Leave the account name blank to return all accounts. IMPORTANT: A widget already shows all returned data to the user. Do NOT repeat, summarize, list or tabulate it in your reply. Reply with nothing or at most one short sentence.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>true</returnDirect>
+        <toolName>AccountWithRelatedRecordsapex_AccountWithRelatedRecords</toolName>
+        <toolTitle>AccountWithRelatedRecords</toolTitle>
+        <uiResource>accountRelatedWidget</uiResource>
+    </tools>
+</McpServerDefinition>

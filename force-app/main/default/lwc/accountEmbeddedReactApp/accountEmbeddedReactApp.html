@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Account Insights (React)" icon-name="standard:account">
+        <div class="slds-var-p-horizontal_small">
+            <template lwc:if={errorMessage}>
+                <div class="error-banner" role="alert">
+                    <lightning-icon
+                        icon-name="utility:error"
+                        alternative-text="Error"
+                        size="x-small"
+                        variant="inverse"
+                    ></lightning-icon>
+                    <p>{errorMessage}</p>
+                </div>
+            </template>
+            <template lwc:if={isLoading}>
+                <lightning-spinner
+                    alternative-text="Loading embedded React app"
+                    size="small"
+                ></lightning-spinner>
+            </template>
+            <lightning-ui-embedding
+                lwc:ref="embedding"
+                src={computedSrc}
+                title="Account Insights (React)"
+                sandbox="allow-popups"
+                props={account}
+                onratingchange={handleRatingChange}
+            ></lightning-ui-embedding>
+        </div>
+    </lightning-card>
+</template>

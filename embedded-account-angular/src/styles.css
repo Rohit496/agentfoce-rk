@@ -1,0 +1,215 @@
+:root {
+  color-scheme: light;
+  /* SLDS 2 global styling hooks, mirrored from Salesforce, with fallbacks for standalone use. */
+  --app-text: var(--slds-g-color-on-surface-2, #181818);
+  --app-muted: var(--slds-g-color-on-surface-1, #5c5c5c);
+  --app-border: var(--slds-g-color-border-1, #e5e5e5);
+  --app-brand: var(--slds-g-color-accent-1, #0176d3);
+  --app-surface: var(--slds-g-color-surface-1, #ffffff);
+  --app-success: var(--slds-g-color-success-1, #2e844a);
+  --app-warning: var(--slds-g-color-warning-1, #a96404);
+  --app-highlight: #fff3bf;
+
+  /* Rating tones: strong colour for text/fill, soft colour for hover/pill backgrounds. */
+  --rating-hot: #ba0517;
+  --rating-hot-soft: #feded8;
+  --rating-warm: #a96404;
+  --rating-warm-soft: #fef1d7;
+  --rating-cold: #0b5cab;
+  --rating-cold-soft: #d8e6fe;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: var(--slds-g-font-scale-1, 0.875rem);
+  color: var(--app-text);
+  background: var(--app-surface);
+}
+
+/* Angular component host elements are inline by default. */
+app-root,
+app-account-details,
+app-rating-picker {
+  display: block;
+}
+
+/* ---------- Layout and rating accent ---------- */
+
+.app {
+  --accent: var(--app-border);
+  padding: 0.75rem;
+  border-top: var(--slds-g-sizing-border-4, 4px) solid var(--accent);
+  transition: border-color 0.3s ease;
+}
+.app[data-rating='hot'] { --accent: var(--rating-hot); }
+.app[data-rating='warm'] { --accent: var(--rating-warm); }
+.app[data-rating='cold'] { --accent: var(--rating-cold); }
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  padding: 0.0625rem 0.5rem;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+  background: var(--app-brand);
+  color: var(--app-surface);
+  font-size: var(--slds-g-font-scale-neg-1, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--app-muted);
+}
+.status-dot.is-connected {
+  background: var(--app-success);
+  box-shadow: 0 0 0 3px rgb(46 132 74 / 0.2);
+}
+
+.status, .updates {
+  color: var(--app-muted);
+  font-size: var(--slds-g-font-scale-neg-1, 0.75rem);
+  margin: 0;
+}
+
+.name {
+  font-size: var(--slds-g-font-scale-4, 1.25rem);
+  margin: 0 0 0.75rem;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+}
+
+/* ---------- Fields ---------- */
+
+.fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.375rem 1.25rem;
+  margin: 0 0 1rem;
+}
+.fields dt { color: var(--app-muted); }
+.fields dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  border-radius: var(--slds-g-radius-border-2, 0.25rem);
+}
+.fields a {
+  color: var(--app-brand);
+  text-decoration: none;
+}
+.fields a:hover { text-decoration: underline; }
+
+.is-changed { animation: field-flash 1.6s ease-out; }
+
+@keyframes field-flash {
+  0%, 30% { background: var(--app-highlight); box-shadow: 0 0 0 4px var(--app-highlight); }
+  100% { background: transparent; box-shadow: 0 0 0 4px transparent; }
+}
+
+.pill {
+  --tone: var(--app-brand);
+  --tone-soft: transparent;
+  display: inline-block;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--tone-soft);
+  color: var(--tone);
+  font-weight: 600;
+}
+
+/* ---------- Rating buttons ---------- */
+
+.rating--hot, .pill--hot { --tone: var(--rating-hot); --tone-soft: var(--rating-hot-soft); }
+.rating--warm, .pill--warm { --tone: var(--rating-warm); --tone-soft: var(--rating-warm-soft); }
+.rating--cold, .pill--cold { --tone: var(--rating-cold); --tone-soft: var(--rating-cold-soft); }
+
+.actions {
+  border: var(--slds-g-sizing-border-1, 1px) solid var(--app-border);
+  border-radius: var(--slds-g-radius-border-3, 0.5rem);
+  padding: 0.5rem 0.75rem 0.75rem;
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.actions legend { color: var(--app-muted); padding: 0 0.25rem; }
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+  min-width: 7.5rem;
+  padding: 0.5rem 0.875rem;
+  border: var(--slds-g-sizing-border-2, 2px) solid var(--tone);
+  border-radius: var(--slds-g-radius-border-3, 0.5rem);
+  background: transparent;
+  color: var(--tone);
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.rating:hover:not(:disabled) {
+  background: var(--tone-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.12);
+}
+.rating:active:not(:disabled) { transform: translateY(0); box-shadow: none; }
+.rating:focus-visible { outline: 2px solid var(--tone); outline-offset: 2px; }
+
+.rating.is-current {
+  background: var(--tone);
+  color: var(--slds-g-color-on-accent-1, #ffffff);
+  cursor: default;
+}
+.rating.is-current:hover { transform: none; box-shadow: none; background: var(--tone); }
+
+.rating:disabled { cursor: not-allowed; opacity: 0.5; }
+.rating.is-current:disabled,
+.rating.is-pending:disabled { opacity: 1; }
+.rating.is-pending { animation: pending-pulse 1s ease-in-out infinite; }
+
+@keyframes pending-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--tone-soft); }
+  50% { box-shadow: 0 0 0 6px var(--tone-soft); }
+}
+
+.rating__title {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+.rating__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+.rating__hint { font-size: var(--slds-g-font-scale-neg-1, 0.75rem); opacity: 0.85; }
+
+/* ---------- Feedback ---------- */
+
+.feedback {
+  min-height: 1.25rem;
+  margin: 0.5rem 0 0.25rem;
+  font-size: var(--slds-g-font-size-base, 0.8125rem);
+  font-weight: 600;
+}
+.feedback--success { color: var(--app-success); }
+.feedback--warning { color: var(--app-warning); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
