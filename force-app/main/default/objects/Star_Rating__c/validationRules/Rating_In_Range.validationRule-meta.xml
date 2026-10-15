@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rating_In_Range</fullName>
+    <active>true</active>
+    <description
+    >Rating is required and must be between 1 and Max Rating (5 when Max Rating is blank).</description>
+    <errorConditionFormula
+    >OR(ISBLANK(Rating__c), Rating__c &lt; 1, Rating__c &gt; BLANKVALUE(Max_Rating__c, 5))</errorConditionFormula>
+    <errorDisplayField>Rating__c</errorDisplayField>
+    <errorMessage
+    >Rating must be between 1 and the maximum rating.</errorMessage>
+</ValidationRule>

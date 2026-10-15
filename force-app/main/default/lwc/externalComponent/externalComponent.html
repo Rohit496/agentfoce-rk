@@ -11,8 +11,10 @@
             </p>
 
             <template lwc:if={libraryLoaded}>
+                <!-- Star colour by rating: 1-2 red, 3 yellow, 4-5 green. -->
                 <w27-rating-stars
                     lwc:external
+                    class="{rating >= 4 ? 'rating_high' : rating === 3 ? 'rating_medium' : 'rating_low'}"
                     value={rating}
                     max={max}
                     label="Product rating"
@@ -27,6 +29,26 @@
                     LWC state: rating = <strong>{rating}</strong> / {max}
                     {rating >= 4 ? ' 🔥' : ''}
                 </p>
+
+                <div
+                    class="slds-text-body_small slds-var-m-top_x-small"
+                    aria-live="polite"
+                    data-id="save-status"
+                >
+                    <template lwc:if={isSaving}>
+                        <span class="slds-text-color_weak">Saving rating…</span>
+                    </template>
+                    <template lwc:elseif={saveError}>
+                        <span class="slds-text-color_error" role="alert"
+                            >Not saved: {saveError}</span
+                        >
+                    </template>
+                    <template lwc:else>
+                        <span class="slds-text-color_weak"
+                            >Click a star to save a rating.</span
+                        >
+                    </template>
+                </div>
             </template>
             <template lwc:elseif={errorMessage}>
                 <div class="slds-text-color_error" role="alert">

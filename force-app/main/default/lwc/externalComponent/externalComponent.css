@@ -1,7 +1,19 @@
 /* Layout and type use SLDS utility classes in the template.
    Star colours flow into the third-party shadow root through its CSS custom properties. */
 :host {
-    --w27-star-color: var(--slds-g-color-palette-orange-70, #fe9339);
     --w27-star-empty-color: var(--slds-g-color-neutral-base-80, #c9c9c9);
     --w27-star-focus-color: var(--slds-g-color-accent-1, #0176d3);
+}
+
+/* Filled-star colour by rating (set in the template): 1-2 red, 3 yellow, 4-5 green. */
+.rating_low {
+    --w27-star-color: var(--slds-g-color-palette-red-50, #ea001e);
+}
+
+.rating_medium {
+    --w27-star-color: var(--slds-g-color-palette-yellow-70, #fcc003);
+}
+
+.rating_high {
+    --w27-star-color: var(--slds-g-color-palette-green-60, #3ba755);
 }

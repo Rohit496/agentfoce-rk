@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Record__c</fullName>
+    <description
+    >Clickable link (opens in a new tab) to the record the rating was given on, for any object. Shows only the object name (e.g. Account); the record Id is used behind the scenes. Ratings saved before Related Object existed get the name from the Id prefix of common standard objects, else "Record".</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  ISBLANK(Related_Record_Id__c),
+  &quot;&quot;,
+  HYPERLINK(
+    &quot;/&quot; &amp; Related_Record_Id__c,
+    IF(
+      ISBLANK(Related_Object__c),
+      CASE(
+        LEFT(Related_Record_Id__c, 3),
+        &quot;001&quot;, &quot;Account&quot;,
+        &quot;003&quot;, &quot;Contact&quot;,
+        &quot;006&quot;, &quot;Opportunity&quot;,
+        &quot;500&quot;, &quot;Case&quot;,
+        &quot;00Q&quot;, &quot;Lead&quot;,
+        &quot;Record&quot;
+      ),
+      SUBSTITUTE(SUBSTITUTE(Related_Object__c, &quot;__c&quot;, &quot;&quot;), &quot;_&quot;, &quot; &quot;)
+    ),
+    &quot;_blank&quot;
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Related Record</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

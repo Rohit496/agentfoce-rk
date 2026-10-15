@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rated_At__c</fullName>
+    <defaultValue>NOW()</defaultValue>
+    <description
+    >When the record was first rated (server time). Later ratings update the same record; Last Modified Date is the time of the latest rating.</description>
+    <externalId>false</externalId>
+    <label>First Rated At</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

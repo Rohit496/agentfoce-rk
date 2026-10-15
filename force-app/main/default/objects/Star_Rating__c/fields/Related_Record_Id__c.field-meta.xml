@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Record_Id__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description
+    >Id of the record page the rating was given on (e.g. an Account). Unique: each record has at most one Star Rating, which later ratings update. Blank on app and home pages.</description>
+    <externalId>false</externalId>
+    <label>Related Record Id</label>
+    <length>18</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>
