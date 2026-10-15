@@ -9,25 +9,27 @@
 
         <div class="slds-var-p-horizontal_medium">
             <!-- Template literal -->
-            <p class="greeting">{`Hello, ${firstName} ${lastName}!`}</p>
+            <p class="slds-text-heading_small">
+                {`Hello, ${firstName} ${lastName}!`}
+            </p>
 
             <!-- Ternary -->
-            <p class="status">{isLoggedIn ? 'Welcome back!' : 'Please log in'}</p>
+            <p>{isLoggedIn ? 'Welcome back!' : 'Please log in'}</p>
 
             <!-- Optional chaining + nullish coalescing -->
-            <p class="status">Theme: {user?.profile?.settings?.theme ?? 'default'}</p>
+            <p>Theme: {user?.profile?.settings?.theme ?? 'default'}</p>
 
             <!-- Array methods -->
-            <p class="summary">
+            <p class="slds-text-color_weak slds-var-m-top_x-small">
                 In-stock: {items.filter(item => item.qty > 0).length} of
                 {items.length}
             </p>
 
-            <ul class="item-list">
+            <ul class="slds-p-around_none slds-var-m-top_small">
                 <template for:each={items} for:item="item">
                     <li
                         key={item.name}
-                        class="{item.qty > 0 ? 'item item_in-stock' : 'item item_out-of-stock'}"
+                        class="{item.qty > 0 ? 'item slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-var-p-vertical_x-small slds-var-p-horizontal_small slds-var-m-bottom_xx-small' : 'item item_out-of-stock slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-var-p-vertical_x-small slds-var-p-horizontal_small slds-var-m-bottom_xx-small'}"
                     >
                         <span>{item.name}</span>
                         <span class="item-qty">{item.qty}</span>

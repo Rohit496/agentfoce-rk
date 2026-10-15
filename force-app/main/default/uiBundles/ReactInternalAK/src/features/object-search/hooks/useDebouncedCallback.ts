@@ -11,24 +11,24 @@ import { debounce, FILTER_DEBOUNCE_MS } from "../utils/debounce";
  * @param fn - The callback to debounce.
  * @param delay - Debounce delay in ms. Defaults to `FILTER_DEBOUNCE_MS`.
  */
-export function useDebouncedCallback<T extends (...args: any[]) => void>(
-	fn: T,
+export function useDebouncedCallback<A extends unknown[]>(
+	fn: (...args: A) => void,
 	delay: number = FILTER_DEBOUNCE_MS,
-): (...args: Parameters<T>) => void {
+): (...args: A) => void {
 	const fnRef = useRef(fn);
-	const debouncedRef = useRef<((...args: any[]) => void) | null>(null);
+	const debouncedRef = useRef<((...args: A) => void) | null>(null);
 
 	useEffect(() => {
 		fnRef.current = fn;
 	});
 
 	useEffect(() => {
-		debouncedRef.current = debounce((...args: any[]) => {
-			fnRef.current(...(args as Parameters<T>));
+		debouncedRef.current = debounce((...args: A) => {
+			fnRef.current(...args);
 		}, delay);
 	}, [delay]);
 
-	return useCallback((...args: Parameters<T>) => {
+	return useCallback((...args: A) => {
 		debouncedRef.current?.(...args);
 	}, []);
 }

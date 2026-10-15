@@ -1,30 +1,30 @@
-@IsTest(SeeAllData = true)
+@IsTest
 public with sharing class LightningLoginFormControllerTest {
 
  @IsTest
  static void LightningLoginFormControllerInstantiation() {
   LightningLoginFormController controller = new LightningLoginFormController();
-  System.assertNotEquals(controller, null);
+  Assert.isNotNull(controller, 'Expected a value (not null): controller');
  }
 
  @IsTest
  static void testIsUsernamePasswordEnabled() {
-  System.assertEquals(true, LightningLoginFormController.getIsUsernamePasswordEnabled());
+  Assert.isTrue(LightningLoginFormController.getIsUsernamePasswordEnabled(), 'Expected true: LightningLoginFormController.getIsUsernamePasswordEnabled()');
  }
 
  @IsTest
  static void testIsSelfRegistrationEnabled() {
-  System.assertEquals(false, LightningLoginFormController.getIsSelfRegistrationEnabled());
+  Assert.isFalse(LightningLoginFormController.getIsSelfRegistrationEnabled(), 'Expected false: LightningLoginFormController.getIsSelfRegistrationEnabled()');
  }
 
  @IsTest
  static void testGetSelfRegistrationURL() {
-  System.assertEquals(null, LightningLoginFormController.getSelfRegistrationUrl());
+  Assert.isNull(LightningLoginFormController.getSelfRegistrationUrl(), 'Expected null: LightningLoginFormController.getSelfRegistrationUrl()');
  }
 
  @IsTest
  static void testAuthConfig() {
   Auth.AuthConfiguration authConfig = LightningLoginFormController.getAuthConfig();
-  System.assertNotEquals(null, authConfig);
+  Assert.isNotNull(authConfig, 'Expected a value (not null): authConfig');
  }
 }

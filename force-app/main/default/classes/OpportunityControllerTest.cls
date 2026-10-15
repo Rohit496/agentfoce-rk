@@ -2,8 +2,9 @@
 private class OpportunityControllerTest {
     @TestSetup
     static void setupTestData() {
-        Account testAccount1 = new Account(Name = 'Acme Corp');
-        Account testAccount2 = new Account(Name = 'Global Industries');
+        // The org requires Account.Type (custom validation rule), so test Accounts must set it.
+        Account testAccount1 = new Account(Name = 'Acme Corp', Type = 'Customer - Direct');
+        Account testAccount2 = new Account(Name = 'Global Industries', Type = 'Customer - Direct');
         insert new List<Account>{ testAccount1, testAccount2 };
 
         List<Opportunity> opportunities = new List<Opportunity>{
@@ -41,22 +42,11 @@ private class OpportunityControllerTest {
             new List<OpportunityController.OpportunityRequest>{ request }
         );
 
-        System.assertEquals(
-            1,
-            responses.size(),
-            'Should return one response wrapper'
-        );
-        System.assertEquals(
-            2,
-            responses[0].opportunityOptions.size(),
-            'Should find two opportunities matching name'
-        );
-        System.assert(
-            responses[0]
+        Assert.areEqual(1, responses.size(), 'Should return one response wrapper');
+        Assert.areEqual(2, responses[0].opportunityOptions.size(), 'Should find two opportunities matching name');
+        Assert.isTrue(responses[0]
                 .opportunityOptions[0]
-                .name.contains('Enterprise'),
-            'First result should contain Enterprise'
-        );
+                .name.contains('Enterprise'), 'First result should contain Enterprise');
     }
 
     @isTest
@@ -68,12 +58,8 @@ private class OpportunityControllerTest {
             new List<OpportunityController.OpportunityRequest>{ request }
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            0,
-            responses[0].opportunityOptions.size(),
-            'Should return no opportunities for unmatched name'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(0, responses[0].opportunityOptions.size(), 'Should return no opportunities for unmatched name');
     }
 
     @isTest
@@ -85,12 +71,8 @@ private class OpportunityControllerTest {
             new List<OpportunityController.OpportunityRequest>{ request }
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            3,
-            responses[0].opportunityOptions.size(),
-            'Should return all opportunities when name is blank'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(3, responses[0].opportunityOptions.size(), 'Should return all opportunities when name is blank');
     }
 
     @isTest
@@ -102,12 +84,8 @@ private class OpportunityControllerTest {
             new List<OpportunityController.OpportunityRequest>{ request }
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            3,
-            responses[0].opportunityOptions.size(),
-            'Should return all opportunities when name is null'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(3, responses[0].opportunityOptions.size(), 'Should return all opportunities when name is null');
     }
 
     @isTest
@@ -116,12 +94,8 @@ private class OpportunityControllerTest {
             null
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            3,
-            responses[0].opportunityOptions.size(),
-            'Should return all opportunities when request is null'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(3, responses[0].opportunityOptions.size(), 'Should return all opportunities when request is null');
     }
 
     @isTest
@@ -130,12 +104,8 @@ private class OpportunityControllerTest {
             new List<OpportunityController.OpportunityRequest>()
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            3,
-            responses[0].opportunityOptions.size(),
-            'Should return all opportunities when request list is empty'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(3, responses[0].opportunityOptions.size(), 'Should return all opportunities when request list is empty');
     }
 
     @isTest
@@ -149,11 +119,11 @@ private class OpportunityControllerTest {
 
         OpportunityController.OpportunityDetail opp = responses[0]
             .opportunityOptions[0];
-        System.assertNotEquals(null, opp.id, 'Id should be populated');
-        System.assertEquals('Small Business Package', opp.name);
-        System.assertEquals('Global Industries', opp.accountName);
-        System.assertEquals(25000, opp.amount);
-        System.assertNotEquals(null, opp.closeDate);
+        Assert.isNotNull(opp.id, 'Id should be populated');
+        Assert.areEqual('Small Business Package', opp.name, 'Expected opp.name to equal \'Small Business Package\'');
+        Assert.areEqual('Global Industries', opp.accountName, 'Expected opp.accountName to equal \'Global Industries\'');
+        Assert.areEqual(25000, opp.amount, 'Expected opp.amount to equal 25000');
+        Assert.isNotNull(opp.closeDate, 'Expected a value (not null): opp.closeDate');
     }
 
     @isTest
@@ -166,13 +136,10 @@ private class OpportunityControllerTest {
 
         List<OpportunityController.OpportunityDetail> opps = responses[0]
             .opportunityOptions;
-        System.assertEquals(3, opps.size());
+        Assert.areEqual(3, opps.size(), 'Expected opps.size() to equal 3');
 
         for (Integer i = 0; i < opps.size() - 1; i++) {
-            System.assert(
-                opps[i].closeDate <= opps[i + 1].closeDate,
-                'Opportunities should be ordered by CloseDate descending'
-            );
+            Assert.isTrue(opps[i].closeDate >= opps[i + 1].closeDate, 'Opportunities should be ordered by CloseDate descending');
         }
     }
 
@@ -193,11 +160,7 @@ private class OpportunityControllerTest {
             new List<OpportunityController.OpportunityRequest>{ request }
         );
 
-        System.assertEquals(1, responses[0].opportunityOptions.size());
-        System.assertEquals(
-            null,
-            responses[0].opportunityOptions[0].accountName,
-            'Account name should be null when no account is associated'
-        );
+        Assert.areEqual(1, responses[0].opportunityOptions.size(), 'Expected responses[0].opportunityOptions.size() to equal 1');
+        Assert.isNull(responses[0].opportunityOptions[0].accountName, 'Account name should be null when no account is associated');
     }
 }

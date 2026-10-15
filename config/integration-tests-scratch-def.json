@@ -1,0 +1,14 @@
+{
+  "orgName": "ashish-rk Apex Integration Tests",
+  "edition": "Developer",
+  "description": "Scratch org for Apex integration tests (Winter '27 Developer Preview): real callouts with @IntegrationTest",
+  "features": ["EnableSetPasswordInApi", "ApexIntegrationTests"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}

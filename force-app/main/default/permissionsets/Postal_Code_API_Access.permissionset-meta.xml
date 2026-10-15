@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>PostalCodeService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Lets users call the Postal Code API through the PostalCodeApi named credential.</description>
+    <externalCredentialPrincipalAccesses>
+        <enabled>true</enabled>
+        <externalCredentialPrincipal>PostalCodeApi-DefaultGroup</externalCredentialPrincipal>
+    </externalCredentialPrincipalAccesses>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Postal Code API Access</label>
+</PermissionSet>

@@ -44,7 +44,7 @@ global with sharing class AccountApi {
             Type = req.type
         );
 
-        insert acc;
+        insert as user acc;
 
         RestContext.response.statusCode = 201;
 

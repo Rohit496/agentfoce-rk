@@ -293,7 +293,7 @@ function LeadDetailNotFound({ onBack }: { onBack: () => void }) {
 				<FileQuestion className="size-12 text-muted-foreground mb-4" />
 				<h2 className="text-lg font-semibold mb-1">Lead not found</h2>
 				<p className="text-sm text-muted-foreground mb-6">
-					The lead you're looking for doesn't exist or may have been deleted.
+					The lead you’re looking for doesn’t exist or may have been deleted.
 				</p>
 				<Button variant="outline" onClick={onBack}>
 					← Go back

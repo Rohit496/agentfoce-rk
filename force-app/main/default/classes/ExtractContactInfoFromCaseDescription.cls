@@ -23,10 +23,19 @@ public with sharing class ExtractContactInfoFromCaseDescription {
 
         // Parse the response
         ConnectApi.EinsteinLLMGenerationItemOutput response = generationsOutput.generations[0];
-        String jsonResponse = response.text;
+        applyCustomerInfo(caseId, response.text);
+    }
 
+    /**
+     * Parses the prompt template's JSON answer ({"name", "email", "phone"}) and saves it on the Case.
+     * Split from the Einstein call so it can be unit tested (ConnectApi.EinsteinLLM can't run in tests).
+     * @param caseId Case to update
+     * @param llmText Raw text returned by the prompt template
+     */
+    @TestVisible
+    private static void applyCustomerInfo(Id caseId, String llmText) {
         // Clean the response: Remove non-breaking spaces and other invalid characters
-        jsonResponse = jsonResponse.replaceAll('[^\\x20-\\x7E]', '').trim();
+        String jsonResponse = llmText.replaceAll('[^\\x20-\\x7E]', '').trim();
 
         // Deserialize the JSON response
         Map<String, Object> customerInfo = (Map<String, Object>) JSON.deserializeUntyped(jsonResponse);
@@ -43,6 +52,6 @@ public with sharing class ExtractContactInfoFromCaseDescription {
             SuppliedEmail = email,
             SuppliedPhone = phone
         );
-        update caseToUpdate;
+        update as user caseToUpdate;
     }
 }

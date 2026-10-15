@@ -1,0 +1,46 @@
+<template>
+    <lightning-card
+        title="Third-party Web Component (GA)"
+        icon-name="utility:favorite"
+    >
+        <div class="slds-var-p-horizontal_medium">
+            <p class="slds-text-color_weak slds-var-m-bottom_medium">
+                <code>&lt;w27-rating-stars&gt;</code> is a plain custom element
+                loaded from a static resource and rendered natively
+                with&nbsp;<code>lwc:external</code>. No iframe, no rewrite.
+            </p>
+
+            <template lwc:if={libraryLoaded}>
+                <w27-rating-stars
+                    lwc:external
+                    value={rating}
+                    max={max}
+                    label="Product rating"
+                    lwc:spread={starProps}
+                    onrate={handleRate}
+                ></w27-rating-stars>
+
+                <p
+                    class="slds-text-heading_small slds-var-m-top_small"
+                    aria-live="polite"
+                >
+                    LWC state: rating = <strong>{rating}</strong> / {max}
+                    {rating >= 4 ? ' 🔥' : ''}
+                </p>
+            </template>
+            <template lwc:elseif={errorMessage}>
+                <div class="slds-text-color_error" role="alert">
+                    {errorMessage}
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="slds-is-relative slds-var-p-vertical_large">
+                    <lightning-spinner
+                        alternative-text="Loading rating library"
+                        size="small"
+                    ></lightning-spinner>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -49,3 +49,6 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+# Playwright MCP test artifacts (screenshots are deleted after testing)
+.playwright-mcp/

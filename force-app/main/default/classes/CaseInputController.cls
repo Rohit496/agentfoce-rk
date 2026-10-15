@@ -158,7 +158,7 @@ public with sharing class CaseInputController {
             toInsert.add(c);
         }
 
-        insert toInsert;
+        insert as user toInsert;
 
         List<Case> inserted = [
             SELECT
@@ -170,7 +170,7 @@ public with sharing class CaseInputController {
                 Description,
                 CreatedDate
             FROM Case
-            WHERE Id IN :toInsert
+            WHERE Id IN :toInsert WITH USER_MODE
         ];
 
         List<CreateCaseResponse> responses = new List<CreateCaseResponse>();

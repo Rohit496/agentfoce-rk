@@ -26,7 +26,7 @@ global with sharing class ContactWeatherController {
                 SELECT Id, Name, MailingCity
                 FROM Contact
                 WHERE Id = :contactId
-                LIMIT 1
+                WITH USER_MODE LIMIT 1
             ];
         } catch (QueryException e) {
             RestContext.response.statusCode = 404;

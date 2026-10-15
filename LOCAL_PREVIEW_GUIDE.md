@@ -57,9 +57,8 @@ You can also open it from the Command Palette (`⇧⌘P`): run **SFDX: Open in L
 > ⚠️ **Template expressions (`{a ? b : c}`, `?.`, `??`, `.filter()` and so on)**
 > These are GA in Winter '27 for components at API 66.0 or higher, and they deploy fine. However, `plugin-lightning-dev` 6.2.19 doesn't turn them on for local preview, so the pane stays **blank** without showing any error.
 > This machine has a local patch that fixes it, in:
-> `~/.local/share/sf/node_modules/@salesforce/plugin-lightning-dev/node_modules/@lwc/sfdx-local-dev-dist-67.0/node_modules/@lwc/lwc-dev-server/dist/server/bundler/lexBundler.js`
-> (the original is saved next to it as `lexBundler.js.bak`).
-> **Running `sf plugins update` removes the patch.** If the preview goes blank again, the patch needs to be reapplied.
+> every copy of `lexBundler.js` in `~/.local/share/sf/node_modules/@salesforce/plugin-lightning-dev/` (one per API version; API 68.0 uses the top-level `@lwc/lwc-dev-server`). Originals are saved next to each as `lexBundler.js.orig`.
+> **Permanent since 2026-10-14:** `~/.config/sf-lwc-preview-fix/fix-lwc-preview.sh` applies it to all copies, and LaunchAgent `com.rohit.sf-lwc-preview-fix` re-applies it automatically after `sf plugins update`, at login, and hourly. See `~/.config/sf-lwc-preview-fix/README.md`. Status: `tail ~/.config/sf-lwc-preview-fix/fix.log`.
 
 ---
 
@@ -121,7 +120,7 @@ Each widget folder must contain three files:
 | Symptom | What to do |
 |---|---|
 | Pane is blank or keeps loading | Click **↻ Refresh**. If that doesn't help, run **Developer: Reload Window** (`⇧⌘P`) and open the preview again. |
-| LWC pane blank only for components using template expressions | The local patch was removed, most likely by `sf plugins update`. See the ⚠️ note in section 1. |
+| LWC pane blank only for components using template expressions | Run `~/.config/sf-lwc-preview-fix/fix-lwc-preview.sh`, then **SFDX: Close Live Preview** and reopen. Check `fix.log` for `WARN`. Also check the component's `apiVersion` is 66.0+. See the ⚠️ note in section 1. |
 | You want to see what went wrong | **View → Output**, then choose **Live Preview** in the dropdown. For more detail, set **Settings → Salesforce Live Preview: Log Level** to `debug`. |
 | Log shows `SIGKILL` / "LWC preview server exited with error" right after opening a UI bundle or widget | Normal. The extension stops the LWC server when you switch preview type. |
 | "Port already in use" (`8081` or `5173`) | Another preview or dev server is still running. Run **SFDX: Close Live Preview**, or find the process with `lsof -nP -iTCP:5173 -sTCP:LISTEN` and stop it. |

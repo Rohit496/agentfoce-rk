@@ -157,6 +157,8 @@ global without sharing class UIBundleRegistration {
      * @return {@code true} if unique, {@code false} if already exists.
      */
     private static Boolean isUserUnique(String username) {
-        return [SELECT Id FROM User WHERE Username = :username LIMIT 1].isEmpty();
+        // System mode on purpose: the caller is a guest user, who can't see other users' records,
+        // and usernames must be unique across the whole org. Only Id is read; nothing is returned.
+        return [SELECT Id FROM User WHERE Username = :username WITH SYSTEM_MODE LIMIT 1].isEmpty();
     }
 }

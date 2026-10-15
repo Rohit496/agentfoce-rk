@@ -10,7 +10,7 @@ global with sharing class AccountRESTController {
         Account result = [
             SELECT Id, Name, Phone, Website
             FROM Account
-            WHERE Id = :accountId
+            WHERE Id = :accountId WITH USER_MODE
         ];
         return result;
     }
@@ -21,7 +21,7 @@ global with sharing class AccountRESTController {
         account.Name = name;
         account.phone = phone;
         account.website = website;
-        insert account;
+        insert as user account;
         return account.Id;
     }
 
@@ -35,8 +35,8 @@ global with sharing class AccountRESTController {
         Account account = [
             SELECT Id
             FROM Account
-            WHERE Id = :accountId
+            WHERE Id = :accountId WITH USER_MODE
         ];
-        delete account;
+        delete as user account;
     }
 }

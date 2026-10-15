@@ -72,4 +72,4 @@ Don't deploy an account-only file under an existing server's name. That would re
 | `No "aa:apex-…" identifier found for source "API_CATALOG"` | The Apex isn't in the org yet. Run step 1 first. |
 | `FIELD_INTEGRITY_EXCEPTION … BillingCountry` in tests | The org has State/Country picklists that don't include "United States". Change the country in `AccountHxlToolsTest`. |
 | A test fails on inserting a Contact, Case or Opportunity | A validation rule or required field in the target org. Add the required values in `AccountHxlToolsTest.setup()`. |
-| `tile/accordionItem can't be the child of tile/accordion` | Use lowercase `tile/accordionitem`. The package already does. |
+| `tile/accordionitem can't be the child of tile/accordion` | The block name is case-sensitive and changed with the org's API version. On API 68.0 (checked 2026-10-14) it is camelCase `tile/accordionItem`; earlier API versions used lowercase `tile/accordionitem`. Check the current name with `discoverUiComponents`. |

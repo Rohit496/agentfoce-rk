@@ -64,7 +64,7 @@ public with sharing class OpportunityInvoker {
                 NextStep,
                 Description
             FROM Opportunity
-            WHERE Name IN :names
+            WHERE Name IN :names WITH USER_MODE
         ];
 
         // Map name -> list of OpportunityResult

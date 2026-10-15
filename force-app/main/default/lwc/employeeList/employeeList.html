@@ -10,53 +10,54 @@
       ></lightning-input>
     </div>
 
-    <template lwc:if={hasEmployees}>
+    <template lwc:if="{filteredEmployees.length > 0}">
       <div class="card-body">
-        <div class="employee-list">
+        <div class="slds-var-p-around_x-small">
           <template for:each={visibleEmployees} for:item="emp">
-            <div key={emp.id} class="employee-card">
-              <div class="emp-info">
-                <h2>{emp.fullName}</h2>
-                <p class="emp-detail">
-                  <lightning-icon icon-name="utility:email" size="xx-small" class="detail-icon"></lightning-icon>
+            <div key={emp.id} data-id="employee-card" class="list-card slds-box slds-media slds-media_center slds-var-m-bottom_small">
+              <div class="slds-media__body">
+                <h2 class="slds-text-heading_small slds-hyphenate slds-var-m-bottom_xx-small">{`${emp.firstName} ${emp.lastName}`}</h2>
+                <p class="slds-grid slds-grid_vertical-align-center slds-text-body_small slds-text-color_weak slds-hyphenate slds-var-m-vertical_xxx-small">
+                  <lightning-icon icon-name="utility:email" size="xx-small" class="slds-var-m-right_xx-small"></lightning-icon>
                   {emp.email}
                 </p>
-                <p class="emp-detail">
-                  <lightning-icon icon-name="utility:call" size="xx-small" class="detail-icon"></lightning-icon>
+                <p class="slds-grid slds-grid_vertical-align-center slds-text-body_small slds-text-color_weak slds-hyphenate slds-var-m-vertical_xxx-small">
+                  <lightning-icon icon-name="utility:call" size="xx-small" class="slds-var-m-right_xx-small"></lightning-icon>
                   {emp.phone}
                 </p>
-                <p class="emp-detail">
-                  <lightning-icon icon-name="utility:identity" size="xx-small" class="detail-icon"></lightning-icon>
+                <p class="slds-grid slds-grid_vertical-align-center slds-text-body_small slds-text-color_weak slds-hyphenate slds-var-m-vertical_xxx-small">
+                  <lightning-icon icon-name="utility:identity" size="xx-small" class="slds-var-m-right_xx-small"></lightning-icon>
                   {emp.gender}
                 </p>
               </div>
-              <lightning-button-icon
-                icon-name="utility:chevronright"
-                variant="brand"
-                size="medium"
-                data-emp-id={emp.id}
-                onclick={handleSelectEmployee}
-                class="select-button"
-                alternative-text="View"
-              ></lightning-button-icon>
+              <div class="slds-media__figure slds-media__figure_reverse">
+                <lightning-button-icon
+                  icon-name="utility:chevronright"
+                  variant="brand"
+                  size="medium"
+                  data-emp-id={emp.id}
+                  onclick={handleSelectEmployee}
+                  alternative-text="View"
+                ></lightning-button-icon>
+              </div>
             </div>
           </template>
         </div>
 
-        <div class="pagination-controls">
+        <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-border_top slds-var-p-around_small">
           <lightning-button
             label="Previous"
             onclick={handlePrev}
-            disabled={isPrevDisabled}
+            disabled="{currentPage <= 1}"
             variant="neutral"
           ></lightning-button>
 
-          <div class="page-text">Page {currentPage} of {totalPages}</div>
+          <div data-id="page-text" class="slds-text-body_small slds-text-color_weak slds-var-p-horizontal_small">Page {currentPage} of {totalPages}</div>
 
           <lightning-button
             label="Next"
             onclick={handleNext}
-            disabled={isNextDisabled}
+            disabled="{currentPage >= totalPages}"
             variant="neutral"
           ></lightning-button>
         </div>
@@ -64,7 +65,7 @@
     </template>
 
     <template lwc:else>
-      <div class="slds-var-p-around_medium slds-text-color_weak slds-align_absolute-center">
+      <div data-id="empty-state" class="slds-var-p-around_medium slds-text-color_weak slds-align_absolute-center">
         No employee data available.
       </div>
     </template>

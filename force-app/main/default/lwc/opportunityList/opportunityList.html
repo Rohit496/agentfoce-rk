@@ -10,70 +10,71 @@
             ></lightning-input>
         </div>
 
-        <template lwc:if={hasOpportunities}>
+        <template lwc:if="{filteredOpportunities.length > 0}">
             <div class="card-body">
-                <div class="opportunity-list">
+                <div class="slds-var-p-around_x-small">
                     <template
                         for:each={visibleOpportunities}
                         for:item="opp"
                     >
-                        <div key={opp.id} class="opportunity-card">
-                            <div class="opp-info">
-                                <h2>{opp.name}</h2>
-                                <p class="opp-detail account-name">
+                        <div key={opp.id} data-id="opportunity-card" class="list-card slds-box slds-media slds-media_center slds-var-m-bottom_small">
+                            <div class="slds-media__body">
+                                <h2 class="slds-text-heading_small slds-hyphenate slds-var-m-bottom_xx-small">{opp.name}</h2>
+                                <p class="slds-grid slds-grid_vertical-align-center slds-text-body_small slds-hyphenate slds-var-m-vertical_xxx-small">
                                     <lightning-icon
                                         icon-name="standard:account"
                                         size="xx-small"
-                                        class="detail-icon"
+                                        class="slds-var-m-right_xx-small"
                                     ></lightning-icon>
                                     {opp.accountName}
                                 </p>
-                                <p class="opp-detail amount">
+                                <p class="slds-grid slds-grid_vertical-align-center slds-text-body_small slds-hyphenate slds-var-m-vertical_xxx-small detail-emphasis" data-id="amount">
                                     <lightning-icon
                                         icon-name="utility:money"
                                         size="xx-small"
-                                        class="detail-icon"
+                                        class="slds-var-m-right_xx-small"
                                     ></lightning-icon>
                                     {opp.formattedAmount}
                                 </p>
-                                <p class="opp-detail close-date">
+                                <p class="slds-grid slds-grid_vertical-align-center slds-text-body_small slds-hyphenate slds-var-m-vertical_xxx-small slds-text-color_weak" data-id="close-date">
                                     <lightning-icon
                                         icon-name="utility:event"
                                         size="xx-small"
-                                        class="detail-icon"
+                                        class="slds-var-m-right_xx-small"
                                     ></lightning-icon>
                                     {opp.formattedCloseDate}
                                 </p>
                             </div>
-                            <lightning-button-icon
-                                icon-name="utility:chevronright"
-                                variant="brand"
-                                size="medium"
-                                data-opp-id={opp.id}
-                                onclick={handleSelectOpportunity}
-                                class="select-button"
-                                alternative-text="View"
-                            ></lightning-button-icon>
+                            <div class="slds-media__figure slds-media__figure_reverse">
+                                <lightning-button-icon
+                                    icon-name="utility:chevronright"
+                                    variant="brand"
+                                    size="medium"
+                                    data-opp-id={opp.id}
+                                    onclick={handleSelectOpportunity}
+                                    alternative-text="View"
+                                ></lightning-button-icon>
+                            </div>
                         </div>
                     </template>
                 </div>
 
-                <div class="pagination-controls">
+                <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center slds-border_top slds-var-p-around_small">
                     <lightning-button
                         label="Previous"
                         onclick={handlePrev}
-                        disabled={isPrevDisabled}
+                        disabled="{currentPage <= 1}"
                         variant="neutral"
                     ></lightning-button>
 
-                    <div class="page-text">
+                    <div data-id="page-text" class="slds-text-body_small slds-text-color_weak slds-var-p-horizontal_small">
                         Page {currentPage} of {totalPages}
                     </div>
 
                     <lightning-button
                         label="Next"
                         onclick={handleNext}
-                        disabled={isNextDisabled}
+                        disabled="{currentPage >= totalPages}"
                         variant="neutral"
                     ></lightning-button>
                 </div>
@@ -82,6 +83,7 @@
 
         <template lwc:else>
             <div
+                data-id="empty-state"
                 class="slds-var-p-around_medium slds-text-color_weak slds-align_absolute-center"
             >
                 No opportunity data available.

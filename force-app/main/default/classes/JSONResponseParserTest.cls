@@ -19,18 +19,9 @@ private class JSONResponseParserTest {
         List<JSONResponseParser.ParsedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assert(
-            out[0].formattedText.contains('Executive summary for Dell.'),
-            'Response text should be rendered'
-        );
-        System.assert(
-            out[0].formattedSources.contains('dell.com'),
-            'Source domain should be extracted and shown'
-        );
-        System.assert(
-            out[0].formattedSources.contains('finance.yahoo.com'),
-            'All sources should be rendered'
-        );
+        Assert.isTrue(out[0].formattedText.contains('Executive summary for Dell.'), 'Response text should be rendered');
+        Assert.isTrue(out[0].formattedSources.contains('dell.com'), 'Source domain should be extracted and shown');
+        Assert.isTrue(out[0].formattedSources.contains('finance.yahoo.com'), 'All sources should be rendered');
     }
 
     @isTest
@@ -45,13 +36,13 @@ private class JSONResponseParserTest {
         Test.stopTest();
 
         String html = out[0].formattedText;
-        System.assert(html.contains('Title'), 'H1 should render');
-        System.assert(html.contains('Section'), 'H2 should render');
-        System.assert(html.contains('Sub'), 'H3 should render');
-        System.assert(html.contains('<strong'), 'Bold should render');
-        System.assert(html.contains('<em>'), 'Italic should render');
-        System.assert(html.contains('<ul'), 'Bulleted list should render');
-        System.assert(html.contains('<ol'), 'Numbered list should render');
+        Assert.isTrue(html.contains('Title'), 'H1 should render');
+        Assert.isTrue(html.contains('Section'), 'H2 should render');
+        Assert.isTrue(html.contains('Sub'), 'H3 should render');
+        Assert.isTrue(html.contains('<strong'), 'Bold should render');
+        Assert.isTrue(html.contains('<em>'), 'Italic should render');
+        Assert.isTrue(html.contains('<ul'), 'Bulleted list should render');
+        Assert.isTrue(html.contains('<ol'), 'Numbered list should render');
     }
 
     @isTest
@@ -62,10 +53,7 @@ private class JSONResponseParserTest {
         List<JSONResponseParser.ParsedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assert(
-            out[0].formattedSources.contains('No sources available'),
-            'Empty source array should produce the empty-state message'
-        );
+        Assert.isTrue(out[0].formattedSources.contains('No sources available'), 'Empty source array should produce the empty-state message');
     }
 
     @isTest
@@ -78,10 +66,7 @@ private class JSONResponseParserTest {
         List<JSONResponseParser.ParsedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assert(
-            out[0].formattedSources.contains('example.com'),
-            'Valid source should still render'
-        );
+        Assert.isTrue(out[0].formattedSources.contains('example.com'), 'Valid source should still render');
     }
 
     @isTest
@@ -90,15 +75,8 @@ private class JSONResponseParserTest {
         List<JSONResponseParser.ParsedResponse> out = run('not json at all');
         Test.stopTest();
 
-        System.assert(
-            out[0].formattedText.contains('Error parsing response'),
-            'Malformed input should surface a readable error, not throw'
-        );
-        System.assertEquals(
-            '',
-            out[0].formattedSources,
-            'Sources should be empty when parsing fails'
-        );
+        Assert.isTrue(out[0].formattedText.contains('Error parsing response'), 'Malformed input should surface a readable error, not throw');
+        Assert.areEqual('', out[0].formattedSources, 'Sources should be empty when parsing fails');
     }
 
     @isTest
@@ -109,10 +87,6 @@ private class JSONResponseParserTest {
         );
         Test.stopTest();
 
-        System.assertEquals(
-            '',
-            out[0].formattedText,
-            'Missing text should yield an empty string'
-        );
+        Assert.areEqual('', out[0].formattedText, 'Missing text should yield an empty string');
     }
 }

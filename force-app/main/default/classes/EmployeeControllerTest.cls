@@ -30,17 +30,9 @@ private class EmployeeControllerTest {
             new List<EmployeeController.EmployeeRequest>{ request }
         );
 
-        System.assertEquals(
-            1,
-            responses.size(),
-            'Should return one response wrapper'
-        );
-        System.assertEquals(
-            1,
-            responses[0].employeeOptions.size(),
-            'Should find one employee matching first name'
-        );
-        System.assertEquals('John', responses[0].employeeOptions[0].firstName);
+        Assert.areEqual(1, responses.size(), 'Should return one response wrapper');
+        Assert.areEqual(1, responses[0].employeeOptions.size(), 'Should find one employee matching first name');
+        Assert.areEqual('John', responses[0].employeeOptions[0].firstName, 'Expected responses[0].employeeOptions[0].firstName to equal \'John\'');
     }
 
     @isTest
@@ -52,13 +44,9 @@ private class EmployeeControllerTest {
             new List<EmployeeController.EmployeeRequest>{ request }
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            1,
-            responses[0].employeeOptions.size(),
-            'Should find one employee matching last name'
-        );
-        System.assertEquals('Jane', responses[0].employeeOptions[0].firstName);
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(1, responses[0].employeeOptions.size(), 'Should find one employee matching last name');
+        Assert.areEqual('Jane', responses[0].employeeOptions[0].firstName, 'Expected responses[0].employeeOptions[0].firstName to equal \'Jane\'');
     }
 
     @isTest
@@ -70,12 +58,8 @@ private class EmployeeControllerTest {
             new List<EmployeeController.EmployeeRequest>{ request }
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            0,
-            responses[0].employeeOptions.size(),
-            'Should return no employees for unmatched name'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(0, responses[0].employeeOptions.size(), 'Should return no employees for unmatched name');
     }
 
     @isTest
@@ -87,12 +71,8 @@ private class EmployeeControllerTest {
             new List<EmployeeController.EmployeeRequest>{ request }
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            2,
-            responses[0].employeeOptions.size(),
-            'Should return all employees when name is blank'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(2, responses[0].employeeOptions.size(), 'Should return all employees when name is blank');
     }
 
     @isTest
@@ -104,12 +84,8 @@ private class EmployeeControllerTest {
             new List<EmployeeController.EmployeeRequest>{ request }
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            2,
-            responses[0].employeeOptions.size(),
-            'Should return all employees when name is null'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(2, responses[0].employeeOptions.size(), 'Should return all employees when name is null');
     }
 
     @isTest
@@ -118,12 +94,8 @@ private class EmployeeControllerTest {
             null
         );
 
-        System.assertEquals(1, responses.size());
-        System.assertEquals(
-            2,
-            responses[0].employeeOptions.size(),
-            'Should return all employees when request is null'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1');
+        Assert.areEqual(2, responses[0].employeeOptions.size(), 'Should return all employees when request is null');
     }
 
     @isTest
@@ -132,12 +104,8 @@ private class EmployeeControllerTest {
             new List<EmployeeController.EmployeeRequest>()
         );
 
-        System.assertEquals(1, responses.size()); 
-        System.assertEquals(
-            2,
-            responses[0].employeeOptions.size(),
-            'Should return all employees when request list is empty'
-        );
+        Assert.areEqual(1, responses.size(), 'Expected responses.size() to equal 1'); 
+        Assert.areEqual(2, responses[0].employeeOptions.size(), 'Should return all employees when request list is empty');
     }
 
     @isTest
@@ -150,11 +118,11 @@ private class EmployeeControllerTest {
         );
 
         EmployeeController.Employee emp = responses[0].employeeOptions[0];
-        System.assertNotEquals(null, emp.id, 'Id should be populated');
-        System.assertEquals('John', emp.firstName);
-        System.assertEquals('Doe', emp.lastName);
-        System.assertEquals('john.doe@test.com', emp.email);
-        System.assertEquals('1234567890', emp.phone);
-        System.assertEquals('Male', emp.gender);
+        Assert.isNotNull(emp.id, 'Id should be populated');
+        Assert.areEqual('John', emp.firstName, 'Expected emp.firstName to equal \'John\'');
+        Assert.areEqual('Doe', emp.lastName, 'Expected emp.lastName to equal \'Doe\'');
+        Assert.areEqual('john.doe@test.com', emp.email, 'Expected emp.email to equal \'john.doe@test.com\'');
+        Assert.areEqual('1234567890', emp.phone, 'Expected emp.phone to equal \'1234567890\'');
+        Assert.areEqual('Male', emp.gender, 'Expected emp.gender to equal \'Male\'');
     }
 }

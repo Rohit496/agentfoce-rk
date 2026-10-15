@@ -63,11 +63,6 @@ export default class AccountEmbeddedAngularApp extends LightningElement {
         return this.baseUrl;
     }
 
-    // The embedding stays in the DOM (its session is bound to src) but leaves no blank frame behind.
-    get embeddingClass() {
-        return this.hasLoadFailed ? 'slds-hide' : '';
-    }
-
     // Event names contain dots, so they can't be bound with on* template attributes.
     renderedCallback() {
         if (this.hasWiredEvents) {

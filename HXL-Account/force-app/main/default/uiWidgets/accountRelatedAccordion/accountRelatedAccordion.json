@@ -41,7 +41,7 @@
               "definition": "tile/accordion",
               "children": [
                 {
-                  "definition": "tile/accordionitem",
+                  "definition": "tile/accordionItem",
                   "meta": {
                     "forEach": "{!$attrs.accounts}",
                     "forItem": "$account"
@@ -168,7 +168,7 @@
                           "definition": "tile/accordion",
                           "children": [
                             {
-                              "definition": "tile/accordionitem",
+                              "definition": "tile/accordionItem",
                               "attributes": {
                                 "title": "{!$account.contactsTitle}",
                                 "iconName": "users",
@@ -246,7 +246,7 @@
                               ]
                             },
                             {
-                              "definition": "tile/accordionitem",
+                              "definition": "tile/accordionItem",
                               "attributes": {
                                 "title": "{!$account.casesTitle}",
                                 "iconName": "ticket",
@@ -330,7 +330,7 @@
                               ]
                             },
                             {
-                              "definition": "tile/accordionitem",
+                              "definition": "tile/accordionItem",
                               "attributes": {
                                 "title": "{!$account.opportunitiesTitle}",
                                 "iconName": "trending-up",

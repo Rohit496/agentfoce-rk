@@ -17,8 +17,7 @@ import salesforce from '@salesforce/vite-plugin-ui-bundle';
 import codegen from 'vite-plugin-graphql-codegen';
 var schemaPath = resolve(__dirname, '../../../../../schema.graphql');
 var schemaExists = existsSync(schemaPath);
-export default defineConfig(function (_a) {
-    var mode = _a.mode;
+export default defineConfig(function () {
     return {
         base: './',
         plugins: __spreadArray([

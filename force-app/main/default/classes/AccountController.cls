@@ -21,7 +21,7 @@ public with sharing class AccountController {
                     Rating,
                     Website
                 FROM Account
-                ORDER BY Name ASC
+                WITH USER_MODE ORDER BY Name ASC
                 LIMIT 200
             ];
         } catch (Exception e) {
@@ -53,7 +53,7 @@ public with sharing class AccountController {
                     BillingState
                 FROM Account
                 WHERE Name LIKE :searchPattern
-                ORDER BY Name ASC
+                WITH USER_MODE ORDER BY Name ASC
                 LIMIT 50
             ];
         } catch (Exception e) {

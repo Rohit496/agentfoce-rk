@@ -1,7 +1,13 @@
-public class AccountTool {
+public with sharing class AccountTool {
     public class Input {
         @InvocableVariable(required=true)
         public String accountName;
+
+        @InvocableVariable(
+            required=false
+            description='Account Type, e.g. Prospect or Customer - Direct. Defaults to Prospect.'
+        )
+        public String accountType;
     }
 
     public class Output {
@@ -13,12 +19,12 @@ public class AccountTool {
     public static List<Output> createAccount(List<Input> inputs) {
         List<Account> accounts = new List<Account>();
         for (Input inp : inputs) {
-            accounts.add(new Account(Name = inp.accountName));
+            accounts.add(new Account(Name = inp.accountName, Type = AccountDefaults.typeOrDefault(inp.accountType)));
         }
 
         List<Output> results = new List<Output>();
         try {
-            insert accounts;
+            insert as user accounts;
             for (Account acc : accounts) {
                 Output out = new Output();
                 out.message = 'Created: ' + acc.Name;

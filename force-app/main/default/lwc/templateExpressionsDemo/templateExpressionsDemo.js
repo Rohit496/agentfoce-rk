@@ -1,8 +1,8 @@
 import { LightningElement } from 'lwc';
 
 export default class TemplateExpressionsDemo extends LightningElement {
-    firstName = 'Ada';
-    lastName = 'Lovelace';
+    firstName = 'Rohit';
+    lastName = 'Kumar';
     isLoggedIn = false;
 
     // settings.theme intentionally omitted to show the ?? fallback

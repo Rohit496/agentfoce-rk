@@ -33,13 +33,13 @@ public without sharing class OpportunityController {
                 SELECT Id, Name, Account.Name, Amount, CloseDate
                 FROM Opportunity
                 WHERE Name LIKE :searchName
-                ORDER BY CloseDate DESC
+                WITH USER_MODE ORDER BY CloseDate DESC
             ];
         } else {
             opportunities = [
                 SELECT Id, Name, Account.Name, Amount, CloseDate
                 FROM Opportunity
-                ORDER BY CloseDate DESC
+                WITH USER_MODE ORDER BY CloseDate DESC
             ];
         }
 

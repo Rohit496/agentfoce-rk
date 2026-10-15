@@ -56,7 +56,7 @@
                             "id": "bca21c62-7997-46f4-b57b-6440db262d5a",
                             "children": [
                                 {
-                                    "definition": "tile/accordionitem",
+                                    "definition": "tile/accordionItem",
                                     "meta": {
                                         "forEach": "{!$attrs.accounts}",
                                         "forItem": "$account"
@@ -231,7 +231,7 @@
                                                     "id": "91ac279b-1876-4e8d-8e24-1170fc96ad67",
                                                     "children": [
                                                         {
-                                                            "definition": "tile/accordionitem",
+                                                            "definition": "tile/accordionItem",
                                                             "attributes": {
                                                                 "title": "{!$account.contactsTitle}",
                                                                 "iconName": "users",
@@ -335,7 +335,7 @@
                                                             ]
                                                         },
                                                         {
-                                                            "definition": "tile/accordionitem",
+                                                            "definition": "tile/accordionItem",
                                                             "attributes": {
                                                                 "title": "{!$account.casesTitle}",
                                                                 "iconName": "ticket",
@@ -447,7 +447,7 @@
                                                             ]
                                                         },
                                                         {
-                                                            "definition": "tile/accordionitem",
+                                                            "definition": "tile/accordionItem",
                                                             "attributes": {
                                                                 "title": "{!$account.opportunitiesTitle}",
                                                                 "iconName": "trending-up",

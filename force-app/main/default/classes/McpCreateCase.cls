@@ -22,9 +22,9 @@ global with sharing class McpCreateCase {
             Priority = priority,
             Origin = 'Web'
         );
-        insert c;
+        insert as user c;
 
-        Case newCase = [SELECT CaseNumber FROM Case WHERE Id = :c.Id];
+        Case newCase = [SELECT CaseNumber FROM Case WHERE Id = :c.Id WITH USER_MODE];
         return new ResponseWrapper(newCase.CaseNumber, 'Success: Case created');
     }
 }

@@ -19,19 +19,9 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assertEquals(
-            'Here are some accounts: Edge Communications, GenePoint.',
-            out[0].plainText,
-            'Envelope should be unwrapped to its value'
-        );
-        System.assert(
-            !out[0].formattedResponse.contains('"type"'),
-            'Formatted output must not leak the JSON envelope'
-        );
-        System.assert(
-            out[0].formattedResponse.contains('Edge Communications'),
-            'Formatted output should retain the agent text'
-        );
+        Assert.areEqual('Here are some accounts: Edge Communications, GenePoint.', out[0].plainText, 'Envelope should be unwrapped to its value');
+        Assert.isFalse(out[0].formattedResponse.contains('"type"'), 'Formatted output must not leak the JSON envelope');
+        Assert.isTrue(out[0].formattedResponse.contains('Edge Communications'), 'Formatted output should retain the agent text');
     }
 
     @isTest
@@ -42,18 +32,9 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assert(
-            out[0].formattedResponse.contains('Line one.'),
-            'First line should survive formatting'
-        );
-        System.assert(
-            out[0].formattedResponse.contains('Line two.'),
-            'Second line should survive formatting'
-        );
-        System.assert(
-            !out[0].formattedResponse.contains('\\n'),
-            'Escaped newlines should be converted, not shown literally'
-        );
+        Assert.isTrue(out[0].formattedResponse.contains('Line one.'), 'First line should survive formatting');
+        Assert.isTrue(out[0].formattedResponse.contains('Line two.'), 'Second line should survive formatting');
+        Assert.isFalse(out[0].formattedResponse.contains('\\n'), 'Escaped newlines should be converted, not shown literally');
     }
 
     @isTest
@@ -64,14 +45,8 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assert(
-            out[0].formattedResponse.contains('<ul'),
-            'Markdown bullets should render as a list'
-        );
-        System.assert(
-            out[0].formattedResponse.contains('<li'),
-            'Bullet items should render as list items'
-        );
+        Assert.isTrue(out[0].formattedResponse.contains('<ul'), 'Markdown bullets should render as a list');
+        Assert.isTrue(out[0].formattedResponse.contains('<li'), 'Bullet items should render as list items');
     }
 
     @isTest
@@ -82,11 +57,7 @@ private class AgentResponseFormatterTest {
         );
         Test.stopTest();
 
-        System.assertEquals(
-            'Just a plain answer.',
-            out[0].plainText,
-            'Non-JSON input should pass through untouched'
-        );
+        Assert.areEqual('Just a plain answer.', out[0].plainText, 'Non-JSON input should pass through untouched');
     }
 
     @isTest
@@ -97,11 +68,7 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assertEquals(
-            raw,
-            out[0].plainText,
-            'Malformed JSON should degrade to the raw string, not throw'
-        );
+        Assert.areEqual(raw, out[0].plainText, 'Malformed JSON should degrade to the raw string, not throw');
     }
 
     @isTest
@@ -112,11 +79,8 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assert(
-            out[0].plainText.contains('First.') &&
-            out[0].plainText.contains('Second.'),
-            'All envelopes in an array should be concatenated'
-        );
+        Assert.isTrue(out[0].plainText.contains('First.') &&
+            out[0].plainText.contains('Second.'), 'All envelopes in an array should be concatenated');
     }
 
     @isTest
@@ -131,20 +95,13 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assertEquals(true, out[0].hasRows, 'A list should be detected');
-        System.assertEquals(3, out[0].rowCount, 'Three accounts should become rows');
-        System.assertEquals('Edge Communications', out[0].rows[0].name);
-        System.assertEquals(1, out[0].rows[0].position, 'Rows should be numbered from 1');
-        System.assertEquals('GenePoint', out[0].rows[2].name);
-        System.assertEquals(
-            'Here are all accounts:',
-            out[0].introText,
-            'Lead-in line should be captured as intro, not a row'
-        );
-        System.assert(
-            out[0].outroText.contains('Would you like details'),
-            'Trailing question should be captured as outro, not a row'
-        );
+        Assert.isTrue(out[0].hasRows, 'A list should be detected');
+        Assert.areEqual(3, out[0].rowCount, 'Three accounts should become rows');
+        Assert.areEqual('Edge Communications', out[0].rows[0].name, 'Expected out[0].rows[0].name to equal \'Edge Communications\'');
+        Assert.areEqual(1, out[0].rows[0].position, 'Rows should be numbered from 1');
+        Assert.areEqual('GenePoint', out[0].rows[2].name, 'Expected out[0].rows[2].name to equal \'GenePoint\'');
+        Assert.areEqual('Here are all accounts:', out[0].introText, 'Lead-in line should be captured as intro, not a row');
+        Assert.isTrue(out[0].outroText.contains('Would you like details'), 'Trailing question should be captured as outro, not a row');
     }
 
     @isTest
@@ -157,12 +114,8 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assertEquals(3, out[0].rowCount, 'Bulleted items should become rows');
-        System.assertEquals(
-            'Edge Communications',
-            out[0].rows[0].name,
-            'Bullet markers and bold markup should be stripped'
-        );
+        Assert.areEqual(3, out[0].rowCount, 'Bulleted items should become rows');
+        Assert.areEqual('Edge Communications', out[0].rows[0].name, 'Bullet markers and bold markup should be stripped');
     }
 
     @isTest
@@ -175,12 +128,8 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assertEquals('Edge Communications', out[0].rows[0].name);
-        System.assertEquals(
-            'Texas',
-            out[0].rows[0].detail,
-            'Trailing detail should populate the second column'
-        );
+        Assert.areEqual('Edge Communications', out[0].rows[0].name, 'Expected out[0].rows[0].name to equal \'Edge Communications\'');
+        Assert.areEqual('Texas', out[0].rows[0].detail, 'Trailing detail should populate the second column');
     }
 
     @isTest
@@ -197,27 +146,12 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assertEquals(
-            true,
-            out[0].hasRows,
-            'A list with no lead-in line must still be detected'
-        );
-        System.assertEquals(6, out[0].rowCount, 'All six accounts should become rows');
-        System.assertEquals('Edge Communications', out[0].rows[0].name);
-        System.assertEquals(
-            'Pyramid Construction Inc.',
-            out[0].rows[5].name,
-            'A name ending in "." is still an item, not prose'
-        );
-        System.assert(
-            out[0].outroText.contains('Let me know'),
-            'The closing sentence should be outro, not a row'
-        );
-        System.assertEquals(
-            6,
-            out[0].recordRows.size(),
-            'Data Table records should mirror the parsed rows'
-        );
+        Assert.isTrue(out[0].hasRows, 'A list with no lead-in line must still be detected');
+        Assert.areEqual(6, out[0].rowCount, 'All six accounts should become rows');
+        Assert.areEqual('Edge Communications', out[0].rows[0].name, 'Expected out[0].rows[0].name to equal \'Edge Communications\'');
+        Assert.areEqual('Pyramid Construction Inc.', out[0].rows[5].name, 'A name ending in "." is still an item, not prose');
+        Assert.isTrue(out[0].outroText.contains('Let me know'), 'The closing sentence should be outro, not a row');
+        Assert.areEqual(6, out[0].recordRows.size(), 'Data Table records should mirror the parsed rows');
     }
 
     @isTest
@@ -231,14 +165,11 @@ private class AgentResponseFormatterTest {
         Test.stopTest();
 
         String html = out[0].tableHtml;
-        System.assert(html.contains('<table'), 'A table element should be rendered');
-        System.assert(html.contains('Name'), 'Header row should be present');
-        System.assert(
-            html.contains('Edge Communications'),
-            'Each parsed row should appear in the table'
-        );
-        System.assert(html.contains('sForce'), 'Last row should appear');
-        System.assert(html.contains('3 results'), 'Row count should be shown');
+        Assert.isTrue(html.contains('<table'), 'A table element should be rendered');
+        Assert.isTrue(html.contains('Name'), 'Header row should be present');
+        Assert.isTrue(html.contains('Edge Communications'), 'Each parsed row should appear in the table');
+        Assert.isTrue(html.contains('sForce'), 'Last row should appear');
+        Assert.isTrue(html.contains('3 results'), 'Row count should be shown');
     }
 
     @isTest
@@ -252,18 +183,9 @@ private class AgentResponseFormatterTest {
         Test.stopTest();
 
         String html = out[0].tableHtml;
-        System.assert(
-            !html.contains('<script>'),
-            'Raw script tags must not survive into the rendered table'
-        );
-        System.assert(
-            html.contains('&lt;script&gt;'),
-            'Angle brackets should be escaped'
-        );
-        System.assert(
-            html.contains('Safe &amp; Sound'),
-            'Ampersands should be escaped'
-        );
+        Assert.isFalse(html.contains('<script>'), 'Raw script tags must not survive into the rendered table');
+        Assert.isTrue(html.contains('&lt;script&gt;'), 'Angle brackets should be escaped');
+        Assert.isTrue(html.contains('Safe &amp; Sound'), 'Ampersands should be escaped');
     }
 
     @isTest
@@ -274,11 +196,7 @@ private class AgentResponseFormatterTest {
         );
         Test.stopTest();
 
-        System.assertEquals(
-            '',
-            out[0].tableHtml,
-            'Prose replies should produce no table markup'
-        );
+        Assert.areEqual('', out[0].tableHtml, 'Prose replies should produce no table markup');
     }
 
     @isTest
@@ -289,12 +207,8 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run(raw);
         Test.stopTest();
 
-        System.assertEquals(
-            false,
-            out[0].hasRows,
-            'A single sentence should not be rendered as a table'
-        );
-        System.assertEquals(0, out[0].rowCount);
+        Assert.isFalse(out[0].hasRows, 'A single sentence should not be rendered as a table');
+        Assert.areEqual(0, out[0].rowCount, 'Expected out[0].rowCount to equal 0');
     }
 
     @isTest
@@ -303,10 +217,7 @@ private class AgentResponseFormatterTest {
         List<AgentResponseFormatter.FormattedResponse> out = run('');
         Test.stopTest();
 
-        System.assertEquals('', out[0].plainText);
-        System.assert(
-            out[0].formattedResponse.contains('did not return'),
-            'Blank input should produce a friendly message'
-        );
+        Assert.areEqual('', out[0].plainText, 'Expected out[0].plainText to equal \'\'');
+        Assert.isTrue(out[0].formattedResponse.contains('did not return'), 'Blank input should produce a friendly message');
     }
 }

@@ -192,6 +192,52 @@ public class TestDataFactory {
         return user;
     }
 
+    // ─── Contacts & Cases ────────────────────────────────────────────────
+
+    /**
+     * Builds unsaved Contacts with predictable names under one Account.
+     * @param accountId Parent Account Id; may be null
+     * @param count Number of Contacts to build
+     * @return The built Contacts
+     */
+    public static List<Contact> buildContacts(Id accountId, Integer count) {
+        List<Contact> contacts = new List<Contact>();
+        for (Integer i = 0; i < count; i++) {
+            contacts.add(
+                new Contact(
+                    FirstName = 'Test',
+                    LastName = 'Contact ' + String.valueOf(i),
+                    Email = 'test.contact' + String.valueOf(i) + '@example.com',
+                    AccountId = accountId
+                )
+            );
+        }
+        return contacts;
+    }
+
+    /**
+     * Builds unsaved Cases with predictable subjects.
+     * @param accountId Parent Account Id; may be null
+     * @param count Number of Cases to build
+     * @param status Status to apply to every Case
+     * @return The built Cases
+     */
+    public static List<Case> buildCases(Id accountId, Integer count, String status) {
+        List<Case> cases = new List<Case>();
+        for (Integer i = 0; i < count; i++) {
+            cases.add(
+                new Case(
+                    Subject = 'Test Case ' + String.valueOf(i),
+                    Description = 'Description ' + String.valueOf(i),
+                    Status = status,
+                    Origin = 'Web',
+                    AccountId = accountId
+                )
+            );
+        }
+        return cases;
+    }
+
     // ─── Helpers ─────────────────────────────────────────────────────────
 
     /**

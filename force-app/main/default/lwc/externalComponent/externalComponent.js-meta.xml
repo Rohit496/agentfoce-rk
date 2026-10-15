@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>68.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Third-party Web Component (lwc:external)</masterLabel>
+    <description
+    >Renders the framework-free w27-rating-stars custom element natively with lwc:external.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>

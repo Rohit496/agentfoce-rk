@@ -17,8 +17,7 @@ import salesforce from '@salesforce/vite-plugin-ui-bundle';
 import codegen from 'vite-plugin-graphql-codegen';
 var schemaPath = resolve(__dirname, '../../../../../schema.graphql');
 var schemaExists = existsSync(schemaPath);
-export default defineConfig(function (_a) {
-    var mode = _a.mode;
+export default defineConfig(function () {
     return {
         base: './',
         plugins: __spreadArray([
@@ -41,6 +40,21 @@ export default defineConfig(function (_a) {
             outDir: resolve(__dirname, 'dist'),
             assetsDir: 'assets',
             sourcemap: false,
+            rollupOptions: {
+                output: {
+                    // Split third-party code into two vendor chunks so no single chunk
+                    // exceeds Rollup's 500 kB advisory limit and vendor code caches
+                    // separately from app code. React core stays together to avoid
+                    // cross-chunk circular imports; everything else depends only on React.
+                    manualChunks: function (id) {
+                        if (!id.includes('node_modules'))
+                            return undefined;
+                        if (/[\\/]node_modules[\\/](react|react-dom|react-router|scheduler)[\\/]/.test(id))
+                            return 'react-vendor';
+                        return 'vendor';
+                    },
+                },
+            },
         },
         // Resolve aliases (shared between build and test)
         resolve: {

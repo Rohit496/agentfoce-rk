@@ -1,17 +1,24 @@
 <template>
-    <lightning-card title="Account Insights (Angular)" icon-name="standard:account">
+    <lightning-card
+        title="Account Insights (Angular)"
+        icon-name="standard:account"
+    >
         <div class="slds-var-p-horizontal_small">
             <template lwc:if={error}>
-                <div class="slds-media error-banner" role="alert">
-                    <lightning-icon
-                        class="slds-media__figure"
-                        icon-name="utility:error"
-                        alternative-text="Error"
-                        size="x-small"
-                        variant="inverse"
-                    ></lightning-icon>
+                <div
+                    class="slds-scoped-notification slds-media slds-media_center slds-theme_error slds-var-m-bottom_small"
+                    role="alert"
+                >
+                    <div class="slds-media__figure">
+                        <lightning-icon
+                            icon-name="utility:error"
+                            alternative-text="Error"
+                            size="x-small"
+                            variant="inverse"
+                        ></lightning-icon>
+                    </div>
                     <div class="slds-media__body">
-                        <p class="error-title">{error.title}</p>
+                        <p><strong>{error.title}</strong></p>
                         <p>{error.message}</p>
                     </div>
                 </div>
@@ -22,9 +29,10 @@
                     size="small"
                 ></lightning-spinner>
             </template>
+            <!-- The embedding stays in the DOM (its session is bound to src) but leaves no blank frame behind. -->
             <lightning-ui-embedding
                 lwc:ref="embedding"
-                class={embeddingClass}
+                class="{hasLoadFailed ? 'slds-hide' : ''}"
                 src={computedSrc}
                 title="Account Insights (Angular)"
                 sandbox="allow-popups"

@@ -39,14 +39,14 @@ public with sharing class OpportunityCreateController {
                     SELECT Id
                     FROM Account
                     WHERE Name = :data.accountName
-                    LIMIT 1
+                    WITH USER_MODE LIMIT 1
                 ];
                 if (!accounts.isEmpty()) {
                     accountId = accounts[0].Id;
                 } else {
                     // Create the Account if it doesn't exist
-                    Account newAccount = new Account(Name = data.accountName);
-                    insert newAccount;
+                    Account newAccount = new Account(Name = data.accountName, Type = AccountDefaults.ACCOUNT_TYPE);
+                    insert as user newAccount;
                     accountId = newAccount.Id;
                 }
             }
@@ -60,7 +60,7 @@ public with sharing class OpportunityCreateController {
                 StageName = 'Prospecting'
             );
             System.debug('Creating Opportunity: ' + opp);
-            insert opp;
+            insert as user opp;
 
             response.message =
                 'Opportunity "' +

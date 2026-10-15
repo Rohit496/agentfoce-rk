@@ -30,16 +30,16 @@ private class AccountApiTest {
         AccountApi.CreateAccountResponse res = invokeCreateAccount(body);
         Test.stopTest();
 
-        System.assertEquals(true, res.success, 'Response should indicate success');
-        System.assertNotEquals(null, res.id, 'Created account Id should be returned');
-        System.assertEquals('Account created successfully', res.message);
-        System.assertEquals(201, RestContext.response.statusCode, 'Should return HTTP 201');
+        Assert.isTrue(res.success, 'Response should indicate success');
+        Assert.isNotNull(res.id, 'Created account Id should be returned');
+        Assert.areEqual('Account created successfully', res.message, 'Expected res.message to equal \'Account created successfully\'');
+        Assert.areEqual(201, RestContext.response.statusCode, 'Should return HTTP 201');
 
         Account acc = [SELECT Name, Phone, Website, Type FROM Account WHERE Id = :res.id];
-        System.assertEquals('Acme Corp', acc.Name);
-        System.assertEquals('1234567890', acc.Phone);
-        System.assertEquals('https://acme.example.com', acc.Website);
-        System.assertEquals('Prospect', acc.Type);
+        Assert.areEqual('Acme Corp', acc.Name, 'Expected acc.Name to equal \'Acme Corp\'');
+        Assert.areEqual('1234567890', acc.Phone, 'Expected acc.Phone to equal \'1234567890\'');
+        Assert.areEqual('https://acme.example.com', acc.Website, 'Expected acc.Website to equal \'https://acme.example.com\'');
+        Assert.areEqual('Prospect', acc.Type, 'Expected acc.Type to equal \'Prospect\'');
     }
 
     @isTest
@@ -53,13 +53,13 @@ private class AccountApiTest {
         AccountApi.CreateAccountResponse res = invokeCreateAccount(body);
         Test.stopTest();
 
-        System.assertEquals(true, res.success);
-        System.assertEquals(201, RestContext.response.statusCode);
+        Assert.isTrue(res.success, 'Expected true: res.success');
+        Assert.areEqual(201, RestContext.response.statusCode, 'Expected RestContext.response.statusCode to equal 201');
 
         Account acc = [SELECT Name, Phone, Website FROM Account WHERE Id = :res.id];
-        System.assertEquals('Name Only Inc', acc.Name);
-        System.assertEquals(null, acc.Phone, 'Phone should be null when omitted');
-        System.assertEquals(null, acc.Website, 'Website should be null when omitted');
+        Assert.areEqual('Name Only Inc', acc.Name, 'Expected acc.Name to equal \'Name Only Inc\'');
+        Assert.isNull(acc.Phone, 'Phone should be null when omitted');
+        Assert.isNull(acc.Website, 'Website should be null when omitted');
     }
 
     @isTest
@@ -70,12 +70,12 @@ private class AccountApiTest {
         AccountApi.CreateAccountResponse res = invokeCreateAccount(body);
         Test.stopTest();
 
-        System.assertEquals(false, res.success, 'Response should indicate failure');
-        System.assertEquals(null, res.id, 'No account Id should be returned');
-        System.assertEquals('Account name is required', res.message);
-        System.assertEquals(400, RestContext.response.statusCode, 'Should return HTTP 400');
+        Assert.isFalse(res.success, 'Response should indicate failure');
+        Assert.isNull(res.id, 'No account Id should be returned');
+        Assert.areEqual('Account name is required', res.message, 'Expected res.message to equal \'Account name is required\'');
+        Assert.areEqual(400, RestContext.response.statusCode, 'Should return HTTP 400');
 
-        System.assertEquals(0, [SELECT COUNT() FROM Account], 'No account should be inserted');
+        Assert.areEqual(0, [SELECT COUNT() FROM Account], 'No account should be inserted');
     }
 
     @isTest
@@ -89,10 +89,10 @@ private class AccountApiTest {
         AccountApi.CreateAccountResponse res = invokeCreateAccount(body);
         Test.stopTest();
 
-        System.assertEquals(false, res.success);
-        System.assertEquals('Account name is required', res.message);
-        System.assertEquals(400, RestContext.response.statusCode);
-        System.assertEquals(0, [SELECT COUNT() FROM Account]);
+        Assert.isFalse(res.success, 'Expected false: res.success');
+        Assert.areEqual('Account name is required', res.message, 'Expected res.message to equal \'Account name is required\'');
+        Assert.areEqual(400, RestContext.response.statusCode, 'Expected RestContext.response.statusCode to equal 400');
+        Assert.areEqual(0, [SELECT COUNT() FROM Account], 'Expected [SELECT COUNT() FROM Account] to equal 0');
     }
 
     @isTest
@@ -101,9 +101,9 @@ private class AccountApiTest {
         AccountApi.CreateAccountResponse res = invokeCreateAccount('{}');
         Test.stopTest();
 
-        System.assertEquals(false, res.success, 'Empty payload has no name, should fail');
-        System.assertEquals('Account name is required', res.message);
-        System.assertEquals(400, RestContext.response.statusCode);
-        System.assertEquals(0, [SELECT COUNT() FROM Account]);
+        Assert.isFalse(res.success, 'Empty payload has no name, should fail');
+        Assert.areEqual('Account name is required', res.message, 'Expected res.message to equal \'Account name is required\'');
+        Assert.areEqual(400, RestContext.response.statusCode, 'Expected RestContext.response.statusCode to equal 400');
+        Assert.areEqual(0, [SELECT COUNT() FROM Account], 'Expected [SELECT COUNT() FROM Account] to equal 0');
     }
 }

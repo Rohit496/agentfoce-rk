@@ -30,10 +30,7 @@ private class OpportunityServiceTest {
             new OpportunityService(null);
             Assert.fail('Expected OpportunityServiceException for a null selector');
         } catch (OpportunityService.OpportunityServiceException e) {
-            Assert.isTrue(
-                e.getMessage().contains('OpportunitySelector'),
-                'Message should name the missing dependency, got: ' + e.getMessage()
-            );
+            Assert.isTrue(e.getMessage().contains('OpportunitySelector'), 'Message should name the missing dependency, got: ' + e.getMessage());
         }
         Test.stopTest();
     }
@@ -51,10 +48,7 @@ private class OpportunityServiceTest {
             service.closeWon((Set<Id>) null);
             Assert.fail('Expected OpportunityServiceException for null input');
         } catch (OpportunityService.OpportunityServiceException e) {
-            Assert.isTrue(
-                e.getMessage().contains('required'),
-                'Message should state an Id is required, got: ' + e.getMessage()
-            );
+            Assert.isTrue(e.getMessage().contains('required'), 'Message should state an Id is required, got: ' + e.getMessage());
         }
         Test.stopTest();
     }
@@ -70,10 +64,7 @@ private class OpportunityServiceTest {
             service.closeWon(new Set<Id>());
             Assert.fail('Expected OpportunityServiceException for empty input');
         } catch (OpportunityService.OpportunityServiceException e) {
-            Assert.isTrue(
-                e.getMessage().contains('required'),
-                'Message should state an Id is required, got: ' + e.getMessage()
-            );
+            Assert.isTrue(e.getMessage().contains('required'), 'Message should state an Id is required, got: ' + e.getMessage());
         }
         Test.stopTest();
     }
@@ -89,10 +80,7 @@ private class OpportunityServiceTest {
             service.closeWon((Id) null);
             Assert.fail('Expected OpportunityServiceException for a null Id');
         } catch (OpportunityService.OpportunityServiceException e) {
-            Assert.isTrue(
-                e.getMessage().contains('required'),
-                'Message should state an Id is required, got: ' + e.getMessage()
-            );
+            Assert.isTrue(e.getMessage().contains('required'), 'Message should state an Id is required, got: ' + e.getMessage());
         }
         Test.stopTest();
     }
@@ -112,10 +100,7 @@ private class OpportunityServiceTest {
             service.closeWon(oversizedBatch);
             Assert.fail('Expected OpportunityServiceException for an oversized batch');
         } catch (OpportunityService.OpportunityServiceException e) {
-            Assert.isTrue(
-                e.getMessage().contains('Maximum is'),
-                'Message should state the maximum, got: ' + e.getMessage()
-            );
+            Assert.isTrue(e.getMessage().contains('Maximum is'), 'Message should state the maximum, got: ' + e.getMessage());
         }
         Test.stopTest();
     }
@@ -188,10 +173,7 @@ private class OpportunityServiceTest {
         // Then — partial success: the bad row is reported, nothing is thrown
         Assert.areEqual(1, result.failures.size(), 'The rejected row should be reported');
         Assert.areEqual(ghostId, result.failures[0].recordId, 'Failure should carry the Id');
-        Assert.isTrue(
-            String.isNotBlank(result.failures[0].message),
-            'Failure should carry a reason from the SaveResult'
-        );
+        Assert.isTrue(String.isNotBlank(result.failures[0].message), 'Failure should carry a reason from the SaveResult');
         Assert.isFalse(result.isCompleteSuccess(), 'Result should not report complete success');
         Assert.areEqual(0, result.closedIds.size(), 'Nothing should have been closed');
     }
@@ -239,11 +221,7 @@ private class OpportunityServiceTest {
         Map<Id, Opportunity> opportunitiesById = new Map<Id, Opportunity>(
             [SELECT Id FROM Opportunity]
         );
-        Assert.areEqual(
-            BULK_RECORD_COUNT,
-            opportunitiesById.size(),
-            'Setup should have created the full bulk volume'
-        );
+        Assert.areEqual(BULK_RECORD_COUNT, opportunitiesById.size(), 'Setup should have created the full bulk volume');
         OpportunityService service = new OpportunityService();
 
         // When
@@ -252,17 +230,9 @@ private class OpportunityServiceTest {
         Test.stopTest();
 
         // Then
-        Assert.areEqual(
-            BULK_RECORD_COUNT,
-            result.closedIds.size(),
-            'Every record should be closed'
-        );
+        Assert.areEqual(BULK_RECORD_COUNT, result.closedIds.size(), 'Every record should be closed');
         Assert.isTrue(result.isCompleteSuccess(), 'Bulk run should report no failures');
-        Assert.areEqual(
-            BULK_RECORD_COUNT,
-            [SELECT COUNT() FROM Opportunity WHERE StageName = :STAGE_CLOSED_WON],
-            'All records should persist as Closed Won'
-        );
+        Assert.areEqual(BULK_RECORD_COUNT, [SELECT COUNT() FROM Opportunity WHERE StageName = :STAGE_CLOSED_WON], 'All records should persist as Closed Won');
     }
 
     @IsTest
@@ -280,11 +250,7 @@ private class OpportunityServiceTest {
         Test.stopTest();
 
         // Then — idempotent: no further DML, everything skipped
-        Assert.areEqual(
-            BULK_RECORD_COUNT,
-            result.skippedIds.size(),
-            'Second run should skip every already-closed record'
-        );
+        Assert.areEqual(BULK_RECORD_COUNT, result.skippedIds.size(), 'Second run should skip every already-closed record');
         Assert.areEqual(0, result.closedIds.size(), 'Second run should close nothing');
     }
 

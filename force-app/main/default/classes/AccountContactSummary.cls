@@ -13,7 +13,7 @@ global with sharing class AccountContactSummary {
         List<Account> accounts = [
             SELECT Id, Name, (SELECT Id FROM Contacts)
             FROM Account
-            WHERE AnnualRevenue >= :minAnnualRevenue
+            WHERE AnnualRevenue >= :minAnnualRevenue WITH USER_MODE
         ];
 
         for (Account acc : accounts) {

@@ -7,7 +7,8 @@
 interface SfdcEnv {
 	/** Salesforce org force.com URL (e.g., "https://myorg.lightning.force.com"). */
 	orgUrl?: string;
+	/** Base path the app is served from (e.g., "/lwr/application/ai/c-app"). */
+	basePath?: string;
 }
 
-// eslint-disable-next-line no-var -- ambient global declaration
 declare var SFDC_ENV: SfdcEnv | undefined;

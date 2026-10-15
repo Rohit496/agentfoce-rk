@@ -1233,6 +1233,37 @@ manifest/remove-old-embedded-app/       (Step 19: the manifest used to delete th
 
 ---
 
+## Step 21 — SLDS 2 CSS cleanup across all LWC components (2026-10-14)
+
+**Problem:** the SLDS 2 extension reported `SLDS/UTILITY_CLASS` errors. Custom CSS used `display: flex`, `align-items`, `flex-direction` and `padding: 0` where SLDS utility classes exist. `employeeList`, `opportunityList` and `opportunityInputForm` also had hardcoded hex colours, px/rem values, `rgba` shadows, gradients and a hardcoded font family, none of which work in dark mode or with theming.
+
+**Bug fixed along the way:** the React, Vue, Next.js and External wrappers paired `--slds-g-color-on-error-1` text with an `--slds-g-color-error-1` background. In light mode those are the same red, so the error text was invisible. The Angular wrapper had already noted this.
+
+**Rule applied:** SLDS blueprints and utility classes first. Custom CSS only for what no class covers, and then only `--slds-g-*` global hooks, with no hardcoded fallbacks.
+
+| Component | Change | CSS left |
+|---|---|---|
+| `accountEmbedded{React,Vue,Nextjs,External,Angular}App` | Error banner → SLDS **scoped notification** blueprint (`slds-scoped-notification slds-media slds-media_center slds-theme_error`). The theme sets accessible text colour in light and dark mode. Angular's title → `<strong>`. | **none**: the 5 `.css` files were removed (`git rm`) |
+| `templateExpressionsDemo` | Heading/summary/list/row layout → `slds-text-heading_small`, `slds-text-color_weak`, `slds-grid slds-grid_align-spread slds-grid_vertical-align-center`, spacing utilities | Stock-status accent (`.item`, `.item_out-of-stock`, `.item-qty`) using hooks only |
+| `employeeList`, `opportunityList` | Card → `slds-box` + `slds-media`. The select button moved into `slds-media__figure_reverse`, which removed `position: absolute` and the `padding-right` workaround. Text → `slds-text-heading_small`, `slds-text-body_small`, `slds-text-color_weak`, `slds-hyphenate`. Pagination → `slds-grid … slds-border_top`. | `.list-card:hover` shadow (`--slds-g-shadow-2`), plus `.detail-emphasis` weight in opportunityList |
+| `opportunityInputForm` | Header → `slds-border_bottom` + `slds-text-heading_medium`. Gradient icon wrapper removed (the standard icon has its own colour). Label rows/icons → spacing utilities. Unused `.form-actions` removed. | `.form-wrapper` surface (`--slds-g-color-surface-container-1`, `--slds-g-radius-border-3`, `--slds-g-shadow-2`) |
+
+**Kept:** `data-emp-id` / `data-opp-id` (read by the JS click handlers) and all JS behaviour. No JS files changed.
+
+**Visual changes to expect:** the gradients and the custom blue label colours are gone (SLDS neutral styling instead). The Account name in `opportunityList` uses the default text colour instead of dark blue. The amount stays bold.
+
+**Verified:**
+```bash
+# VS Code SLDS diagnostics on every changed CSS/HTML file → 0 problems
+sf project deploy start --dry-run --wait 30 --json \
+  --source-dir force-app/main/default/lwc/<each of the 9 bundles>   # Succeeded, 9/9 components, 0 errors
+```
+Local Lightning Preview rendered `employeeList` (empty state) correctly.
+- **Not visually checked:** cards with data. `employeeList`/`opportunityList` get data only through `@api value` from Agentforce, so check them in an agent response or on a page with data.
+- **Not visually checked:** `templateExpressionsDemo`. Its preview is blank because the org now serves API **68.0**, but the local `lexBundler.js` patch is only in the `sfdx-local-dev-dist-67.0` folder (see the second-brain how-to `fix-lwc-preview-blank-template-expressions`).
+
+---
+
 ## Before production
 
 1. Build the app (`npm run build`) and host `dist/` on an **HTTPS** domain you own.

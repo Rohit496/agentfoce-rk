@@ -1,4 +1,4 @@
-import { createElement } from "lwc";
+import { createElement } from "@lwc/engine-dom";
 import EmployeeList from "c/employeeList";
 
 const MOCK_EMPLOYEES = [
@@ -55,9 +55,9 @@ jest.mock(
   { virtual: true }
 );
 
+// Flush pending promises and LWC re-renders (a microtask), without timers or Node globals.
 function flushPromises() {
-  // eslint-disable-next-line @lwc/lwc/no-async-operation
-  return new Promise((resolve) => setTimeout(resolve, 0));
+  return new Promise((resolve) => queueMicrotask(resolve));
 }
 
 function createComponent(employees) {
@@ -80,7 +80,7 @@ describe("c-employee-list", () => {
       const element = createComponent(MOCK_EMPLOYEES);
       await flushPromises();
 
-      const employeeCards = element.shadowRoot.querySelectorAll(".employee-card");
+      const employeeCards = element.shadowRoot.querySelectorAll('[data-id="employee-card"]');
       // pageSize is 3, so only 3 should be visible on page 1
       expect(employeeCards.length).toBe(3);
     });
@@ -89,7 +89,7 @@ describe("c-employee-list", () => {
       const element = createComponent(MOCK_EMPLOYEES);
       await flushPromises();
 
-      const headings = element.shadowRoot.querySelectorAll(".employee-card h2");
+      const headings = element.shadowRoot.querySelectorAll('[data-id="employee-card"] h2');
       expect(headings[0].textContent).toBe("John Doe");
       expect(headings[1].textContent).toBe("Jane Smith");
       expect(headings[2].textContent).toBe("Alice Wonder");
@@ -100,7 +100,7 @@ describe("c-employee-list", () => {
       await flushPromises();
 
       const details = element.shadowRoot.querySelectorAll(
-        ".employee-card:first-child .emp-detail"
+        '[data-id="employee-card"]:first-child p'
       );
       expect(details[0].textContent).toContain("john@example.com");
       expect(details[1].textContent).toContain("1234567890");
@@ -114,7 +114,7 @@ describe("c-employee-list", () => {
       await flushPromises();
 
       const noDataDiv = element.shadowRoot.querySelector(
-        ".slds-text-color_weak"
+        '[data-id="empty-state"]'
       );
       expect(noDataDiv).not.toBeNull();
       expect(noDataDiv.textContent).toBe("No employee data available.");
@@ -124,7 +124,7 @@ describe("c-employee-list", () => {
       const element = createComponent(null);
       await flushPromises();
 
-      const employeeCards = element.shadowRoot.querySelectorAll(".employee-card");
+      const employeeCards = element.shadowRoot.querySelectorAll('[data-id="employee-card"]');
       expect(employeeCards.length).toBe(0);
     });
   });
@@ -134,7 +134,7 @@ describe("c-employee-list", () => {
       const element = createComponent(MOCK_EMPLOYEES);
       await flushPromises();
 
-      const pageText = element.shadowRoot.querySelector(".page-text");
+      const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
       expect(pageText.textContent).toBe("Page 1 of 2");
     });
 
@@ -164,13 +164,13 @@ describe("c-employee-list", () => {
       nextButton.click();
       await flushPromises();
 
-      const pageText = element.shadowRoot.querySelector(".page-text");
+      const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
       expect(pageText.textContent).toBe("Page 2 of 2");
 
-      const employeeCards = element.shadowRoot.querySelectorAll(".employee-card");
+      const employeeCards = element.shadowRoot.querySelectorAll('[data-id="employee-card"]');
       expect(employeeCards.length).toBe(1);
 
-      const heading = element.shadowRoot.querySelector(".employee-card h2");
+      const heading = element.shadowRoot.querySelector('[data-id="employee-card"] h2');
       expect(heading.textContent).toBe("Bob Builder");
     });
 
@@ -188,7 +188,7 @@ describe("c-employee-list", () => {
       prevButton.click();
       await flushPromises();
 
-      const pageText = element.shadowRoot.querySelector(".page-text");
+      const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
       expect(pageText.textContent).toBe("Page 1 of 2");
     });
 
@@ -214,7 +214,7 @@ describe("c-employee-list", () => {
       nextButton.click();
       await flushPromises();
 
-      const pageText = element.shadowRoot.querySelector(".page-text");
+      const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
       expect(pageText.textContent).toBe("Page 2 of 2");
     });
 
@@ -226,7 +226,7 @@ describe("c-employee-list", () => {
       prevButton.click();
       await flushPromises();
 
-      const pageText = element.shadowRoot.querySelector(".page-text");
+      const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
       expect(pageText.textContent).toBe("Page 1 of 2");
     });
   });
@@ -242,10 +242,10 @@ describe("c-employee-list", () => {
       // handleSearch reads event.target.value, so we set it above
       await flushPromises();
 
-      const employeeCards = element.shadowRoot.querySelectorAll(".employee-card");
+      const employeeCards = element.shadowRoot.querySelectorAll('[data-id="employee-card"]');
       expect(employeeCards.length).toBe(1);
 
-      const heading = element.shadowRoot.querySelector(".employee-card h2");
+      const heading = element.shadowRoot.querySelector('[data-id="employee-card"] h2');
       expect(heading.textContent).toBe("Jane Smith");
     });
 
@@ -264,7 +264,7 @@ describe("c-employee-list", () => {
       searchInput.dispatchEvent(new CustomEvent("change"));
       await flushPromises();
 
-      const pageText = element.shadowRoot.querySelector(".page-text");
+      const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
       expect(pageText.textContent).toBe("Page 1 of 1");
     });
 
@@ -277,7 +277,7 @@ describe("c-employee-list", () => {
       searchInput.dispatchEvent(new CustomEvent("change"));
       await flushPromises();
 
-      const noDataDiv = element.shadowRoot.querySelector(".slds-text-color_weak");
+      const noDataDiv = element.shadowRoot.querySelector('[data-id="empty-state"]');
       expect(noDataDiv).not.toBeNull();
     });
 
@@ -290,7 +290,7 @@ describe("c-employee-list", () => {
       searchInput.dispatchEvent(new CustomEvent("change"));
       await flushPromises();
 
-      const employeeCards = element.shadowRoot.querySelectorAll(".employee-card");
+      const employeeCards = element.shadowRoot.querySelectorAll('[data-id="employee-card"]');
       expect(employeeCards.length).toBe(1);
     });
   });

@@ -15,7 +15,7 @@ global without sharing class CaseRESTAPIController {
         );
 
         try {
-            insert objCase;
+            insert as user objCase;
             return 'Case created for you!!!';
         } catch (DMLException e) {
             return e.getMessage();

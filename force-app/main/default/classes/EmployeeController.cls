@@ -25,7 +25,7 @@ public without sharing class EmployeeController {
                 FROM Employee__c
                 WHERE
                     First_Name__c LIKE :searchName
-                    OR Last_Name__c LIKE :searchName
+                    OR Last_Name__c LIKE :searchName WITH USER_MODE
             ];
         } else {
             employees = [
@@ -36,7 +36,7 @@ public without sharing class EmployeeController {
                     Last_Name__c,
                     Gender__c,
                     Phone__c
-                FROM Employee__c
+                FROM Employee__c WITH USER_MODE
             ];
         }
 

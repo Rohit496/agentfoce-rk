@@ -78,7 +78,7 @@ Every HXL tool follows the same chain: Apex → Lightning Type → renderer → 
 
 These calls use the `execute_metadata_action` MCP tool (Salesforce metadata experts), with `metadataType: "FRAGMENT"`:
 
-- `discoverUiComponents` lists the `tile/*` blocks the org supports. This confirmed `tile/accordion` and `tile/accordionitem`.
+- `discoverUiComponents` lists the `tile/*` blocks the org supports. This confirmed `tile/accordion` and `tile/accordionitem`. On API 68.0 (2026-10-14) the item block is camelCase `tile/accordionItem`.
 - `getUiComponentSchemas` returns each block's attributes. For an accordion item these are `title` (required), `subtitle`, `iconName`, `iconAlt` and `isExpanded`. The same call returns the allowed `iconName` values, such as `building`, `users`, `ticket`, `trending-up`, `briefcase` and `tag`.
 
 The [HXL Playground](https://www.headlessexperiencelayer.com/playground/?renderer=mcp-app&theme=slack#components/accordion) → Components → Accordion was the design reference: an accordion wraps item children, and each item holds a column of content.

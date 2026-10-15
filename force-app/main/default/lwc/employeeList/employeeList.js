@@ -19,13 +19,10 @@ export default class EmployeeList extends NavigationMixin(LightningElement) {
   }
 
   connectedCallback() {
-    let employees = this.value;
+    const employees = this.value;
 
     if (employees && Array.isArray(employees)) {
-      this.employeeData = employees.map((emp) => ({
-        ...emp,
-        fullName: `${emp.firstName} ${emp.lastName}`
-      }));
+      this.employeeData = [...employees];
       this.filteredEmployees = [...this.employeeData];
       this.updateVisibleEmployees();
     } else {
@@ -34,20 +31,8 @@ export default class EmployeeList extends NavigationMixin(LightningElement) {
     }
   }
 
-  get hasEmployees() {
-    return this.filteredEmployees.length > 0;
-  }
-
   get totalPages() {
     return Math.ceil(this.filteredEmployees.length / this.pageSize) || 1;
-  }
-
-  get isNextDisabled() {
-    return this.currentPage >= this.totalPages;
-  }
-
-  get isPrevDisabled() {
-    return this.currentPage <= 1;
   }
 
   updateVisibleEmployees() {
@@ -85,7 +70,7 @@ export default class EmployeeList extends NavigationMixin(LightningElement) {
   handleSearch(event) {
     this.searchKey = event.target.value.toLowerCase();
     this.filteredEmployees = this.employeeData.filter((emp) =>
-      emp.fullName.toLowerCase().includes(this.searchKey)
+      `${emp.firstName} ${emp.lastName}`.toLowerCase().includes(this.searchKey)
     );
     this.currentPage = 1;
     this.updateVisibleEmployees();

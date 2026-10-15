@@ -1,7 +1,8 @@
 @RestResource(urlMapping='/weather-service/*')
 global with sharing class WeatherService {
-    private static final String BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
-    private static final String API_KEY = '08b02af48f7db29a5e2704b2331dcd06';
+    // The OpenWeatherMap named credential holds the host and adds the API key as the x-api-key header
+    // (External Credential OpenWeatherMap, parameter appid). No key or URL lives in code.
+    private static final String NAMED_CREDENTIAL = 'callout:OpenWeatherMap';
 
     @HttpGet
     global static void getWeather() {
@@ -15,11 +16,9 @@ global with sharing class WeatherService {
         }
 
         String endpoint =
-            BASE_URL +
-            '?q=' +
+            NAMED_CREDENTIAL +
+            '/data/2.5/weather?q=' +
             EncodingUtil.urlEncode(city, 'UTF-8') +
-            '&appid=' +
-            API_KEY +
             '&units=metric';
 
         HttpRequest httpReq = new HttpRequest();

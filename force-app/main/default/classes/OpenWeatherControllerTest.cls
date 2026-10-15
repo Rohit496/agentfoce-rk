@@ -48,19 +48,19 @@ private class OpenWeatherControllerTest {
         );
         Test.stopTest();
 
-        Assert.areEqual('Meerut', payload.city);
-        Assert.areEqual('IN', payload.country);
-        Assert.areEqual(19800, payload.tzOffsetSeconds);
-        Assert.areEqual(39.31, payload.current.temp);
-        Assert.areEqual(42.65, payload.current.feelsLike);
-        Assert.areEqual('Broken clouds', payload.current.description);
-        Assert.areEqual(32, payload.current.humidity);
-        Assert.areEqual(999, payload.current.pressure);
-        Assert.areEqual(10.0, payload.current.visibilityKm);
+        Assert.areEqual('Meerut', payload.city, 'Expected payload.city to equal \'Meerut\'');
+        Assert.areEqual('IN', payload.country, 'Expected payload.country to equal \'IN\'');
+        Assert.areEqual(19800, payload.tzOffsetSeconds, 'Expected payload.tzOffsetSeconds to equal 19800');
+        Assert.areEqual(39.31, payload.current.temp, 'Expected payload.current.temp to equal 39.31');
+        Assert.areEqual(42.65, payload.current.feelsLike, 'Expected payload.current.feelsLike to equal 42.65');
+        Assert.areEqual('Broken clouds', payload.current.description, 'Expected payload.current.description to equal \'Broken clouds\'');
+        Assert.areEqual(32, payload.current.humidity, 'Expected payload.current.humidity to equal 32');
+        Assert.areEqual(999, payload.current.pressure, 'Expected payload.current.pressure to equal 999');
+        Assert.areEqual(10.0, payload.current.visibilityKm, 'Expected payload.current.visibilityKm to equal 10.0');
         Assert.areEqual(19.58, payload.current.dewPoint, 'dew point comes from the forecast feed');
-        Assert.areEqual(79, payload.current.cloudCover);
-        Assert.areEqual(1784332903L, payload.current.sunrise);
-        Assert.areEqual(1784382520L, payload.current.sunset);
+        Assert.areEqual(79, payload.current.cloudCover, 'Expected payload.current.cloudCover to equal 79');
+        Assert.areEqual(1784332903L, payload.current.sunrise, 'Expected payload.current.sunrise to equal 1784332903L');
+        Assert.areEqual(1784382520L, payload.current.sunset, 'Expected payload.current.sunset to equal 1784382520L');
     }
 
     @isTest
@@ -73,11 +73,11 @@ private class OpenWeatherControllerTest {
         );
         Test.stopTest();
 
-        Assert.areEqual(3, payload.hourly.size());
-        Assert.areEqual(0, payload.hourly[0].pop);
+        Assert.areEqual(3, payload.hourly.size(), 'Expected payload.hourly.size() to equal 3');
+        Assert.areEqual(0, payload.hourly[0].pop, 'Expected payload.hourly[0].pop to equal 0');
         Assert.areEqual(25, payload.hourly[1].pop, 'pop is converted to a percentage');
-        Assert.areEqual(60, payload.hourly[2].pop);
-        Assert.areEqual('04d', payload.hourly[0].icon);
+        Assert.areEqual(60, payload.hourly[2].pop, 'Expected payload.hourly[2].pop to equal 60');
+        Assert.areEqual('04d', payload.hourly[0].icon, 'Expected payload.hourly[0].icon to equal \'04d\'');
     }
 
     @isTest
@@ -93,7 +93,7 @@ private class OpenWeatherControllerTest {
         Assert.areEqual(2, payload.daily.size(), 'three slots span two local days');
         Assert.areEqual(42.00, payload.daily[0].tempMax, 'day one takes the higher max');
         Assert.areEqual(38.00, payload.daily[0].tempMin, 'day one takes the lower min');
-        Assert.areEqual(34.00, payload.daily[1].tempMax);
+        Assert.areEqual(34.00, payload.daily[1].tempMax, 'Expected payload.daily[1].tempMax to equal 34.00');
     }
 
     @isTest

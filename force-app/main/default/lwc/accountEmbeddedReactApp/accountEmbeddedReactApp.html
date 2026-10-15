@@ -2,14 +2,21 @@
     <lightning-card title="Account Insights (React)" icon-name="standard:account">
         <div class="slds-var-p-horizontal_small">
             <template lwc:if={errorMessage}>
-                <div class="error-banner" role="alert">
-                    <lightning-icon
-                        icon-name="utility:error"
-                        alternative-text="Error"
-                        size="x-small"
-                        variant="inverse"
-                    ></lightning-icon>
-                    <p>{errorMessage}</p>
+                <div
+                    class="slds-scoped-notification slds-media slds-media_center slds-theme_error slds-var-m-bottom_small"
+                    role="alert"
+                >
+                    <div class="slds-media__figure">
+                        <lightning-icon
+                            icon-name="utility:error"
+                            alternative-text="Error"
+                            size="x-small"
+                            variant="inverse"
+                        ></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <p>{errorMessage}</p>
+                    </div>
                 </div>
             </template>
             <template lwc:if={isLoading}>

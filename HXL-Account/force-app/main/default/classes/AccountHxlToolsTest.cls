@@ -48,13 +48,13 @@ private class AccountHxlToolsTest {
             new List<String>{ 'Acme HXL Test' }
         )[0];
 
-        Assert.isTrue(result.found);
-        Assert.isFalse(result.notFound);
-        Assert.areEqual('Acme HXL Test', result.name);
-        Assert.areEqual('Technology', result.industry);
-        Assert.areEqual('San Francisco, United States', result.billingAddress);
-        Assert.isFalse(result.hasPriority);
-        Assert.isFalse(result.hasDescription);
+        Assert.isTrue(result.found, 'Expected true: result.found');
+        Assert.isFalse(result.notFound, 'Expected false: result.notFound');
+        Assert.areEqual('Acme HXL Test', result.name, 'Expected result.name to equal \'Acme HXL Test\'');
+        Assert.areEqual('Technology', result.industry, 'Expected result.industry to equal \'Technology\'');
+        Assert.areEqual('San Francisco, United States', result.billingAddress, 'Expected result.billingAddress to equal \'San Francisco, United States\'');
+        Assert.isFalse(result.hasPriority, 'Expected false: result.hasPriority');
+        Assert.isFalse(result.hasDescription, 'Expected false: result.hasDescription');
     }
 
     @IsTest
@@ -63,8 +63,8 @@ private class AccountHxlToolsTest {
             new List<String>{ 'Acme HXL' }
         )[0];
 
-        Assert.isTrue(result.found);
-        Assert.areEqual('Acme HXL Test', result.name);
+        Assert.isTrue(result.found, 'Expected true: result.found');
+        Assert.areEqual('Acme HXL Test', result.name, 'Expected result.name to equal \'Acme HXL Test\'');
     }
 
     @IsTest
@@ -73,9 +73,9 @@ private class AccountHxlToolsTest {
             new List<String>{ 'Does Not Exist' }
         )[0];
 
-        Assert.isFalse(result.found);
-        Assert.isTrue(result.notFound);
-        Assert.areEqual('Does Not Exist', result.searchTerm);
+        Assert.isFalse(result.found, 'Expected false: result.found');
+        Assert.isTrue(result.notFound, 'Expected true: result.notFound');
+        Assert.areEqual('Does Not Exist', result.searchTerm, 'Expected result.searchTerm to equal \'Does Not Exist\'');
     }
 
     @IsTest
@@ -84,7 +84,7 @@ private class AccountHxlToolsTest {
             new List<String>{ '' }
         )[0];
 
-        Assert.isTrue(result.notFound);
+        Assert.isTrue(result.notFound, 'Expected true: result.notFound');
     }
 
     @IsTest
@@ -93,16 +93,16 @@ private class AccountHxlToolsTest {
             new List<String>{ 'Acme HXL' }
         )[0];
 
-        Assert.areEqual(1, result.accountCount);
-        Assert.isFalse(result.noAccounts);
+        Assert.areEqual(1, result.accountCount, 'Expected result.accountCount to equal 1');
+        Assert.isFalse(result.noAccounts, 'Expected false: result.noAccounts');
         AccountWithRelatedRecords.AccountRow row = result.accounts[0];
-        Assert.areEqual(1, row.contacts.size());
-        Assert.areEqual(1, row.cases.size());
-        Assert.areEqual(1, row.opportunities.size());
-        Assert.areEqual('Contacts (1)', row.contactsTitle);
-        Assert.areEqual('warning', row.cases[0].statusColor);
-        Assert.areEqual('info', row.opportunities[0].stageColor);
-        Assert.isFalse(row.noContacts);
+        Assert.areEqual(1, row.contacts.size(), 'Expected row.contacts.size() to equal 1');
+        Assert.areEqual(1, row.cases.size(), 'Expected row.cases.size() to equal 1');
+        Assert.areEqual(1, row.opportunities.size(), 'Expected row.opportunities.size() to equal 1');
+        Assert.areEqual('Contacts (1)', row.contactsTitle, 'Expected row.contactsTitle to equal \'Contacts (1)\'');
+        Assert.areEqual('warning', row.cases[0].statusColor, 'Expected row.cases[0].statusColor to equal \'warning\'');
+        Assert.areEqual('info', row.opportunities[0].stageColor, 'Expected row.opportunities[0].stageColor to equal \'info\'');
+        Assert.isFalse(row.noContacts, 'Expected false: row.noContacts');
     }
 
     @IsTest
@@ -111,8 +111,8 @@ private class AccountHxlToolsTest {
             new List<String>{ '' }
         )[0];
 
-        Assert.areEqual(2, result.accountCount);
-        Assert.areEqual('2 accounts found', result.summaryLine);
+        Assert.areEqual(2, result.accountCount, 'Expected result.accountCount to equal 2');
+        Assert.areEqual('2 accounts found', result.summaryLine, 'Expected result.summaryLine to equal \'2 accounts found\'');
     }
 
     @IsTest
@@ -122,9 +122,9 @@ private class AccountHxlToolsTest {
         )[0];
 
         AccountWithRelatedRecords.AccountRow row = result.accounts[0];
-        Assert.isTrue(row.noContacts);
-        Assert.isTrue(row.noCases);
-        Assert.isTrue(row.noOpportunities);
+        Assert.isTrue(row.noContacts, 'Expected true: row.noContacts');
+        Assert.isTrue(row.noCases, 'Expected true: row.noCases');
+        Assert.isTrue(row.noOpportunities, 'Expected true: row.noOpportunities');
     }
 
     @IsTest
@@ -133,7 +133,7 @@ private class AccountHxlToolsTest {
             new List<String>{ 'Does Not Exist' }
         )[0];
 
-        Assert.isTrue(result.noAccounts);
-        Assert.areEqual(0, result.accountCount);
+        Assert.isTrue(result.noAccounts, 'Expected true: result.noAccounts');
+        Assert.areEqual(0, result.accountCount, 'Expected result.accountCount to equal 0');
     }
 }

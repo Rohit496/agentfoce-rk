@@ -10,7 +10,7 @@ global with sharing class CaseManager {
         Case result = [
             SELECT CaseNumber, Subject, Status, Origin, Priority
             FROM Case
-            WHERE Id = :caseId
+            WHERE Id = :caseId WITH USER_MODE
         ];
         return result;
     }
@@ -28,7 +28,7 @@ global with sharing class CaseManager {
             Origin = origin,
             Priority = priority
         );
-        insert thisCase;
+        insert as user thisCase;
         return thisCase.Id;
     }
 
@@ -38,8 +38,8 @@ global with sharing class CaseManager {
         String caseId = request.requestURI.substring(
             request.requestURI.lastIndexOf('/') + 1
         );
-        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];
-        delete thisCase;
+        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId WITH USER_MODE];
+        delete as user thisCase;
     }
 
     @HttpPut
@@ -59,7 +59,7 @@ global with sharing class CaseManager {
         );
         // Match case by Id, if present.
         // Otherwise, create new case.
-        upsert thisCase;
+        upsert as user thisCase;
         // Return the case ID.
         return thisCase.Id;
     }
@@ -70,7 +70,7 @@ global with sharing class CaseManager {
         String caseId = request.requestURI.substring(
             request.requestURI.lastIndexOf('/') + 1
         );
-        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];
+        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId WITH USER_MODE];
         // Deserialize the JSON string into name-value pairs
         Map<String, Object> params = (Map<String, Object>) JSON.deserializeUntyped(
             request.requestbody.tostring()
@@ -80,7 +80,7 @@ global with sharing class CaseManager {
             // Set the field and value on the Case sObject
             thisCase.put(fieldName, params.get(fieldName));
         }
-        update thisCase;
+        update as user thisCase;
         return thisCase.Id;
     }
 }

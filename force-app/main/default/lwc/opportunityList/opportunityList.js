@@ -21,7 +21,7 @@ export default class OpportunityList extends NavigationMixin(
     }
 
     connectedCallback() {
-        let opportunities = this.value;
+        const opportunities = this.value;
 
         if (opportunities && Array.isArray(opportunities)) {
             this.opportunityData = opportunities.map((opp) => ({
@@ -57,22 +57,10 @@ export default class OpportunityList extends NavigationMixin(
         }).format(date);
     }
 
-    get hasOpportunities() {
-        return this.filteredOpportunities.length > 0;
-    }
-
     get totalPages() {
         return (
             Math.ceil(this.filteredOpportunities.length / this.pageSize) || 1
         );
-    }
-
-    get isNextDisabled() {
-        return this.currentPage >= this.totalPages;
-    }
-
-    get isPrevDisabled() {
-        return this.currentPage <= 1;
     }
 
     updateVisibleOpportunities() {

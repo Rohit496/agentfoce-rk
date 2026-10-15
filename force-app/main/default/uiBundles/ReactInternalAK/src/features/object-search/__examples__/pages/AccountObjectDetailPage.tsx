@@ -261,7 +261,7 @@ function AccountDetailNotFound({ onBack }: { onBack: () => void }) {
 				<FileQuestion className="size-12 text-muted-foreground mb-4" />
 				<h2 className="text-lg font-semibold mb-1">Account not found</h2>
 				<p className="text-sm text-muted-foreground mb-6">
-					The account you're looking for doesn't exist or may have been deleted.
+					The account you’re looking for doesn’t exist or may have been deleted.
 				</p>
 				<Button variant="outline" onClick={onBack}>
 					← Go back

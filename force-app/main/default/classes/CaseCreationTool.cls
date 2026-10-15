@@ -34,7 +34,7 @@ global with sharing class CaseCreationTool {
             casesToInsert.add(c);
         }
 
-        insert casesToInsert;
+        insert as user casesToInsert;
 
         for (Case c : casesToInsert) {
             Output o = new Output();

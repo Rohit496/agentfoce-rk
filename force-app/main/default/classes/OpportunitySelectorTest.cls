@@ -125,11 +125,7 @@ private class OpportunitySelectorTest {
         Test.stopTest();
 
         // Then
-        Assert.areEqual(
-            BULK_RECORD_COUNT,
-            results.size(),
-            'Selector should return every requested record past the 200-row boundary'
-        );
+        Assert.areEqual(BULK_RECORD_COUNT, results.size(), 'Selector should return every requested record past the 200-row boundary');
     }
 
     @IsTest
@@ -146,11 +142,7 @@ private class OpportunitySelectorTest {
         Test.stopTest();
 
         // Then
-        Assert.areEqual(
-            BULK_RECORD_COUNT - 1,
-            results.size(),
-            'The closed record should be excluded'
-        );
+        Assert.areEqual(BULK_RECORD_COUNT - 1, results.size(), 'The closed record should be excluded');
         for (Opportunity result : results) {
             Assert.isFalse(result.IsClosed, 'Every returned record should be open');
         }
@@ -170,11 +162,7 @@ private class OpportunitySelectorTest {
         Test.stopTest();
 
         // Then
-        Assert.areEqual(
-            soonest.Id,
-            results[0].Id,
-            'Earliest close date should sort first'
-        );
+        Assert.areEqual(soonest.Id, results[0].Id, 'Earliest close date should sort first');
     }
 
     // ─── SOQL Injection / Wildcard Safety ────────────────────────────────
@@ -198,16 +186,8 @@ private class OpportunitySelectorTest {
         Test.stopTest();
 
         // Then
-        Assert.areEqual(
-            1,
-            results.size(),
-            'Only the record containing a literal "50%" should match'
-        );
-        Assert.areEqual(
-            WILDCARD_NAME,
-            results[0].Name,
-            'The decoy containing "5000" must not match'
-        );
+        Assert.areEqual(1, results.size(), 'Only the record containing a literal "50%" should match');
+        Assert.areEqual(WILDCARD_NAME, results[0].Name, 'The decoy containing "5000" must not match');
     }
 
     @IsTest
@@ -246,11 +226,7 @@ private class OpportunitySelectorTest {
 
         // Then
         Assert.areEqual(1, totals.size(), 'All setup records share a single stage');
-        Assert.areEqual(
-            expectedTotal,
-            totals.get(TestDataFactory.STAGE_PROSPECTING),
-            'Aggregate total should equal the sum of the seeded amounts'
-        );
+        Assert.areEqual(expectedTotal, totals.get(TestDataFactory.STAGE_PROSPECTING), 'Aggregate total should equal the sum of the seeded amounts');
     }
 
     // ─── Security ────────────────────────────────────────────────────────
@@ -274,10 +250,7 @@ private class OpportunitySelectorTest {
                 new OpportunitySelector().selectByIds(seeded.keySet());
                 Assert.fail('USER_MODE should block a user without Opportunity access');
             } catch (QueryException e) {
-                Assert.isTrue(
-                    String.isNotBlank(e.getMessage()),
-                    'A QueryException should explain the access failure'
-                );
+                Assert.isTrue(String.isNotBlank(e.getMessage()), 'A QueryException should explain the access failure');
             }
         }
         Test.stopTest();

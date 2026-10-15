@@ -59,7 +59,7 @@ function Button({
       data-variant={variant}
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
-      {...(props as any)}
+      {...props}
     />
   );
 }

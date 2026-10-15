@@ -10,7 +10,7 @@ import codegen from 'vite-plugin-graphql-codegen';
 const schemaPath = resolve(__dirname, '../../../../../schema.graphql');
 const schemaExists = existsSync(schemaPath);
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
   return {
     base: './',
     plugins: [

@@ -1,4 +1,4 @@
-import { createElement } from 'lwc';
+import { createElement } from '@lwc/engine-dom';
 import OpportunityList from 'c/opportunityList';
 
 const MOCK_OPPORTUNITIES = [
@@ -51,9 +51,9 @@ jest.mock(
     { virtual: true }
 );
 
+// Flush pending promises and LWC re-renders (a microtask), without timers or Node globals.
 function flushPromises() {
-    // eslint-disable-next-line @lwc/lwc/no-async-operation
-    return new Promise((resolve) => setTimeout(resolve, 0));
+    return new Promise((resolve) => queueMicrotask(resolve));
 }
 
 function createComponent(opportunities) {
@@ -79,7 +79,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const opportunityCards =
-                element.shadowRoot.querySelectorAll('.opportunity-card');
+                element.shadowRoot.querySelectorAll('[data-id="opportunity-card"]');
             // pageSize is 3, so only 3 should be visible on page 1
             expect(opportunityCards.length).toBe(3);
         });
@@ -89,7 +89,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const headings =
-                element.shadowRoot.querySelectorAll('.opportunity-card h2');
+                element.shadowRoot.querySelectorAll('[data-id="opportunity-card"] h2');
             expect(headings[0].textContent).toBe('Enterprise Deal');
             expect(headings[1].textContent).toBe('Small Business Package');
             expect(headings[2].textContent).toBe('Mid-Market Solution');
@@ -100,7 +100,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const details = element.shadowRoot.querySelectorAll(
-                '.opportunity-card:first-child .opp-detail'
+                '[data-id="opportunity-card"]:first-child p'
             );
             expect(details[0].textContent).toContain('Acme Corp');
             expect(details[1].textContent).toContain('$100,000');
@@ -112,7 +112,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const amountDetails =
-                element.shadowRoot.querySelectorAll('.opp-detail.amount');
+                element.shadowRoot.querySelectorAll('[data-id="amount"]');
             expect(amountDetails[0].textContent).toContain('$100,000');
             expect(amountDetails[1].textContent).toContain('$25,000');
         });
@@ -122,7 +122,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const dateDetails = element.shadowRoot.querySelectorAll(
-                '.opp-detail.close-date'
+                '[data-id="close-date"]'
             );
             expect(dateDetails[0].textContent).toContain('2026');
         });
@@ -134,7 +134,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const noDataDiv = element.shadowRoot.querySelector(
-                '.slds-text-color_weak'
+                '[data-id="empty-state"]'
             );
             expect(noDataDiv).not.toBeNull();
             expect(noDataDiv.textContent).toBe(
@@ -147,7 +147,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const opportunityCards =
-                element.shadowRoot.querySelectorAll('.opportunity-card');
+                element.shadowRoot.querySelectorAll('[data-id="opportunity-card"]');
             expect(opportunityCards.length).toBe(0);
         });
 
@@ -165,7 +165,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const amountDetail =
-                element.shadowRoot.querySelector('.opp-detail.amount');
+                element.shadowRoot.querySelector('[data-id="amount"]');
             expect(amountDetail.textContent).toContain('N/A');
         });
     });
@@ -175,7 +175,7 @@ describe('c-opportunity-list', () => {
             const element = createComponent(MOCK_OPPORTUNITIES);
             await flushPromises();
 
-            const pageText = element.shadowRoot.querySelector('.page-text');
+            const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
             expect(pageText.textContent).toBe('Page 1 of 2');
         });
 
@@ -208,15 +208,15 @@ describe('c-opportunity-list', () => {
             nextButton.click();
             await flushPromises();
 
-            const pageText = element.shadowRoot.querySelector('.page-text');
+            const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
             expect(pageText.textContent).toBe('Page 2 of 2');
 
             const opportunityCards =
-                element.shadowRoot.querySelectorAll('.opportunity-card');
+                element.shadowRoot.querySelectorAll('[data-id="opportunity-card"]');
             expect(opportunityCards.length).toBe(1);
 
             const heading = element.shadowRoot.querySelector(
-                '.opportunity-card h2'
+                '[data-id="opportunity-card"] h2'
             );
             expect(heading.textContent).toBe('Strategic Partnership');
         });
@@ -237,7 +237,7 @@ describe('c-opportunity-list', () => {
             prevButton.click();
             await flushPromises();
 
-            const pageText = element.shadowRoot.querySelector('.page-text');
+            const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
             expect(pageText.textContent).toBe('Page 1 of 2');
         });
 
@@ -265,7 +265,7 @@ describe('c-opportunity-list', () => {
             nextButton.click();
             await flushPromises();
 
-            const pageText = element.shadowRoot.querySelector('.page-text');
+            const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
             expect(pageText.textContent).toBe('Page 2 of 2');
         });
 
@@ -278,7 +278,7 @@ describe('c-opportunity-list', () => {
             prevButton.click();
             await flushPromises();
 
-            const pageText = element.shadowRoot.querySelector('.page-text');
+            const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
             expect(pageText.textContent).toBe('Page 1 of 2');
         });
     });
@@ -297,11 +297,11 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const opportunityCards =
-                element.shadowRoot.querySelectorAll('.opportunity-card');
+                element.shadowRoot.querySelectorAll('[data-id="opportunity-card"]');
             expect(opportunityCards.length).toBe(1);
 
             const heading = element.shadowRoot.querySelector(
-                '.opportunity-card h2'
+                '[data-id="opportunity-card"] h2'
             );
             expect(heading.textContent).toBe('Enterprise Deal');
         });
@@ -319,11 +319,11 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const opportunityCards =
-                element.shadowRoot.querySelectorAll('.opportunity-card');
+                element.shadowRoot.querySelectorAll('[data-id="opportunity-card"]');
             expect(opportunityCards.length).toBe(1);
 
             const heading = element.shadowRoot.querySelector(
-                '.opportunity-card h2'
+                '[data-id="opportunity-card"] h2'
             );
             expect(heading.textContent).toBe('Small Business Package');
         });
@@ -345,7 +345,7 @@ describe('c-opportunity-list', () => {
             searchInput.dispatchEvent(new CustomEvent('change'));
             await flushPromises();
 
-            const pageText = element.shadowRoot.querySelector('.page-text');
+            const pageText = element.shadowRoot.querySelector('[data-id="page-text"]');
             expect(pageText.textContent).toBe('Page 1 of 1');
         });
 
@@ -360,7 +360,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const noDataDiv = element.shadowRoot.querySelector(
-                '.slds-text-color_weak'
+                '[data-id="empty-state"]'
             );
             expect(noDataDiv).not.toBeNull();
         });
@@ -376,7 +376,7 @@ describe('c-opportunity-list', () => {
             await flushPromises();
 
             const opportunityCards =
-                element.shadowRoot.querySelectorAll('.opportunity-card');
+                element.shadowRoot.querySelectorAll('[data-id="opportunity-card"]');
             expect(opportunityCards.length).toBe(1);
         });
     });
